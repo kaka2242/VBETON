@@ -5,9 +5,7 @@
 -->
 
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link rel="icon" href="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/logo-icon.png">
 <link rel="preload" as="image" fetchpriority="high" media="(max-width: 620px)" href="https://i.ibb.co/7BVrfnw/Generated-Image-September-26-2026-7-09-AM.jpg">
 <link rel="preload" as="image" fetchpriority="high" media="(min-width: 621px)" href="https://static.tildacdn.pub/tild6538-6438-4161-b131-333763386433/Generated_Image_Sept.jpg">
 
@@ -530,36 +528,6 @@ html, body { background: #080808; }
   padding: max(110px, 14vh) clamp(20px, 5.5vw, 88px) clamp(48px, 7vh, 96px);
 }
 
-.vx-hero__label {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 32px;
-  padding: 6px 14px 6px 8px;
-  border: 1px solid rgba(201,169,110,.3);
-  border-radius: 999px;
-  background: rgba(201,169,110,.08);
-  color: var(--gold);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-}
-
-.vx-hero__label-dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--gold);
-  box-shadow: 0 0 8px var(--gold);
-  animation: vxPulse 2s ease-in-out infinite;
-}
-
-@keyframes vxPulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: .5; transform: scale(.8); }
-}
-
 .vx-hero__title {
   font-size: clamp(52px, 9.5vw, 96px);
   font-weight: 900;
@@ -574,16 +542,6 @@ html, body { background: #080808; }
 .vx-hero__title em {
   font-style: normal;
   color: var(--gold);
-}
-
-.vx-hero__sub {
-  max-width: 520px;
-  color: var(--soft);
-  font-size: clamp(14px, 1.3vw, 18px);
-  line-height: 1.5;
-  letter-spacing: -.01em;
-  margin-bottom: 38px;
-  text-wrap: pretty;
 }
 
 .vx-hero__btns {
@@ -1044,8 +1002,11 @@ html, body { background: #080808; }
 .vx-service__desc {
   max-height: 0;
   overflow: hidden;
+  visibility: hidden;
   transition: max-height .4s ease;
 }
+
+.vx-service.is-open .vx-service__desc { visibility: visible; }
 
 .vx-service__desc-inner {
   padding: 0 44px 32px 60px;
@@ -1580,6 +1541,12 @@ a.vx-contact-item__val:hover { color: var(--gold); }
   letter-spacing: -.045em;
 }
 
+.vx-footer__brand img {
+  height: 22px;
+  width: auto;
+  display: block;
+}
+
 .vx-footer__copy {
   color: var(--muted);
   font-size: 10px;
@@ -1834,16 +1801,12 @@ a.vx-contact-item__val:hover { color: var(--gold); }
     padding-top: calc(80px + env(safe-area-inset-top));
   }
 
-  .vx-hero__label { margin-bottom: 22px; }
-
   .vx-hero__title {
     font-size: clamp(28px, 8.2vw, 42px);
     line-height: 1.05;
     letter-spacing: -.04em;
     margin-bottom: 20px;
   }
-
-  .vx-hero__sub { font-size: 13px; margin-bottom: 28px; }
 
   .vx-hero__btns { flex-direction: column; width: 100%; gap: 8px; margin-top: auto; padding-top: 24px; }
   .vx-btn { width: 100%; justify-content: center; height: 52px; border-radius: 14px; }
@@ -2399,7 +2362,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
   <!-- ═══════════════════ FOOTER ═══════════════════ -->
   <footer class="vx-footer">
     <a class="vx-footer__brand" href="#vxHero">
-      ВБЕТОН<span class="vx-nav__logo-dot" style="width:5px;height:5px;"></span>
+      <img src="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/logo-icon.png" alt="" decoding="async">ВБЕТОН
     </a>
     <p class="vx-footer__copy">© 2026 ВБЕТОН · Монолитное строительство на Юге России</p>
     <nav class="vx-footer__links" aria-label="Навигация в подвале">
@@ -2659,7 +2622,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
       var phone = document.getElementById('vxPhone');
       var digits = phone ? phone.value.replace(/\D/g, '') : '';
 
-      if (!name || !name.value.trim()) { name.focus(); return; }
+      if (!name || !name.value.trim()) { if (name) name.focus(); return; }
       if (digits.length !== 11) { if (phone) phone.focus(); return; }
       if (!consent || !consent.checked) {
         if (status) { status.style.display = 'block'; status.textContent = 'Подтвердите согласие.'; }
