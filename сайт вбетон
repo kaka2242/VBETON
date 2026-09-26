@@ -2068,7 +2068,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
           <img src="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/project-south-house.jpg" alt="Дом на юге России" loading="lazy" decoding="async">
           <div class="vx-card__info">
             <div>
-              <div class="vx-card__tag">01 / Residential</div>
+              <div class="vx-card__tag">01 / Краснодар</div>
               <div class="vx-card__name">Дом<br>на юге</div>
             </div>
             <span class="vx-card__btn">↗</span>
