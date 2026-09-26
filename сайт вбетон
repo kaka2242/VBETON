@@ -1914,7 +1914,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
 
       <div class="vx-projects__grid">
         <article class="vx-card vx-card--tall vx-reveal">
-          <img src="https://static.tildacdn.pub/tild6538-6438-4161-b131-333763386433/Generated_Image_Sept.jpg" alt="Дом на юге России" loading="lazy" decoding="async">
+          <img src="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/project-south-house.jpg" alt="Дом на юге России" loading="lazy" decoding="async">
           <div class="vx-card__info">
             <div>
               <div class="vx-card__tag">01 / Residential</div>
@@ -1925,7 +1925,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
         </article>
 
         <article class="vx-card vx-card--short vx-reveal vx-d1">
-          <img src="https://static.tildacdn.com/tild6266-3734-4261-a562-653736653436/photo-1762117360986-.jpg" alt="Проект в Сочи" loading="lazy" decoding="async">
+          <img src="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/project-sochi.jpg" alt="Проект в Сочи" loading="lazy" decoding="async">
           <div class="vx-card__info">
             <div>
               <div class="vx-card__tag">02 / Сочи</div>
@@ -1936,7 +1936,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
         </article>
 
         <article class="vx-card vx-card--short vx-reveal vx-d2">
-          <img src="https://static.tildacdn.pub/tild6438-3232-4736-a330-343566393766/photo-1517089152318-.jpg" alt="Проект в Анапе" loading="lazy" decoding="async">
+          <img src="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/project-monolith.jpg" alt="Проект в Анапе" loading="lazy" decoding="async">
           <div class="vx-card__info">
             <div>
               <div class="vx-card__tag">03 / Анапа</div>
