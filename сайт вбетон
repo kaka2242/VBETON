@@ -880,7 +880,7 @@ html, body { background: #080808; }
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(8,8,8,.65);
+  background: rgba(8,8,8,.42);
 }
 
 .vx-service__row:hover { padding-left: 8px; }
