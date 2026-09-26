@@ -1808,7 +1808,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
   <!-- ═══════════════════ ABOUT ═══════════════════ -->
   <section class="vx-about" id="vxAbout" aria-labelledby="vxAboutTitle">
     <div class="vx-about__image vx-reveal">
-      <img src="https://static.tildacdn.com/tild6563-6139-4263-a436-336635613232/photo-1541888946425-.jpg" alt="Строительный процесс ВБЕТОН" loading="lazy" decoding="async">
+      <img src="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/about-photo.jpg" alt="Строительный процесс ВБЕТОН" loading="lazy" decoding="async">
       <div class="vx-about__image-tag">ВБЕТОН / Строительство</div>
     </div>
     <div class="vx-about__text vx-reveal vx-d1">
