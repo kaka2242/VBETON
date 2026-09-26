@@ -843,13 +843,24 @@ html, body { background: #080808; }
 }
 
 .vx-service {
+  border-bottom: 1px solid var(--line);
+}
+
+.vx-service__row {
+  width: 100%;
   display: grid;
   grid-template-columns: 60px 1fr 44px;
   align-items: center;
   min-height: 96px;
-  border-bottom: 1px solid var(--line);
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  text-align: left;
   text-decoration: none;
   color: var(--white);
+  font: inherit;
+  cursor: pointer;
   position: relative;
   overflow: hidden;
   transition: padding-left .38s var(--ease);
@@ -872,8 +883,8 @@ html, body { background: #080808; }
   background: rgba(8,8,8,.65);
 }
 
-.vx-service:hover { padding-left: 8px; }
-.vx-service:hover .vx-service__bg { opacity: 1; transform: scale(1); }
+.vx-service__row:hover { padding-left: 8px; }
+.vx-service__row:hover .vx-service__bg { opacity: 1; transform: scale(1); }
 
 .vx-service__idx,
 .vx-service__name,
@@ -890,7 +901,7 @@ html, body { background: #080808; }
   transition: color .25s ease;
 }
 
-.vx-service:hover .vx-service__idx { color: var(--gold); }
+.vx-service__row:hover .vx-service__idx { color: var(--gold); }
 
 .vx-service__name {
   font-size: clamp(24px, 3vw, 44px);
@@ -901,7 +912,7 @@ html, body { background: #080808; }
   transition: color .25s ease, transform .38s var(--ease);
 }
 
-.vx-service:hover .vx-service__name { transform: translateX(4px); }
+.vx-service__row:hover .vx-service__name { transform: translateX(4px); }
 
 .vx-service__arrow {
   width: 36px;
@@ -911,16 +922,62 @@ html, body { background: #080808; }
   justify-content: center;
   border: 1px solid rgba(255,255,255,.15);
   border-radius: 10px;
-  font-size: 15px;
+  font-size: 20px;
+  font-weight: 300;
   justify-self: end;
   transition: background .25s ease, border-color .25s ease, transform .38s var(--ease), color .25s ease;
 }
 
-.vx-service:hover .vx-service__arrow {
+.vx-service__row:hover .vx-service__arrow {
   background: var(--gold);
   border-color: var(--gold);
   color: var(--black);
-  transform: rotate(-45deg);
+}
+
+.vx-service.is-open .vx-service__arrow {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--black);
+  transform: rotate(45deg);
+}
+
+.vx-service__desc {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .4s ease;
+}
+
+.vx-service__desc-inner {
+  padding: 0 44px 32px 60px;
+}
+
+.vx-service__desc p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 60ch;
+  text-wrap: pretty;
+  margin-bottom: 18px;
+}
+
+.vx-service__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--gold);
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(201,169,110,.4);
+  padding-bottom: 3px;
+  transition: color .2s ease, border-color .2s ease;
+}
+
+.vx-service__cta:hover {
+  color: var(--gold2);
+  border-color: var(--gold2);
 }
 
 /* ─────────────────────────────────────────────
@@ -1509,15 +1566,14 @@ a.vx-contact-item__val:hover { color: var(--gold); }
 .vx-nav__cta:active,
 .vx-nav__social-link:active { background: rgba(255,255,255,.18); }
 
-.vx-service:active { padding-left: 8px; }
-.vx-service:active .vx-service__bg { opacity: 1; transform: scale(1); }
-.vx-service:active .vx-service__idx { color: var(--gold); }
-.vx-service:active .vx-service__name { transform: translateX(4px); }
-.vx-service:active .vx-service__arrow {
+.vx-service__row:active { padding-left: 8px; }
+.vx-service__row:active .vx-service__bg { opacity: 1; transform: scale(1); }
+.vx-service__row:active .vx-service__idx { color: var(--gold); }
+.vx-service__row:active .vx-service__name { transform: translateX(4px); }
+.vx-service__row:active .vx-service__arrow {
   background: var(--gold);
   border-color: var(--gold);
   color: var(--black);
-  transform: rotate(-45deg);
 }
 
 .vx-card:active img { transform: scale(1.05); filter: saturate(1); }
@@ -1571,7 +1627,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
   .vx-services__head { grid-template-columns: 1fr; gap: 24px; }
 
   .vx-service__bg { opacity: .3; transform: scale(1); }
-  .vx-service:active .vx-service__bg { opacity: 1; }
+  .vx-service__row:active .vx-service__bg { opacity: 1; }
 
   .vx-projects__grid { grid-template-columns: 1fr; }
   .vx-card--tall { min-height: 480px; grid-row: auto; }
@@ -1684,8 +1740,9 @@ a.vx-contact-item__val:hover { color: var(--gold); }
   .vx-num { padding-right: 12px; }
   .vx-num__val { font-size: 24px; }
 
-  .vx-service { grid-template-columns: 32px 1fr 36px; min-height: 80px; }
+  .vx-service__row { grid-template-columns: 32px 1fr 36px; min-height: 80px; }
   .vx-service__name { font-size: 20px; }
+  .vx-service__desc-inner { padding: 0 36px 24px 32px; }
 
   .vx-card--tall { min-height: 400px; }
   .vx-card--short { min-height: 230px; }
@@ -1933,30 +1990,62 @@ a.vx-contact-item__val:hover { color: var(--gold); }
       </div>
 
       <div class="vx-services__list">
-        <a class="vx-service vx-reveal" href="#vxForm">
-          <div class="vx-service__bg" style="background-image:url('https://static.tildacdn.com/tild6461-3062-4638-b336-613830313163/photo-1579492450119-.jpg');"></div>
-          <span class="vx-service__idx">01</span>
-          <span class="vx-service__name">Проектирование</span>
-          <span class="vx-service__arrow">↗</span>
-        </a>
-        <a class="vx-service vx-reveal vx-d1" href="#vxForm">
-          <div class="vx-service__bg" style="background-image:url('https://static.tildacdn.com/tild6563-6139-4263-a436-336635613232/photo-1541888946425-.jpg');"></div>
-          <span class="vx-service__idx">02</span>
-          <span class="vx-service__name">Монолитное строительство</span>
-          <span class="vx-service__arrow">↗</span>
-        </a>
-        <a class="vx-service vx-reveal vx-d2" href="#vxForm">
-          <div class="vx-service__bg" style="background-image:url('https://static.tildacdn.com/tild6266-3734-4261-a562-653736653436/photo-1762117360986-.jpg');"></div>
-          <span class="vx-service__idx">03</span>
-          <span class="vx-service__name">Дома под ключ</span>
-          <span class="vx-service__arrow">↗</span>
-        </a>
-        <a class="vx-service vx-reveal vx-d3" href="#vxForm">
-          <div class="vx-service__bg" style="background-image:url('https://static.tildacdn.pub/tild6438-3232-4736-a330-343566393766/photo-1517089152318-.jpg');"></div>
-          <span class="vx-service__idx">04</span>
-          <span class="vx-service__name">Фасадные работы</span>
-          <span class="vx-service__arrow">↗</span>
-        </a>
+        <div class="vx-service vx-reveal">
+          <button class="vx-service__row" type="button" aria-expanded="false">
+            <div class="vx-service__bg" style="background-image:url('https://static.tildacdn.com/tild6461-3062-4638-b336-613830313163/photo-1579492450119-.jpg');"></div>
+            <span class="vx-service__idx">01</span>
+            <span class="vx-service__name">Проектирование</span>
+            <span class="vx-service__arrow" aria-hidden="true">+</span>
+          </button>
+          <div class="vx-service__desc" role="region">
+            <div class="vx-service__desc-inner">
+              <p>Разрабатываем архитектурную концепцию, планировки и конструктив под ваш участок, бюджет и образ жизни семьи. На выходе — полный комплект рабочих чертежей, инженерных разделов и смета, с которыми можно спокойно заходить в стройку без сюрпризов.</p>
+              <a class="vx-service__cta" href="#vxForm">Обсудить проект <span>→</span></a>
+            </div>
+          </div>
+        </div>
+        <div class="vx-service vx-reveal vx-d1">
+          <button class="vx-service__row" type="button" aria-expanded="false">
+            <div class="vx-service__bg" style="background-image:url('https://static.tildacdn.com/tild6563-6139-4263-a436-336635613232/photo-1541888946425-.jpg');"></div>
+            <span class="vx-service__idx">02</span>
+            <span class="vx-service__name">Монолитное строительство</span>
+            <span class="vx-service__arrow" aria-hidden="true">+</span>
+          </button>
+          <div class="vx-service__desc" role="region">
+            <div class="vx-service__desc-inner">
+              <p>Возводим монолитный каркас на месте: заливаем фундамент, стены и перекрытия в опалубку прямо на участке. Такая технология не даёт усадочных трещин, позволяет свободную планировку без несущих перегородок и служит десятилетиями без потери прочности.</p>
+              <a class="vx-service__cta" href="#vxForm">Обсудить проект <span>→</span></a>
+            </div>
+          </div>
+        </div>
+        <div class="vx-service vx-reveal vx-d2">
+          <button class="vx-service__row" type="button" aria-expanded="false">
+            <div class="vx-service__bg" style="background-image:url('https://static.tildacdn.com/tild6266-3734-4261-a562-653736653436/photo-1762117360986-.jpg');"></div>
+            <span class="vx-service__idx">03</span>
+            <span class="vx-service__name">Дома под ключ</span>
+            <span class="vx-service__arrow" aria-hidden="true">+</span>
+          </button>
+          <div class="vx-service__desc" role="region">
+            <div class="vx-service__desc-inner">
+              <p>Берём на себя весь цикл — от фундамента до финишной отделки, инженерных сетей и передачи ключей. Один подрядчик и один договор вместо десятка разрозненных бригад: вы получаете готовый для жизни дом, а не стройплощадку с недоделками.</p>
+              <a class="vx-service__cta" href="#vxForm">Обсудить проект <span>→</span></a>
+            </div>
+          </div>
+        </div>
+        <div class="vx-service vx-reveal vx-d3">
+          <button class="vx-service__row" type="button" aria-expanded="false">
+            <div class="vx-service__bg" style="background-image:url('https://static.tildacdn.pub/tild6438-3232-4736-a330-343566393766/photo-1517089152318-.jpg');"></div>
+            <span class="vx-service__idx">04</span>
+            <span class="vx-service__name">Фасадные работы</span>
+            <span class="vx-service__arrow" aria-hidden="true">+</span>
+          </button>
+          <div class="vx-service__desc" role="region">
+            <div class="vx-service__desc-inner">
+              <p>Утепляем и облицовываем фасад: штукатурные системы, вентфасады, натуральный камень, дерево или композитные панели. Подбираем решение под климат Юга России и бюджет — так, чтобы дом сохранял тепло и выглядел так же достойно через 10 лет.</p>
+              <a class="vx-service__cta" href="#vxForm">Обсудить проект <span>→</span></a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -2316,6 +2405,27 @@ a.vx-contact-item__val:hover { color: var(--gold); }
       if (!open) {
         item.classList.add('is-open');
         ans.style.maxHeight = ans.scrollHeight + 'px';
+      }
+    });
+  });
+
+  /* ── Services accordion ── */
+  site.querySelectorAll('.vx-service').forEach(function (item) {
+    var row = item.querySelector('.vx-service__row');
+    var desc = item.querySelector('.vx-service__desc');
+    if (!row || !desc) return;
+    row.addEventListener('click', function () {
+      var open = item.classList.contains('is-open');
+      site.querySelectorAll('.vx-service.is-open').forEach(function (other) {
+        other.classList.remove('is-open');
+        other.querySelector('.vx-service__row').setAttribute('aria-expanded', 'false');
+        var d = other.querySelector('.vx-service__desc');
+        if (d) d.style.maxHeight = null;
+      });
+      if (!open) {
+        item.classList.add('is-open');
+        row.setAttribute('aria-expanded', 'true');
+        desc.style.maxHeight = desc.scrollHeight + 'px';
       }
     });
   });
