@@ -396,6 +396,103 @@ html, body { background: #080808; }
 }
 
 /* ─────────────────────────────────────────────
+   POLICY MODAL (персональные данные)
+───────────────────────────────────────────── */
+.vx-policy {
+  position: fixed;
+  inset: 0;
+  z-index: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(6,6,6,.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .28s ease, visibility .28s ease;
+}
+
+.vx-policy.open { opacity: 1; visibility: visible; }
+
+.vx-policy__panel {
+  position: relative;
+  width: min(720px, 100%);
+  max-height: min(82vh, 760px);
+  overflow-y: auto;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: clamp(28px, 4vw, 48px);
+}
+
+.vx-policy__close {
+  position: sticky;
+  float: right;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--white);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background .2s ease;
+}
+
+.vx-policy__close:hover { background: rgba(255,255,255,.12); }
+
+.vx-policy__title {
+  font-size: clamp(20px, 2.6vw, 28px);
+  font-weight: 800;
+  letter-spacing: -.03em;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+  padding-right: 52px;
+}
+
+.vx-policy__body h3 {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 26px 0 10px;
+}
+
+.vx-policy__body h3:first-child { margin-top: 0; }
+
+.vx-policy__body p,
+.vx-policy__body li {
+  color: var(--muted);
+  font-size: 13.5px;
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+.vx-policy__body ul { padding-left: 18px; margin-bottom: 10px; }
+.vx-policy__body strong { color: var(--soft); font-weight: 600; }
+
+.vx-policy__fill {
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.vx-form__consent a {
+  color: var(--soft);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.vx-form__consent a:hover { color: var(--gold); }
+
+/* ─────────────────────────────────────────────
    HERO
 ───────────────────────────────────────────── */
 .vx-hero {
@@ -2251,7 +2348,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
             <div class="vx-form__foot">
               <label class="vx-form__consent">
                 <input type="checkbox" id="vxConsent" required>
-                <span>Согласен на обработку персональных данных.</span>
+                <span>Даю согласие на обработку персональных данных в соответствии с <a href="#vxPolicy" id="vxPolicyOpen">Политикой обработки персональных данных</a>.</span>
               </label>
               <button class="vx-btn vx-btn--primary vx-form__submit" type="submit">
                 Отправить <span class="vx-btn__icon">→</span>
@@ -2311,10 +2408,53 @@ a.vx-contact-item__val:hover { color: var(--gold); }
       <a href="#vxBanks">Ипотека</a>
       <a href="#vxProjects">Проекты</a>
       <a href="#vxContacts">Контакты</a>
+      <a href="#vxPolicy" id="vxPolicyOpenFooter">Политика ПДн</a>
     </nav>
   </footer>
 
   <button class="vx-top" id="vxTop" type="button" aria-label="Наверх страницы">↑</button>
+
+  <!-- ═══════════════════ POLICY MODAL ═══════════════════ -->
+  <div class="vx-policy" id="vxPolicy" role="dialog" aria-label="Политика обработки персональных данных" aria-modal="true">
+    <div class="vx-policy__panel">
+      <button class="vx-policy__close" id="vxPolicyClose" type="button" aria-label="Закрыть">×</button>
+      <h2 class="vx-policy__title">Политика обработки<br>персональных данных</h2>
+      <div class="vx-policy__body">
+        <p>Настоящая Политика определяет порядок обработки и защиты персональных данных пользователей сайта [укажите адрес сайта], действующего в соответствии с Федеральным законом от 27.07.2006 № 152-ФЗ «О персональных данных».</p>
+
+        <h3>1. Оператор персональных данных</h3>
+        <p>Оператором является индивидуальный предприниматель <span class="vx-policy__fill">[ФИО ИП полностью]</span>, ОГРНИП <span class="vx-policy__fill">[ОГРНИП]</span>, ИНН <span class="vx-policy__fill">[ИНН]</span>, адрес: <span class="vx-policy__fill">[адрес регистрации ИП]</span>, e-mail для обращений по вопросам персональных данных: <span class="vx-policy__fill">[e-mail]</span>.</p>
+
+        <h3>2. Цели обработки</h3>
+        <ul>
+          <li>обратная связь по заявкам с сайта (консультация, расчёт стоимости строительства);</li>
+          <li>подготовка коммерческого предложения и заключение договора;</li>
+          <li>информирование о ходе рассмотрения заявки.</li>
+        </ul>
+
+        <h3>3. Категории обрабатываемых данных</h3>
+        <p>Имя, номер телефона, а также иные данные, которые пользователь добровольно указывает в форме обратной связи (например, содержание сообщения).</p>
+
+        <h3>4. Правовое основание обработки</h3>
+        <p>Согласие субъекта персональных данных (ст. 6, ст. 9 152-ФЗ), выраженное путём проставления отметки в форме на сайте.</p>
+
+        <h3>5. Способы и сроки обработки</h3>
+        <p>Обработка осуществляется с использованием и без использования средств автоматизации, включая сбор, запись, хранение и уточнение данных. Данные хранятся до достижения целей обработки либо до отзыва согласия субъектом, но не дольше срока, необходимого для указанных целей.</p>
+
+        <h3>6. Передача третьим лицам</h3>
+        <p><span class="vx-policy__fill">[На момент публикации Оператор не передаёт персональные данные третьим лицам / указать конкретные сервисы — например, CRM, сервис рассылок, хостинг — если данные обрабатываются с их помощью]</span>.</p>
+
+        <h3>7. Права субъекта персональных данных</h3>
+        <p>Пользователь вправе получить информацию об обработке своих данных, требовать их уточнения, блокирования или уничтожения, а также в любой момент отозвать согласие, направив обращение на e-mail, указанный в разделе 1.</p>
+
+        <h3>8. Меры защиты</h3>
+        <p>Оператор принимает необходимые организационные и технические меры для защиты персональных данных от неправомерного доступа, изменения, раскрытия или уничтожения.</p>
+
+        <h3>9. Заключительные положения</h3>
+        <p>Оператор вправе изменять настоящую Политику. Актуальная редакция всегда доступна на этой странице. Продолжение использования сайта после внесения изменений означает согласие с новой редакцией.</p>
+      </div>
+    </div>
+  </div>
 
 </div>
 
@@ -2391,6 +2531,40 @@ a.vx-contact-item__val:hover { color: var(--gold); }
       a.addEventListener('click', closeDrawer);
     });
   }
+
+  /* ── Policy modal ── */
+  var policy = document.getElementById('vxPolicy');
+  var policyClose = document.getElementById('vxPolicyClose');
+  var policyOpeners = [
+    document.getElementById('vxPolicyOpen'),
+    document.getElementById('vxPolicyOpenFooter')
+  ];
+
+  function openPolicy(e) {
+    if (e) e.preventDefault();
+    if (!policy) return;
+    policy.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closePolicy() {
+    if (!policy) return;
+    policy.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  policyOpeners.forEach(function (btn) {
+    if (btn) btn.addEventListener('click', openPolicy);
+  });
+  if (policyClose) policyClose.addEventListener('click', closePolicy);
+  if (policy) {
+    policy.addEventListener('click', function (e) {
+      if (e.target === policy) closePolicy();
+    });
+  }
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closePolicy();
+  });
 
   /* ── Reveal on scroll ──
      Контент виден по умолчанию (см. CSS). Если что-то тут упадёт —
