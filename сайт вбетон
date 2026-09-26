@@ -1770,10 +1770,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
   }
 
   .vx-about { grid-template-columns: 1fr; }
-  .vx-about__image { min-height: 480px; order: 2; }
-  .vx-about__text { display: contents; }
-  .vx-about__head { order: 1; }
-  .vx-about__foot { order: 3; }
+  .vx-about__image { min-height: 480px; }
 
   .vx-services__head { grid-template-columns: 1fr; gap: 24px; }
 
