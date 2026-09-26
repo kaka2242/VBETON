@@ -766,6 +766,7 @@ html, body { background: #080808; }
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
   min-height: 88px;
   border: 1px solid var(--line);
   border-radius: 14px;
@@ -780,10 +781,19 @@ html, body { background: #080808; }
   transition: border-color .25s ease, color .25s ease, background .25s ease;
 }
 
+.vx-bank__dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--brand, var(--gold));
+  box-shadow: 0 0 10px color-mix(in srgb, var(--brand, var(--gold)) 55%, transparent);
+  flex-shrink: 0;
+}
+
 .vx-bank:hover {
-  border-color: rgba(201,169,110,.4);
+  border-color: color-mix(in srgb, var(--brand, var(--gold)) 45%, transparent);
   color: var(--white);
-  background: rgba(201,169,110,.06);
+  background: color-mix(in srgb, var(--brand, var(--gold)) 8%, transparent);
 }
 
 /* ─────────────────────────────────────────────
@@ -1458,9 +1468,9 @@ a.vx-contact-item__val:hover { color: var(--gold); }
 .vx-drawer__close:active { background: rgba(201,169,110,.12); }
 
 .vx-bank:active {
-  border-color: rgba(201,169,110,.4);
+  border-color: color-mix(in srgb, var(--brand, var(--gold)) 45%, transparent);
   color: var(--white);
-  background: rgba(201,169,110,.06);
+  background: color-mix(in srgb, var(--brand, var(--gold)) 8%, transparent);
 }
 
 /* ─────────────────────────────────────────────
@@ -1841,10 +1851,10 @@ a.vx-contact-item__val:hover { color: var(--gold); }
         </p>
       </div>
       <div class="vx-banks__grid vx-reveal vx-d1">
-        <div class="vx-bank">Банк-партнёр</div>
-        <div class="vx-bank">Банк-партнёр</div>
-        <div class="vx-bank">Банк-партнёр</div>
-        <div class="vx-bank">Банк-партнёр</div>
+        <div class="vx-bank" style="--brand:#21A038;"><span class="vx-bank__dot"></span>СберБанк</div>
+        <div class="vx-bank" style="--brand:#1BA1E2;"><span class="vx-bank__dot"></span>Банк ДОМ.РФ</div>
+        <div class="vx-bank" style="--brand:#EF3124;"><span class="vx-bank__dot"></span>Альфа-Банк</div>
+        <div class="vx-bank" style="--brand:#F7A600;"><span class="vx-bank__dot"></span>Россельхозбанк</div>
       </div>
     </div>
   </section>
