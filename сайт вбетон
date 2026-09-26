@@ -2105,7 +2105,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
   </section>
 
   <!-- ═══════════════════ BANKS / ESCROW ═══════════════════ -->
-  <section class="vx-banks vx-light" id="vxBanks" aria-labelledby="vxBanksTitle">
+  <section class="vx-banks" id="vxBanks" aria-labelledby="vxBanksTitle">
     <div class="vx-container">
       <div class="vx-banks__head vx-reveal">
         <div class="vx-section-label">Ипотека · ЭСКРОУ</div>
@@ -2293,7 +2293,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
   </section>
 
   <!-- ═══════════════════ FAQ ═══════════════════ -->
-  <section class="vx-faq vx-light" id="vxFaq" aria-labelledby="vxFaqTitle">
+  <section class="vx-faq" id="vxFaq" aria-labelledby="vxFaqTitle">
     <div class="vx-container">
       <div class="vx-faq__layout">
         <div class="vx-faq__side vx-reveal">
