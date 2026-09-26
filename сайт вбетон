@@ -1405,7 +1405,10 @@ a.vx-contact-item__val:hover { color: var(--gold); }
 /* ─────────────────────────────────────────────
    REVEAL
 ───────────────────────────────────────────── */
-.vx-reveal {
+/* .vx-reveal стартует видимым по умолчанию — скрытие включается
+   только классом .js-ready, который ставит сам скрипт. Так контент
+   не пропадает, если <script> на странице вообще отсутствует. */
+.vx-site.js-ready .vx-reveal {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity .7s var(--ease), transform .7s var(--ease);
@@ -2140,6 +2143,8 @@ a.vx-contact-item__val:hover { color: var(--gold); }
 
   var site = document.getElementById('vxSite');
   if (!site) return;
+
+  site.classList.add('js-ready');
 
   /* ── Nav scroll state ── */
   var nav = document.getElementById('vxNav');
