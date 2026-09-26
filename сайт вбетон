@@ -2302,6 +2302,11 @@ a.vx-contact-item__val:hover { color: var(--gold); }
 (function () {
   'use strict';
 
+  /* ── Always start at the top on (re)load, ignore browser's scroll memory ── */
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  window.scrollTo(0, 0);
+  window.addEventListener('pageshow', function () { window.scrollTo(0, 0); });
+
   var site = document.getElementById('vxSite');
   if (!site) return;
 
