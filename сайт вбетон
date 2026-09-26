@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
 <link rel="preload" as="image" fetchpriority="high" href="https://static.tildacdn.pub/tild6538-6438-4161-b131-333763386433/Generated_Image_Sept.jpg">
 
 <style>
@@ -1407,7 +1407,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
 ───────────────────────────────────────────── */
 /* .vx-reveal стартует видимым по умолчанию — скрытие включается
    только классом .js-ready, который ставит сам скрипт. Так контент
-   не пропадает, если <script> на странице вообще отсутствует. */
+   не пропадает, если JS-код на странице вообще отсутствует. */
 .vx-site.js-ready .vx-reveal {
   opacity: 0;
   transform: translateY(24px);
