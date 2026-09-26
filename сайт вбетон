@@ -1404,11 +1404,12 @@ a.vx-contact-item__val:hover { color: var(--gold); }
 
 /* ─────────────────────────────────────────────
    REVEAL
+   Контент виден всегда по умолчанию. Анимация появления
+   при скролле — необязательное усиление: если JS отработает,
+   .vx-reveal на мгновение приглушается и проявляется красиво;
+   если нет — контент просто виден без анимации, никогда не пропадает.
 ───────────────────────────────────────────── */
-/* .vx-reveal стартует видимым по умолчанию — скрытие включается
-   только классом .js-ready, который ставит сам скрипт. Так контент
-   не пропадает, если JS-код на странице вообще отсутствует. */
-.vx-site.js-ready .vx-reveal {
+.vx-reveal.pre {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity .7s var(--ease), transform .7s var(--ease);
@@ -2144,8 +2145,6 @@ a.vx-contact-item__val:hover { color: var(--gold); }
   var site = document.getElementById('vxSite');
   if (!site) return;
 
-  site.classList.add('js-ready');
-
   /* ── Nav scroll state ── */
   var nav = document.getElementById('vxNav');
   function onScroll() {
@@ -2201,21 +2200,28 @@ a.vx-contact-item__val:hover { color: var(--gold); }
     });
   }
 
-  /* ── Reveal on scroll ── */
-  var reveals = site.querySelectorAll('.vx-reveal');
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) {
-          e.target.classList.add('in');
-          io.unobserve(e.target);
-        }
+  /* ── Reveal on scroll ──
+     Контент виден по умолчанию (см. CSS). Если что-то тут упадёт —
+     try/catch не даёт этому сломать остальной скрипт (меню, FAQ, форму),
+     а сам контент всё равно останется видимым, просто без анимации. */
+  try {
+    if ('IntersectionObserver' in window) {
+      var reveals = site.querySelectorAll('.vx-reveal');
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('in');
+            e.target.classList.remove('pre');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.07, rootMargin: '0px 0px -40px 0px' });
+      reveals.forEach(function (el) {
+        el.classList.add('pre');
+        io.observe(el);
       });
-    }, { threshold: 0.07, rootMargin: '0px 0px -40px 0px' });
-    reveals.forEach(function (el) { io.observe(el); });
-  } else {
-    reveals.forEach(function (el) { el.classList.add('in'); });
-  }
+    }
+  } catch (err) {}
 
   /* ── FAQ accordion ── */
   site.querySelectorAll('.vx-faq__item').forEach(function (item) {
