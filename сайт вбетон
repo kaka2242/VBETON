@@ -1741,13 +1741,8 @@ a.vx-contact-item__val:hover { color: var(--gold); }
     <div class="vx-hero__bg" aria-hidden="true"></div>
 
     <div class="vx-hero__body">
-      <div class="vx-hero__label">
-        <span class="vx-hero__label-dot"></span>
-        Юг России · ЭСКРОУ · Ипотека
-      </div>
-
       <h1 class="vx-hero__title" id="vxHeroTitle">
-        Монолитное<br>строительство.<br><em>Без компромиссов.</em>
+        ВБЕТОН — надёжный партнёр<br>в строительстве дома<br><em>вашей мечты</em>.
       </h1>
 
       <p class="vx-hero__sub">
