@@ -755,6 +755,7 @@ html, body { background: #080808; }
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 24px;
 }
 
 .vx-section-label {
@@ -1770,7 +1771,10 @@ a.vx-contact-item__val:hover { color: var(--gold); }
   }
 
   .vx-about { grid-template-columns: 1fr; }
-  .vx-about__image { min-height: 480px; }
+  .vx-about__image { min-height: 480px; order: 2; }
+  .vx-about__text { display: contents; }
+  .vx-about__head { order: 1; }
+  .vx-about__foot { order: 3; }
 
   .vx-services__head { grid-template-columns: 1fr; gap: 24px; }
 
@@ -2075,26 +2079,30 @@ a.vx-contact-item__val:hover { color: var(--gold); }
       <img src="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/about-photo.jpg" alt="Строительный процесс ВБЕТОН" loading="lazy" decoding="async">
       <div class="vx-about__image-tag">ВБЕТОН / Строительство</div>
     </div>
-    <div class="vx-about__text vx-reveal vx-d1">
-      <div class="vx-section-label">О компании</div>
-      <h2 class="vx-h2" id="vxAboutTitle">Строим<br>с характером.</h2>
-      <p class="vx-body" style="margin-top:24px;">
-        ВБЕТОН — это проектирование, инженерная экспертиза и строительство
-        в едином процессе. Мы создаём современные частные дома, где архитектура
-        работает вместе с конструкцией и образом жизни владельца.
-      </p>
-      <div class="vx-about__nums">
-        <div class="vx-num">
-          <div class="vx-num__val">150+</div>
-          <div class="vx-num__desc">Реализованных проектов</div>
-        </div>
-        <div class="vx-num">
-          <div class="vx-num__val">24/7</div>
-          <div class="vx-num__desc">Контроль этапов</div>
-        </div>
-        <div class="vx-num">
-          <div class="vx-num__val">100%</div>
-          <div class="vx-num__desc">Внимание к деталям</div>
+    <div class="vx-about__text">
+      <div class="vx-about__head vx-reveal vx-d1">
+        <div class="vx-section-label">О компании</div>
+        <h2 class="vx-h2" id="vxAboutTitle">Строим<br>с характером.</h2>
+      </div>
+      <div class="vx-about__foot vx-reveal vx-d2">
+        <p class="vx-body">
+          ВБЕТОН — это проектирование, инженерная экспертиза и строительство
+          в едином процессе. Мы создаём современные частные дома, где архитектура
+          работает вместе с конструкцией и образом жизни владельца.
+        </p>
+        <div class="vx-about__nums">
+          <div class="vx-num">
+            <div class="vx-num__val">150+</div>
+            <div class="vx-num__desc">Реализованных проектов</div>
+          </div>
+          <div class="vx-num">
+            <div class="vx-num__val">24/7</div>
+            <div class="vx-num__desc">Контроль этапов</div>
+          </div>
+          <div class="vx-num">
+            <div class="vx-num__val">100%</div>
+            <div class="vx-num__desc">Внимание к деталям</div>
+          </div>
         </div>
       </div>
     </div>
