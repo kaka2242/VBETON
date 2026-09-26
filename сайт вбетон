@@ -1580,7 +1580,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
   .vx-hero__body {
     padding-left: 20px;
     padding-right: 20px;
-    padding-bottom: 40px;
+    padding-bottom: 24vh;
     padding-top: calc(80px + env(safe-area-inset-top));
   }
 
