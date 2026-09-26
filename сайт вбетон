@@ -1596,9 +1596,10 @@ a.vx-contact-item__val:hover { color: var(--gold); }
   .vx-hero__stat strong { font-size: 19px; }
 
   .vx-hero__title {
-    font-size: clamp(34px, 10vw, 52px);
-    line-height: .88;
-    letter-spacing: -.05em;
+    font-size: clamp(28px, 8.2vw, 42px);
+    line-height: .9;
+    letter-spacing: -.04em;
+    margin-bottom: 20px;
   }
 
   .vx-hero__sub { font-size: 13px; margin-bottom: 28px; }
@@ -1664,7 +1665,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
   .vx-nav__mobile-social { width: 44px; height: 44px; border-radius: 12px; }
   .vx-nav__mobile-social svg { width: 15px; height: 15px; }
   .vx-nav__burger { width: 44px; height: 44px; border-radius: 12px; }
-  .vx-hero__title { font-size: 11vw; }
+  .vx-hero__title { font-size: clamp(24px, 8.5vw, 30px); }
   .vx-about__nums { grid-template-columns: 1fr; border-top: 1px solid var(--line); }
   .vx-num { border-right: 0; padding: 14px 0; border-bottom: 1px solid var(--line); }
   .vx-num:last-child { border-bottom: 0; }
