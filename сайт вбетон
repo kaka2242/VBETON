@@ -657,13 +657,13 @@ html, body { background: #080808; }
   height: 100%;
   object-fit: cover;
   display: block;
-  filter: saturate(.85) brightness(.82);
+  filter: saturate(.85) brightness(.92);
   transition: transform 1.1s var(--ease), filter .6s ease;
 }
 
 .vx-about__image:hover img {
   transform: scale(1.035);
-  filter: saturate(.95) brightness(.86);
+  filter: saturate(.95) brightness(.96);
 }
 
 .vx-about__image-tag {
