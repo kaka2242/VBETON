@@ -102,6 +102,12 @@ html, body { background: #080808; }
   z-index: 2;
 }
 
+.vx-nav__logo-img {
+  display: block;
+  height: 34px;
+  width: auto;
+}
+
 .vx-nav__logo-dot {
   width: 7px;
   height: 7px;
@@ -1549,6 +1555,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
 
   .vx-nav__logo { font-size: 16px; align-self: center; line-height: 1; }
   .vx-nav__logo-dot { width: 6px; height: 6px; margin-top: 0; }
+  .vx-nav__logo-img { height: 28px; }
 
   .vx-nav > nav { display: none !important; }
 
@@ -1683,7 +1690,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
   <!-- ═══════════════════ NAV ═══════════════════ -->
   <header class="vx-nav" id="vxNav" role="banner">
     <a class="vx-nav__logo" href="#vxHero">
-      ВБЕТОН<span class="vx-nav__logo-dot"></span>
+      <img class="vx-nav__logo-img" src="https://4.downloader.disk.yandex.ru/preview/9f93b22c8f51b081178d200a5f449116f82beb73c34b969335f5a5c29d691b22/inf/0CHJdlKzZJ5VtNcixZscH05k6mu90poE_198lk7ieeyVBGJKt9wuAz7Ik8Vr07qv4qk91vE3pj-Rlq7X8zF5Pg%3D%3D?uid=1814497448&amp;filename=26392416-95E5-4E14-B39F-712313FEC7B0.PNG&amp;disposition=inline&amp;hash=&amp;limit=0&amp;content_type=image%2Fpng&amp;owner_uid=1814497448&amp;tknv=v3&amp;is_direct_zip_experiment=1&amp;size=2940x1620" alt="ВБЕТОН — экспертная строительная компания" decoding="async">
     </a>
 
     <nav aria-label="Основная навигация">
