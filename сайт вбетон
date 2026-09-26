@@ -72,6 +72,9 @@ html, body { background: #080808; }
   box-shadow: 0 8px 32px rgba(0,0,0,.4);
   transition: background .3s ease, border-color .3s ease, box-shadow .3s ease;
   overflow: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: transform;
 }
 
 .vx-nav::before {
