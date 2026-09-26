@@ -171,24 +171,22 @@ html, body { background: #080808; }
   justify-content: center;
   width: 36px;
   height: 36px;
-  border: 1px solid rgba(255,255,255,.14);
-  border-radius: 10px;
-  background: rgba(255,255,255,.05);
+  border: 0;
+  background: transparent;
   color: rgba(255,255,255,.7);
   text-decoration: none;
-  transition: background .2s ease, border-color .2s ease, color .2s ease;
+  transition: transform .2s ease, color .2s ease;
   flex-shrink: 0;
 }
 
 .vx-nav__social-link:hover {
-  background: rgba(255,255,255,.12);
-  border-color: rgba(255,255,255,.32);
+  transform: scale(1.08);
   color: var(--white);
 }
 
 .vx-nav__social-link img {
-  width: 20px;
-  height: 20px;
+  width: 26px;
+  height: 26px;
   display: block;
 }
 
@@ -228,24 +226,22 @@ html, body { background: #080808; }
   justify-content: center;
   width: 44px;
   height: 44px;
-  border: 1px solid rgba(255,255,255,.12);
-  border-radius: 12px;
-  background: rgba(255,255,255,.05);
+  border: 0;
+  background: transparent;
   color: rgba(255,255,255,.55);
   text-decoration: none;
-  transition: background .2s ease, border-color .2s ease, color .2s ease;
+  transition: transform .2s ease, color .2s ease;
   flex-shrink: 0;
 }
 
 .vx-nav__mobile-social:hover {
-  background: rgba(255,255,255,.1);
-  border-color: rgba(255,255,255,.25);
+  transform: scale(1.08);
   color: var(--white);
 }
 
 .vx-nav__mobile-social img {
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 30px;
   display: block;
 }
 
@@ -1710,9 +1706,10 @@ a.vx-contact-item__val:hover { color: var(--gold); }
 .vx-btn:active { transform: translateY(0) scale(.96); }
 
 .vx-nav__burger:active,
+.vx-nav__cta:active { background: rgba(255,255,255,.18); }
+
 .vx-nav__mobile-social:active,
-.vx-nav__cta:active,
-.vx-nav__social-link:active { background: rgba(255,255,255,.18); }
+.vx-nav__social-link:active { transform: scale(.92); }
 
 .vx-service__row:active { padding-left: 8px; }
 .vx-service__row:active .vx-service__bg { opacity: 1; transform: scale(1); }
@@ -1838,10 +1835,9 @@ a.vx-contact-item__val:hover { color: var(--gold); }
   .vx-nav__mobile-social {
     width: 44px;
     height: 44px;
-    border-radius: 12px;
   }
 
-  .vx-nav__mobile-social img { width: 22px; height: 22px; }
+  .vx-nav__mobile-social img { width: 28px; height: 28px; }
 
   .vx-nav__burger {
     width: 44px;
@@ -1932,8 +1928,8 @@ a.vx-contact-item__val:hover { color: var(--gold); }
 @media (max-width: 380px) {
   .vx-nav { left: 0; right: 0; height: calc(54px + env(safe-area-inset-top)); padding-top: env(safe-area-inset-top); border-radius: 0; padding-left: 12px; padding-right: 8px; }
   .vx-nav__mobile-socials { gap: 4px; }
-  .vx-nav__mobile-social { width: 44px; height: 44px; border-radius: 12px; }
-  .vx-nav__mobile-social img { width: 22px; height: 22px; }
+  .vx-nav__mobile-social { width: 44px; height: 44px; }
+  .vx-nav__mobile-social img { width: 28px; height: 28px; }
   .vx-nav__burger { width: 44px; height: 44px; border-radius: 12px; }
   .vx-hero__title { font-size: clamp(24px, 8.5vw, 30px); }
   .vx-about__nums { grid-template-columns: 1fr; border-top: 1px solid var(--line); }
