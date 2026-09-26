@@ -303,12 +303,18 @@ html, body { background: #080808; }
 
 .vx-drawer__brand {
   font-size: 20px;
-  font-weight: 800;
+  font-weight: 900;
   letter-spacing: -.05em;
   color: var(--white);
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+}
+
+.vx-drawer__brand img {
+  height: 28px;
+  width: auto;
+  display: block;
 }
 
 .vx-drawer__close {
@@ -1726,7 +1732,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
   <!-- ═══════════════════ DRAWER ═══════════════════ -->
   <div class="vx-drawer" id="vxDrawer" role="dialog" aria-label="Навигационное меню" aria-modal="true">
     <div class="vx-drawer__head">
-      <div class="vx-drawer__brand">ВБЕТОН<span class="vx-nav__logo-dot"></span></div>
+      <div class="vx-drawer__brand"><img src="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/logo-icon.png" alt="" decoding="async">ВБЕТОН</div>
       <button class="vx-drawer__close" id="vxDrawerClose" type="button" aria-label="Закрыть меню">×</button>
     </div>
     <nav class="vx-drawer__nav">
