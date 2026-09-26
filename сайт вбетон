@@ -1491,19 +1491,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
 
   .vx-banks__grid { grid-template-columns: repeat(2, 1fr); }
 
-  .vx-hero__strip {
-    position: static;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    margin: 28px clamp(20px, 5.5vw, 88px) 0;
-    border: none;
-    background: transparent;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    border-radius: 0;
-    box-shadow: none;
-  }
+  .vx-hero__strip { display: none; }
 
   .vx-hero__stat {
     padding: 14px 0 0;
@@ -1597,9 +1585,6 @@ a.vx-contact-item__val:hover { color: var(--gold); }
   }
 
   .vx-hero__label { margin-bottom: 22px; }
-
-  .vx-hero__strip { margin-left: 20px; margin-right: 20px; margin-top: 24px; gap: 8px; }
-  .vx-hero__stat strong { font-size: 19px; }
 
   .vx-hero__title {
     font-size: clamp(28px, 8.2vw, 42px);
