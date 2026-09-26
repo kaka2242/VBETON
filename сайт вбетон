@@ -4,6 +4,11 @@
   Навигация: iOS-style тёмное стекло на всех устройствах
 -->
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" as="image" fetchpriority="high" href="https://static.tildacdn.pub/tild6538-6438-4161-b131-333763386433/Generated_Image_Sept.jpg">
+
 <style>
 /* ─────────────────────────────────────────────
    RESET + ROOT
@@ -51,8 +56,8 @@
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  padding-left: 20px;
-  padding-right: 8px;
+  padding-left: max(20px, calc((100% - 1360px) / 2));
+  padding-right: max(8px, calc((100% - 1360px) / 2));
   border: none;
   border-bottom: 1px solid rgba(255,255,255,.08);
   border-radius: 0;
@@ -200,10 +205,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 38px;
-  height: 38px;
+  width: 44px;
+  height: 44px;
   border: 1px solid rgba(255,255,255,.12);
-  border-radius: 11px;
+  border-radius: 12px;
   background: rgba(255,255,255,.05);
   color: rgba(255,255,255,.55);
   text-decoration: none;
@@ -419,7 +424,7 @@
   border-radius: 999px;
   background: rgba(201,169,110,.08);
   color: var(--gold);
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 700;
   letter-spacing: .14em;
   text-transform: uppercase;
@@ -553,7 +558,7 @@
 .vx-hero__stat span {
   display: block;
   margin-top: 4px;
-  font-size: 8px;
+  font-size: 10px;
   font-weight: 600;
   letter-spacing: .1em;
   text-transform: uppercase;
@@ -590,7 +595,7 @@
   align-items: center;
   gap: 18px;
   padding: 0 28px;
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 700;
   letter-spacing: .18em;
   text-transform: uppercase;
@@ -646,7 +651,7 @@
   border-radius: 10px;
   background: rgba(8,8,8,.5);
   color: var(--muted);
-  font-size: 8px;
+  font-size: 10px;
   letter-spacing: .1em;
   text-transform: uppercase;
   backdrop-filter: blur(10px);
@@ -666,7 +671,7 @@
   gap: 8px;
   margin-bottom: 28px;
   color: var(--gold);
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 700;
   letter-spacing: .16em;
   text-transform: uppercase;
@@ -727,11 +732,54 @@
 .vx-num__desc {
   margin-top: 6px;
   color: var(--muted);
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 600;
   letter-spacing: .08em;
   text-transform: uppercase;
   line-height: 1.4;
+}
+
+/* ─────────────────────────────────────────────
+   BANKS / ESCROW
+───────────────────────────────────────────── */
+.vx-banks {
+  padding: clamp(60px, 8vw, 120px) 0;
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.vx-banks__head { max-width: 640px; }
+
+.vx-banks__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 44px;
+}
+
+.vx-bank {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 88px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(255,255,255,.03);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 12px;
+  transition: border-color .25s ease, color .25s ease, background .25s ease;
+}
+
+.vx-bank:hover {
+  border-color: rgba(201,169,110,.4);
+  color: var(--white);
+  background: rgba(201,169,110,.06);
 }
 
 /* ─────────────────────────────────────────────
@@ -801,7 +849,7 @@
 
 .vx-service__idx {
   color: var(--muted);
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 600;
   letter-spacing: .12em;
   transition: color .25s ease;
@@ -909,7 +957,7 @@
 }
 
 .vx-card__tag {
-  font-size: 7px;
+  font-size: 10px;
   font-weight: 700;
   letter-spacing: .14em;
   text-transform: uppercase;
@@ -992,7 +1040,7 @@
 .vx-step:hover::before { width: 100%; }
 
 .vx-step__n {
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 700;
   letter-spacing: .14em;
   color: var(--gold);
@@ -1160,7 +1208,7 @@
   display: block;
   margin-bottom: 8px;
   color: var(--muted);
-  font-size: 8px;
+  font-size: 10px;
   font-weight: 700;
   letter-spacing: .12em;
   text-transform: uppercase;
@@ -1203,8 +1251,8 @@
   align-items: flex-start;
   gap: 10px;
   max-width: 280px;
-  color: rgba(255,255,255,.32);
-  font-size: 9px;
+  color: rgba(255,255,255,.45);
+  font-size: 11px;
   line-height: 1.5;
   cursor: pointer;
 }
@@ -1263,7 +1311,7 @@
 
 .vx-contact-item__label {
   color: var(--muted);
-  font-size: 8px;
+  font-size: 10px;
   font-weight: 700;
   letter-spacing: .12em;
   text-transform: uppercase;
@@ -1325,7 +1373,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
 
 .vx-footer__copy {
   color: var(--muted);
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: .06em;
   text-align: center;
   line-height: 1.5;
@@ -1341,7 +1389,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
 .vx-footer__links a {
   color: var(--muted);
   text-decoration: none;
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 600;
   letter-spacing: .1em;
   text-transform: uppercase;
@@ -1365,6 +1413,49 @@ a.vx-contact-item__val:hover { color: var(--gold); }
 .vx-d3 { transition-delay: .24s; }
 
 /* ─────────────────────────────────────────────
+   TOUCH / ACTIVE STATES
+   (hover-эффекты не срабатывают на тач-экранах —
+   дублируем ключевые реакции через :active)
+───────────────────────────────────────────── */
+.vx-btn:active { transform: translateY(0) scale(.96); }
+
+.vx-nav__burger:active,
+.vx-nav__mobile-social:active,
+.vx-nav__cta:active,
+.vx-nav__social-link:active { background: rgba(255,255,255,.18); }
+
+.vx-service:active { padding-left: 8px; }
+.vx-service:active .vx-service__bg { opacity: 1; transform: scale(1); }
+.vx-service:active .vx-service__idx { color: var(--gold); }
+.vx-service:active .vx-service__name { transform: translateX(4px); }
+.vx-service:active .vx-service__arrow {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--black);
+  transform: rotate(-45deg);
+}
+
+.vx-card:active img { transform: scale(1.05); filter: saturate(1); }
+.vx-card:active .vx-card__btn {
+  background: var(--white);
+  color: var(--black);
+  border-color: var(--white);
+  transform: rotate(-45deg);
+}
+
+.vx-faq__btn:active { padding-left: 6px; }
+
+.vx-drawer__nav a:active { color: var(--gold); }
+.vx-drawer__foot-cta:active,
+.vx-drawer__close:active { background: rgba(201,169,110,.12); }
+
+.vx-bank:active {
+  border-color: rgba(201,169,110,.4);
+  color: var(--white);
+  background: rgba(201,169,110,.06);
+}
+
+/* ─────────────────────────────────────────────
    RESPONSIVE — TABLET ≤900px
 ───────────────────────────────────────────── */
 @media (max-width: 900px) {
@@ -1379,12 +1470,35 @@ a.vx-contact-item__val:hover { color: var(--gold); }
     padding-right: 12px;
   }
 
-  .vx-hero__strip { display: none; }
+  .vx-banks__grid { grid-template-columns: repeat(2, 1fr); }
+
+  .vx-hero__strip {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 28px clamp(20px, 5.5vw, 88px) 0;
+    border: none;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .vx-hero__stat {
+    padding: 14px 0 0;
+    border-bottom: none;
+    border-top: 1px solid var(--line);
+  }
 
   .vx-about { grid-template-columns: 1fr; }
   .vx-about__image { min-height: 480px; }
 
   .vx-services__head { grid-template-columns: 1fr; gap: 24px; }
+
+  .vx-service__bg { opacity: .3; transform: scale(1); }
+  .vx-service:active .vx-service__bg { opacity: 1; }
 
   .vx-projects__grid { grid-template-columns: 1fr; }
   .vx-card--tall { min-height: 480px; grid-row: auto; }
@@ -1433,19 +1547,19 @@ a.vx-contact-item__val:hover { color: var(--gold); }
 
   .vx-nav__actions { gap: 5px; align-self: center; margin-left: auto; }
 
-  .vx-nav__mobile-socials { gap: 4px; }
+  .vx-nav__mobile-socials { gap: 6px; }
 
   .vx-nav__mobile-social {
-    width: 34px;
-    height: 34px;
-    border-radius: 10px;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
   }
 
-  .vx-nav__mobile-social svg { width: 13px; height: 13px; }
+  .vx-nav__mobile-social svg { width: 15px; height: 15px; }
 
   .vx-nav__burger {
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
     border-radius: 12px;
     align-self: center;
     margin-left: 0;
@@ -1459,6 +1573,9 @@ a.vx-contact-item__val:hover { color: var(--gold); }
   }
 
   .vx-hero__label { margin-bottom: 22px; }
+
+  .vx-hero__strip { margin-left: 20px; margin-right: 20px; margin-top: 24px; gap: 8px; }
+  .vx-hero__stat strong { font-size: 19px; }
 
   .vx-hero__title {
     font-size: clamp(34px, 10vw, 52px);
@@ -1519,17 +1636,16 @@ a.vx-contact-item__val:hover { color: var(--gold); }
   .vx-contact-item__val { font-size: 14px; }
 
   .vx-footer { padding: 28px 20px; gap: 16px; }
-  .vx-footer__copy { font-size: 8px; }
 
   .vx-projects__head { flex-direction: column; align-items: flex-start; }
 }
 
 @media (max-width: 380px) {
   .vx-nav { left: 0; right: 0; height: calc(54px + env(safe-area-inset-top)); padding-top: env(safe-area-inset-top); border-radius: 0; padding-left: 12px; padding-right: 8px; }
-  .vx-nav__mobile-socials { gap: 3px; }
-  .vx-nav__mobile-social { width: 30px; height: 30px; border-radius: 9px; }
-  .vx-nav__mobile-social svg { width: 12px; height: 12px; }
-  .vx-nav__burger { width: 38px; height: 38px; border-radius: 10px; }
+  .vx-nav__mobile-socials { gap: 4px; }
+  .vx-nav__mobile-social { width: 44px; height: 44px; border-radius: 12px; }
+  .vx-nav__mobile-social svg { width: 15px; height: 15px; }
+  .vx-nav__burger { width: 44px; height: 44px; border-radius: 12px; }
   .vx-hero__title { font-size: 11vw; }
   .vx-about__nums { grid-template-columns: 1fr; border-top: 1px solid var(--line); }
   .vx-num { border-right: 0; padding: 14px 0; border-bottom: 1px solid var(--line); }
@@ -1545,6 +1661,10 @@ a.vx-contact-item__val:hover { color: var(--gold); }
 }
 </style>
 
+<noscript>
+<style>.vx-site .vx-reveal { opacity: 1 !important; transform: none !important; }</style>
+</noscript>
+
 <div class="vx-site" id="vxSite">
 
   <!-- ═══════════════════ NAV ═══════════════════ -->
@@ -1557,6 +1677,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
       <ul class="vx-nav__links">
         <li><a href="#vxAbout">О нас</a></li>
         <li><a href="#vxServices">Услуги</a></li>
+        <li><a href="#vxBanks">Ипотека</a></li>
         <li><a href="#vxProjects">Проекты</a></li>
         <li><a href="#vxProcess">Процесс</a></li>
         <li><a href="#vxContacts">Контакты</a></li>
@@ -1592,6 +1713,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
     <nav class="vx-drawer__nav">
       <a href="#vxAbout">О нас <span>↗</span></a>
       <a href="#vxServices">Услуги <span>↗</span></a>
+      <a href="#vxBanks">Ипотека <span>↗</span></a>
       <a href="#vxProjects">Проекты <span>↗</span></a>
       <a href="#vxProcess">Процесс <span>↗</span></a>
       <a href="#vxContacts">Контакты <span>↗</span></a>
@@ -1671,7 +1793,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
   <!-- ═══════════════════ ABOUT ═══════════════════ -->
   <section class="vx-about" id="vxAbout" aria-labelledby="vxAboutTitle">
     <div class="vx-about__image vx-reveal">
-      <img src="https://static.tildacdn.com/tild6563-6139-4263-a436-336635613232/photo-1541888946425-.jpg" alt="Строительный процесс ВБЕТОН" loading="lazy">
+      <img src="https://static.tildacdn.com/tild6563-6139-4263-a436-336635613232/photo-1541888946425-.jpg" alt="Строительный процесс ВБЕТОН" loading="lazy" decoding="async">
       <div class="vx-about__image-tag">ВБЕТОН / Строительство</div>
     </div>
     <div class="vx-about__text vx-reveal vx-d1">
@@ -1695,6 +1817,26 @@ a.vx-contact-item__val:hover { color: var(--gold); }
           <div class="vx-num__val">100%</div>
           <div class="vx-num__desc">Внимание к деталям</div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ BANKS / ESCROW ═══════════════════ -->
+  <section class="vx-banks" id="vxBanks" aria-labelledby="vxBanksTitle">
+    <div class="vx-container">
+      <div class="vx-banks__head vx-reveal">
+        <div class="vx-section-label">Ипотека · ЭСКРОУ</div>
+        <h2 class="vx-h2" id="vxBanksTitle">Аккредитованы<br>в банках РФ.</h2>
+        <p class="vx-body" style="margin-top:24px;">
+          Строим по эскроу-счетам — деньги дольщика защищены до сдачи объекта.
+          Работаем по ипотечным программам с ведущими банками Юга России.
+        </p>
+      </div>
+      <div class="vx-banks__grid vx-reveal vx-d1">
+        <div class="vx-bank">Банк-партнёр</div>
+        <div class="vx-bank">Банк-партнёр</div>
+        <div class="vx-bank">Банк-партнёр</div>
+        <div class="vx-bank">Банк-партнёр</div>
       </div>
     </div>
   </section>
@@ -1733,7 +1875,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
           <span class="vx-service__arrow">↗</span>
         </a>
         <a class="vx-service vx-reveal vx-d3" href="#vxForm">
-          <div class="vx-service__bg" style="background-image:url('https://static.tildacdn.com/tild6461-3062-4638-b336-613830313163/photo-1579492450119-.jpg');"></div>
+          <div class="vx-service__bg" style="background-image:url('https://static.tildacdn.pub/tild6438-3232-4736-a330-343566393766/photo-1517089152318-.jpg');"></div>
           <span class="vx-service__idx">04</span>
           <span class="vx-service__name">Фасадные работы</span>
           <span class="vx-service__arrow">↗</span>
@@ -1757,7 +1899,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
 
       <div class="vx-projects__grid">
         <article class="vx-card vx-card--tall vx-reveal">
-          <img src="https://static.tildacdn.pub/tild6538-6438-4161-b131-333763386433/Generated_Image_Sept.jpg" alt="Дом на юге России" loading="lazy">
+          <img src="https://static.tildacdn.pub/tild6538-6438-4161-b131-333763386433/Generated_Image_Sept.jpg" alt="Дом на юге России" loading="lazy" decoding="async">
           <div class="vx-card__info">
             <div>
               <div class="vx-card__tag">01 / Residential</div>
@@ -1768,7 +1910,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
         </article>
 
         <article class="vx-card vx-card--short vx-reveal vx-d1">
-          <img src="https://static.tildacdn.com/tild6266-3734-4261-a562-653736653436/photo-1762117360986-.jpg" alt="Проект в Сочи" loading="lazy">
+          <img src="https://static.tildacdn.com/tild6266-3734-4261-a562-653736653436/photo-1762117360986-.jpg" alt="Проект в Сочи" loading="lazy" decoding="async">
           <div class="vx-card__info">
             <div>
               <div class="vx-card__tag">02 / Сочи</div>
@@ -1779,7 +1921,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
         </article>
 
         <article class="vx-card vx-card--short vx-reveal vx-d2">
-          <img src="https://static.tildacdn.pub/tild6438-3232-4736-a330-343566393766/photo-1517089152318-.jpg" alt="Проект в Анапе" loading="lazy">
+          <img src="https://static.tildacdn.pub/tild6438-3232-4736-a330-343566393766/photo-1517089152318-.jpg" alt="Проект в Анапе" loading="lazy" decoding="async">
           <div class="vx-card__info">
             <div>
               <div class="vx-card__tag">03 / Анапа</div>
@@ -1894,7 +2036,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
     <div class="vx-container">
       <div class="vx-cta__layout">
         <div class="vx-cta__img vx-reveal">
-          <img src="https://static.tildacdn.com/tild6266-3734-4261-a562-653736653436/photo-1762117360986-.jpg" alt="Готовый дом ВБЕТОН" loading="lazy">
+          <img src="https://static.tildacdn.com/tild6266-3734-4261-a562-653736653436/photo-1762117360986-.jpg" alt="Готовый дом ВБЕТОН" loading="lazy" decoding="async">
           <div class="vx-cta__img-overlay" aria-hidden="true"></div>
         </div>
 
@@ -1965,7 +2107,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
         </div>
 
         <div class="vx-contacts__visual vx-reveal vx-d1">
-          <img src="https://static.tildacdn.com/tild6461-3062-4638-b336-613830313163/photo-1579492450119-.jpg" alt="Архитектура ВБЕТОН" loading="lazy">
+          <img src="https://static.tildacdn.com/tild6461-3062-4638-b336-613830313163/photo-1579492450119-.jpg" alt="Архитектура ВБЕТОН" loading="lazy" decoding="async">
         </div>
       </div>
     </div>
@@ -1979,8 +2121,9 @@ a.vx-contact-item__val:hover { color: var(--gold); }
     <p class="vx-footer__copy">© 2026 ВБЕТОН · Монолитное строительство на Юге России</p>
     <nav class="vx-footer__links" aria-label="Навигация в подвале">
       <a href="#vxAbout">О нас</a>
-      <a href="#vxProjects">Проекты</a>
       <a href="#vxServices">Услуги</a>
+      <a href="#vxBanks">Ипотека</a>
+      <a href="#vxProjects">Проекты</a>
       <a href="#vxContacts">Контакты</a>
     </nav>
   </footer>
