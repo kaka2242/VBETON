@@ -33,6 +33,15 @@ html, body { background: #080808; }
   --white:   #ffffff;
   --gold:    #c9a96e;
   --gold2:   #e8c98a;
+
+  --ivory:      #f3ecda;
+  --ink:        #221d14;
+  --ink-soft:   rgba(34,29,20,.72);
+  --ink-muted:  rgba(34,29,20,.55);
+  --ink-line:   rgba(34,29,20,.14);
+  --gold-deep:  #8c6a31;
+  --gold-deep2: #6e4f22;
+
   --ease:    cubic-bezier(.22,1,.36,1);
 
   width: 100%;
@@ -1621,6 +1630,61 @@ a.vx-contact-item__val:hover { color: var(--gold); }
 }
 
 /* ─────────────────────────────────────────────
+   LIGHT SECTIONS (слоновая кость)
+   Инвертируем текстовые токены на тёплый ivory-фон.
+   --black/--deep/--surface/--panel НЕ трогаем — они используются
+   и как "цвет текста на золотой/белой плашке" (кнопки, бейджи),
+   а не только как фон секции; поэтому фон каждой секции
+   переопределяется явно, точечно.
+───────────────────────────────────────────── */
+.vx-about.vx-light,
+.vx-banks.vx-light,
+.vx-process.vx-light,
+.vx-faq.vx-light,
+.vx-contacts.vx-light {
+  background: var(--ivory);
+  color: var(--ink);
+  --white:  var(--ink);
+  --muted:  var(--ink-muted);
+  --soft:   var(--ink-soft);
+  --line:   var(--ink-line);
+  --gold:   var(--gold-deep);
+  --gold2:  var(--gold-deep2);
+}
+
+.vx-about.vx-light .vx-about__text { background: var(--ivory); }
+.vx-about.vx-light .vx-about__image-tag { color: rgba(255,255,255,.75); }
+
+.vx-banks.vx-light .vx-bank { background: rgba(34,29,20,.035); }
+
+.vx-process.vx-light .vx-step__n { border-color: var(--ink-line); }
+.vx-process.vx-light .vx-step__text { color: var(--ink-muted); }
+
+.vx-faq.vx-light .vx-faq__plus { border-color: var(--ink-line); }
+
+/* Услуги — фон светлый, но карточка на hover показывает фото
+   с тёмной подложкой, поэтому золото/текст в момент hover должны
+   оставаться такими же, как на тёмной теме (не темнеем их). */
+.vx-services.vx-light {
+  background: var(--ivory);
+  color: var(--ink);
+  --white: var(--ink);
+  --muted: var(--ink-muted);
+  --soft:  var(--ink-soft);
+  --line:  var(--ink-line);
+}
+
+.vx-services.vx-light .vx-section-label,
+.vx-services.vx-light .vx-section-label::before,
+.vx-services.vx-light .vx-service__cta { color: var(--gold-deep); }
+.vx-services.vx-light .vx-service__cta { border-bottom-color: rgba(140,106,49,.4); }
+.vx-services.vx-light .vx-service__cta:hover { color: var(--gold-deep2); }
+.vx-services.vx-light .vx-service__arrow { border-color: var(--ink-line); }
+
+.vx-services.vx-light .vx-service__row:hover,
+.vx-services.vx-light .vx-service__row:active { color: #fff; }
+
+/* ─────────────────────────────────────────────
    REVEAL
    Контент виден всегда по умолчанию. Анимация появления
    при скролле — необязательное усиление: если JS отработает,
@@ -1712,6 +1776,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
 
   .vx-service__bg { opacity: .6; transform: scale(1); }
   .vx-service__row:active .vx-service__bg { opacity: 1; }
+  .vx-services.vx-light .vx-service__row { color: #fff; }
 
   .vx-projects__grid { grid-template-columns: 1fr; }
   .vx-card--tall { min-height: 480px; grid-row: auto; }
@@ -2005,7 +2070,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
   </div>
 
   <!-- ═══════════════════ ABOUT ═══════════════════ -->
-  <section class="vx-about" id="vxAbout" aria-labelledby="vxAboutTitle">
+  <section class="vx-about vx-light" id="vxAbout" aria-labelledby="vxAboutTitle">
     <div class="vx-about__image vx-reveal">
       <img src="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/about-photo.jpg" alt="Строительный процесс ВБЕТОН" loading="lazy" decoding="async">
       <div class="vx-about__image-tag">ВБЕТОН / Строительство</div>
@@ -2036,7 +2101,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
   </section>
 
   <!-- ═══════════════════ BANKS / ESCROW ═══════════════════ -->
-  <section class="vx-banks" id="vxBanks" aria-labelledby="vxBanksTitle">
+  <section class="vx-banks vx-light" id="vxBanks" aria-labelledby="vxBanksTitle">
     <div class="vx-container">
       <div class="vx-banks__head vx-reveal">
         <div class="vx-section-label">Ипотека · ЭСКРОУ</div>
@@ -2056,7 +2121,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
   </section>
 
   <!-- ═══════════════════ SERVICES ═══════════════════ -->
-  <section class="vx-services" id="vxServices" aria-labelledby="vxServicesTitle">
+  <section class="vx-services vx-light" id="vxServices" aria-labelledby="vxServicesTitle">
     <div class="vx-container">
       <div class="vx-services__head">
         <div class="vx-reveal">
@@ -2181,7 +2246,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
   </section>
 
   <!-- ═══════════════════ PROCESS ═══════════════════ -->
-  <section class="vx-process" id="vxProcess" aria-labelledby="vxProcessTitle">
+  <section class="vx-process vx-light" id="vxProcess" aria-labelledby="vxProcessTitle">
     <div class="vx-container">
       <div class="vx-process__head vx-reveal">
         <div class="vx-section-label">Процесс</div>
@@ -2224,7 +2289,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
   </section>
 
   <!-- ═══════════════════ FAQ ═══════════════════ -->
-  <section class="vx-faq" id="vxFaq" aria-labelledby="vxFaqTitle">
+  <section class="vx-faq vx-light" id="vxFaq" aria-labelledby="vxFaqTitle">
     <div class="vx-container">
       <div class="vx-faq__layout">
         <div class="vx-faq__side vx-reveal">
@@ -2325,7 +2390,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
   </section>
 
   <!-- ═══════════════════ CONTACTS ═══════════════════ -->
-  <section class="vx-contacts" id="vxContacts" aria-labelledby="vxContactsTitle">
+  <section class="vx-contacts vx-light" id="vxContacts" aria-labelledby="vxContactsTitle">
     <div class="vx-container">
       <div class="vx-contacts__layout">
         <div class="vx-reveal">
