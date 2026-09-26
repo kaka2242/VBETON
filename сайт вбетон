@@ -1578,9 +1578,12 @@ a.vx-contact-item__val:hover { color: var(--gold); }
   }
 
   .vx-hero__body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
     padding-left: 20px;
     padding-right: 20px;
-    padding-bottom: 24vh;
+    padding-bottom: max(28px, env(safe-area-inset-bottom));
     padding-top: calc(80px + env(safe-area-inset-top));
   }
 
@@ -1595,7 +1598,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
 
   .vx-hero__sub { font-size: 13px; margin-bottom: 28px; }
 
-  .vx-hero__btns { flex-direction: column; width: 100%; }
+  .vx-hero__btns { flex-direction: column; width: 100%; margin-top: auto; padding-top: 24px; }
   .vx-btn { width: 100%; justify-content: center; height: 52px; border-radius: 14px; }
 
   .vx-container { width: calc(100% - 40px); }
