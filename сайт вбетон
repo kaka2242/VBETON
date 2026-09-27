@@ -2716,7 +2716,11 @@ a.vx-contact-card:hover .vx-contact-card__icon {
     setTimeout(function () { heroBg.style.transform = 'scale(1)'; }, 100);
   }
 
-  /* ── Smooth anchors ── */
+  /* ── Smooth anchors ──
+     Повторный вызов через 650мс подстраховывает от случаев, когда
+     позиция секции чуть съезжает уже после начала анимации (картинка
+     догрузилась, что-то сдвинуло вёрстку) — скролл догоняет цель без
+     видимого рывка, если она и так уже на месте, вызов ничего не меняет. */
   site.querySelectorAll('a[href^="#"]').forEach(function (a) {
     a.addEventListener('click', function (e) {
       var id = a.getAttribute('href');
@@ -2726,6 +2730,9 @@ a.vx-contact-card:hover .vx-contact-card__icon {
       if (!target) return;
       e.preventDefault();
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 650);
     });
   });
 
