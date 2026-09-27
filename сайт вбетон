@@ -1000,7 +1000,9 @@ html, body { background: #080808; }
 }
 
 .vx-service__row:hover { padding-left: 8px; }
-.vx-service__row:hover .vx-service__bg { opacity: 1; transform: scale(1); }
+.vx-service__row:hover .vx-service__bg,
+.vx-service.is-open .vx-service__bg { opacity: 1; transform: scale(1); }
+.vx-service.is-open .vx-service__row { padding-left: 8px; }
 
 .vx-service__idx,
 .vx-service__name,
@@ -1017,7 +1019,8 @@ html, body { background: #080808; }
   transition: color .25s ease;
 }
 
-.vx-service__row:hover .vx-service__idx { color: var(--gold); }
+.vx-service__row:hover .vx-service__idx,
+.vx-service.is-open .vx-service__idx { color: var(--gold); }
 
 .vx-service__name {
   font-size: clamp(24px, 3vw, 44px);
@@ -1028,7 +1031,8 @@ html, body { background: #080808; }
   transition: color .25s ease, transform .38s var(--ease);
 }
 
-.vx-service__row:hover .vx-service__name { transform: translateX(4px); }
+.vx-service__row:hover .vx-service__name,
+.vx-service.is-open .vx-service__name { transform: translateX(4px); }
 
 .vx-service__arrow {
   width: 36px;
@@ -1765,7 +1769,8 @@ a.vx-contact-card:hover .vx-contact-card__icon {
 .vx-services.vx-light .vx-service__arrow { border-color: var(--ink-line); }
 
 .vx-services.vx-light .vx-service__row:hover,
-.vx-services.vx-light .vx-service__row:active { color: #fff; }
+.vx-services.vx-light .vx-service__row:active,
+.vx-services.vx-light .vx-service.is-open .vx-service__row { color: #fff; }
 
 /* ─────────────────────────────────────────────
    REVEAL
