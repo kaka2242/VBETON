@@ -2064,15 +2064,15 @@ a.vx-contact-item__val:hover { color: var(--gold); }
 
     <div class="vx-nav__actions">
       <div class="vx-nav__socials">
-        <a class="vx-nav__social-link" href="https://t.me/" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><img src="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/tg-icon.png" alt="" decoding="async"></a>
-        <a class="vx-nav__social-link" href="https://instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/insta-icon.png" alt="" decoding="async"></a>
+        <a class="vx-nav__social-link" href="https://t.me/Kalashnikov_7_62" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><img src="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/tg-icon.png" alt="" decoding="async"></a>
+        <a class="vx-nav__social-link" href="https://www.instagram.com/kalashnikov.v.vbeton?stkn=MWlkZ2d2dTg0MTV6dQ%3D%3D&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/insta-icon.png" alt="" decoding="async"></a>
       </div>
       <a class="vx-nav__cta" href="#vxForm">Получить расчёт</a>
       <div class="vx-nav__mobile-socials">
-        <a class="vx-nav__mobile-social" href="https://t.me/" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+        <a class="vx-nav__mobile-social" href="https://t.me/Kalashnikov_7_62" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
           <img src="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/tg-icon.png" alt="" decoding="async">
         </a>
-        <a class="vx-nav__mobile-social" href="https://instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <a class="vx-nav__mobile-social" href="https://www.instagram.com/kalashnikov.v.vbeton?stkn=MWlkZ2d2dTg0MTV6dQ%3D%3D&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
           <img src="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/insta-icon.png" alt="" decoding="async">
         </a>
       </div>
