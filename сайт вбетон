@@ -1018,16 +1018,23 @@ html, body { background: #080808; }
 .vx-service.is-open .vx-service__desc { visibility: visible; }
 
 .vx-service__desc-inner {
-  padding: 0 44px 32px 60px;
+  padding: 22px 44px 32px 60px;
+  border-top: 1px solid var(--line);
 }
 
 .vx-service__desc p {
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.6;
-  max-width: 60ch;
+  color: var(--soft);
+  font-size: 15px;
+  line-height: 1.75;
+  max-width: 56ch;
   text-wrap: pretty;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
+  letter-spacing: -.005em;
+}
+
+.vx-service__desc p strong {
+  color: var(--white);
+  font-weight: 700;
 }
 
 .vx-service__cta {
@@ -1903,7 +1910,8 @@ a.vx-contact-item__val:hover { color: var(--gold); }
 
   .vx-service__row { grid-template-columns: 32px 1fr 36px; min-height: 80px; }
   .vx-service__name { font-size: 20px; }
-  .vx-service__desc-inner { padding: 0 36px 24px 32px; }
+  .vx-service__desc-inner { padding: 18px 36px 24px 32px; }
+  .vx-service__desc p { font-size: 14px; line-height: 1.7; }
 
   .vx-card--tall { min-height: 400px; }
   .vx-card--short { min-height: 230px; }
@@ -2166,7 +2174,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
           </button>
           <div class="vx-service__desc" role="region">
             <div class="vx-service__desc-inner">
-              <p>Разрабатываем архитектурную концепцию, планировки и конструктив под ваш участок, бюджет и образ жизни семьи. На выходе — полный комплект рабочих чертежей, инженерных разделов и смета, с которыми можно спокойно заходить в стройку без сюрпризов.</p>
+              <p><strong>Разрабатываем архитектурную концепцию, планировки и конструктив под ваш участок, бюджет и образ жизни семьи.</strong> На выходе — полный комплект рабочих чертежей, инженерных разделов и смета, с которыми можно спокойно заходить в стройку без сюрпризов.</p>
               <a class="vx-service__cta" href="#vxForm">Обсудить проект <span>→</span></a>
             </div>
           </div>
@@ -2180,7 +2188,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
           </button>
           <div class="vx-service__desc" role="region">
             <div class="vx-service__desc-inner">
-              <p>Возводим монолитный каркас на месте: заливаем фундамент, стены и перекрытия в опалубку прямо на участке. Такая технология не даёт усадочных трещин, позволяет свободную планировку без несущих перегородок и служит десятилетиями без потери прочности.</p>
+              <p><strong>Возводим монолитный каркас на месте: заливаем фундамент, стены и перекрытия в опалубку прямо на участке.</strong> Такая технология не даёт усадочных трещин, позволяет свободную планировку без несущих перегородок и служит десятилетиями без потери прочности.</p>
               <a class="vx-service__cta" href="#vxForm">Обсудить проект <span>→</span></a>
             </div>
           </div>
@@ -2194,7 +2202,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
           </button>
           <div class="vx-service__desc" role="region">
             <div class="vx-service__desc-inner">
-              <p>Берём на себя весь цикл — от фундамента до финишной отделки, инженерных сетей и передачи ключей. Один подрядчик и один договор вместо десятка разрозненных бригад: вы получаете готовый для жизни дом, а не стройплощадку с недоделками.</p>
+              <p><strong>Берём на себя весь цикл — от фундамента до финишной отделки, инженерных сетей и передачи ключей.</strong> Один подрядчик и один договор вместо десятка разрозненных бригад: вы получаете готовый для жизни дом, а не стройплощадку с недоделками.</p>
               <a class="vx-service__cta" href="#vxForm">Обсудить проект <span>→</span></a>
             </div>
           </div>
@@ -2208,7 +2216,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
           </button>
           <div class="vx-service__desc" role="region">
             <div class="vx-service__desc-inner">
-              <p>Утепляем и облицовываем фасад: штукатурные системы, вентфасады, натуральный камень, дерево или композитные панели. Подбираем решение под климат Юга России и бюджет — так, чтобы дом сохранял тепло и выглядел так же достойно через 10 лет.</p>
+              <p><strong>Утепляем и облицовываем фасад: штукатурные системы, вентфасады, натуральный камень, дерево или композитные панели.</strong> Подбираем решение под климат Юга России и бюджет — так, чтобы дом сохранял тепло и выглядел так же достойно через 10 лет.</p>
               <a class="vx-service__cta" href="#vxForm">Обсудить проект <span>→</span></a>
             </div>
           </div>
