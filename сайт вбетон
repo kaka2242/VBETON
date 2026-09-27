@@ -1830,7 +1830,10 @@ a.vx-contact-item__val:hover { color: var(--gold); }
     border-radius: 0;
     grid-template-columns: auto 1fr auto;
     align-items: center;
+    background: rgba(14,14,14,.38);
   }
+
+  .vx-nav.scrolled { background: rgba(8,8,8,.72); }
 
   .vx-nav__logo { font-size: 16px; align-self: center; line-height: 1; }
   .vx-nav__logo-dot { width: 6px; height: 6px; margin-top: 0; }
@@ -1873,16 +1876,21 @@ a.vx-contact-item__val:hover { color: var(--gold); }
   }
 
   .vx-hero__title {
-    font-size: clamp(25px, 7.2vw, 37px);
+    font-size: clamp(23px, 6.8vw, 35px);
     line-height: 1.05;
-    letter-spacing: -.04em;
+    letter-spacing: -.03em;
     margin-bottom: 18px;
   }
 
-  .vx-hero__sub { font-size: 13px; margin-bottom: 28px; }
+  .vx-hero__sub {
+    font-size: 13px;
+    margin-bottom: 20px;
+    color: rgba(255,255,255,.88);
+    text-shadow: 0 1px 4px rgba(0,0,0,.55);
+  }
 
-  .vx-hero__btns { flex-direction: column; width: 100%; gap: 8px; margin-top: auto; padding-top: 24px; }
-  .vx-btn { width: 100%; justify-content: center; height: 52px; border-radius: 14px; }
+  .vx-hero__btns { flex-direction: column; align-items: center; width: 100%; gap: 11px; margin-top: auto; padding-top: 24px; }
+  .vx-btn { justify-content: center; height: 54px; padding: 0 38px; border-radius: 14px; }
 
   .vx-container { width: calc(100% - 40px); }
 
@@ -1944,7 +1952,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
   .vx-nav__mobile-social { width: 44px; height: 44px; }
   .vx-nav__mobile-social img { width: 28px; height: 28px; }
   .vx-nav__burger { width: 44px; height: 44px; border-radius: 12px; }
-  .vx-hero__title { font-size: clamp(21px, 7.5vw, 26px); }
+  .vx-hero__title { font-size: clamp(20px, 7vw, 24px); }
   .vx-about__nums { grid-template-columns: 1fr; border-top: 1px solid var(--line); }
   .vx-num { border-right: 0; padding: 14px 0; border-bottom: 1px solid var(--line); }
   .vx-num:last-child { border-bottom: 0; }
