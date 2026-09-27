@@ -2677,10 +2677,16 @@ a.vx-contact-card:hover .vx-contact-card__icon {
 (function () {
   'use strict';
 
-  /* ── Always start at the top on (re)load, ignore browser's scroll memory ── */
+  /* ── Start at the top on a real (re)load, ignore browser's scroll memory ──
+     event.persisted значит страницу вернули из bfcache (например, после
+     попытки открыть tel:/mailto: без обработчика) — в этом случае скролл
+     трогать нельзя, иначе клик по телефону/почте выглядит как "прыжок
+     наверх страницы". */
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   window.scrollTo(0, 0);
-  window.addEventListener('pageshow', function () { window.scrollTo(0, 0); });
+  window.addEventListener('pageshow', function (e) {
+    if (!e.persisted) window.scrollTo(0, 0);
+  });
 
   var site = document.getElementById('vxSite');
   if (!site) return;
