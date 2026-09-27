@@ -2155,7 +2155,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
       <div class="vx-services__list">
         <div class="vx-service vx-reveal">
           <button class="vx-service__row" type="button" aria-expanded="false">
-            <div class="vx-service__bg" style="background-image:url('https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/%D0%9F%D0%9B%D0%90%D0%9D.jpg');"></div>
+            <div class="vx-service__bg" style="background-image:url('https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/service-design.jpg');"></div>
             <span class="vx-service__idx">01</span>
             <span class="vx-service__name">Проектирование</span>
             <span class="vx-service__arrow" aria-hidden="true">+</span>
@@ -2169,7 +2169,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
         </div>
         <div class="vx-service vx-reveal vx-d1">
           <button class="vx-service__row" type="button" aria-expanded="false">
-            <div class="vx-service__bg" style="background-image:url('https://static.tildacdn.com/tild6563-6139-4263-a436-336635613232/photo-1541888946425-.jpg');"></div>
+            <div class="vx-service__bg" style="background-image:url('https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/service-monolith.jpg');"></div>
             <span class="vx-service__idx">02</span>
             <span class="vx-service__name">Монолитное строительство</span>
             <span class="vx-service__arrow" aria-hidden="true">+</span>
@@ -2183,7 +2183,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
         </div>
         <div class="vx-service vx-reveal vx-d2">
           <button class="vx-service__row" type="button" aria-expanded="false">
-            <div class="vx-service__bg" style="background-image:url('https://static.tildacdn.com/tild6266-3734-4261-a562-653736653436/photo-1762117360986-.jpg');"></div>
+            <div class="vx-service__bg" style="background-image:url('https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/service-turnkey.jpg');"></div>
             <span class="vx-service__idx">03</span>
             <span class="vx-service__name">Дома под ключ</span>
             <span class="vx-service__arrow" aria-hidden="true">+</span>
@@ -2197,7 +2197,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
         </div>
         <div class="vx-service vx-reveal vx-d3">
           <button class="vx-service__row" type="button" aria-expanded="false">
-            <div class="vx-service__bg" style="background-image:url('https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/%D1%84%D0%B0%D1%81%D0%B0%D0%B4.jpg');"></div>
+            <div class="vx-service__bg" style="background-image:url('https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/service-facade.jpg');"></div>
             <span class="vx-service__idx">04</span>
             <span class="vx-service__name">Фасадные работы</span>
             <span class="vx-service__arrow" aria-hidden="true">+</span>
