@@ -190,9 +190,9 @@ html, body { background: #080808; }
   color: var(--white);
 }
 
-.vx-nav__social-link img {
-  width: 26px;
-  height: 26px;
+.vx-nav__social-link svg {
+  width: 20px;
+  height: 20px;
   display: block;
 }
 
@@ -245,9 +245,9 @@ html, body { background: #080808; }
   color: var(--white);
 }
 
-.vx-nav__mobile-social img {
-  width: 30px;
-  height: 30px;
+.vx-nav__mobile-social svg {
+  width: 22px;
+  height: 22px;
   display: block;
 }
 
@@ -398,19 +398,21 @@ html, body { background: #080808; }
   border-radius: 16px;
   background: rgba(255,255,255,.06);
   border: 1px solid rgba(255,255,255,.12);
-  transition: background .2s ease, border-color .2s ease, transform .2s ease;
+  color: rgba(255,255,255,.7);
+  transition: background .2s ease, border-color .2s ease, color .2s ease, transform .2s ease;
 }
 
 .vx-drawer__foot-social:hover {
   background: rgba(201,169,110,.14);
   border-color: rgba(201,169,110,.4);
+  color: var(--gold);
 }
 
 .vx-drawer__foot-social:active { transform: scale(.94); }
 
-.vx-drawer__foot-social img {
-  width: 30px;
-  height: 30px;
+.vx-drawer__foot-social svg {
+  width: 24px;
+  height: 24px;
   display: block;
 }
 
@@ -1912,7 +1914,7 @@ a.vx-contact-card:hover .vx-contact-card__icon {
     height: 44px;
   }
 
-  .vx-nav__mobile-social img { width: 24px; height: 24px; }
+  .vx-nav__mobile-social svg { width: 20px; height: 20px; }
 
   .vx-nav__burger {
     width: 44px;
@@ -2047,7 +2049,7 @@ a.vx-contact-card:hover .vx-contact-card__icon {
   .vx-nav__logo-icon { height: 16px; }
   .vx-nav__mobile-socials { gap: 4px; }
   .vx-nav__mobile-social { width: 44px; height: 44px; }
-  .vx-nav__mobile-social img { width: 24px; height: 24px; }
+  .vx-nav__mobile-social svg { width: 20px; height: 20px; }
   .vx-nav__burger { width: 44px; height: 44px; border-radius: 12px; }
   .vx-hero__title { font-size: clamp(20px, 7vw, 24px); }
   .vx-about__nums { grid-template-columns: 1fr; border-top: 1px solid var(--line); }
@@ -2085,16 +2087,20 @@ a.vx-contact-card:hover .vx-contact-card__icon {
 
     <div class="vx-nav__actions">
       <div class="vx-nav__socials">
-        <a class="vx-nav__social-link" href="https://t.me/Kalashnikov_7_62" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><img src="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/tg-icon.png" alt="" decoding="async"></a>
-        <a class="vx-nav__social-link" href="https://www.instagram.com/kalashnikov.v.vbeton?stkn=MWlkZ2d2dTg0MTV6dQ%3D%3D&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/insta-icon.png" alt="" decoding="async"></a>
+        <a class="vx-nav__social-link" href="https://t.me/Kalashnikov_7_62" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-7-7 18-3-7-8-4z"/></svg>
+        </a>
+        <a class="vx-nav__social-link" href="https://www.instagram.com/kalashnikov.v.vbeton?stkn=MWlkZ2d2dTg0MTV6dQ%3D%3D&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".8" fill="currentColor" stroke="none"/></svg>
+        </a>
       </div>
       <a class="vx-nav__cta" href="#vxForm">Получить расчёт</a>
       <div class="vx-nav__mobile-socials">
         <a class="vx-nav__mobile-social" href="https://t.me/Kalashnikov_7_62" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
-          <img src="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/tg-icon.png" alt="" decoding="async">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-7-7 18-3-7-8-4z"/></svg>
         </a>
         <a class="vx-nav__mobile-social" href="https://www.instagram.com/kalashnikov.v.vbeton?stkn=MWlkZ2d2dTg0MTV6dQ%3D%3D&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-          <img src="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/insta-icon.png" alt="" decoding="async">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".8" fill="currentColor" stroke="none"/></svg>
         </a>
       </div>
       <button class="vx-nav__burger" id="vxBurger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="vxDrawer">
@@ -2119,8 +2125,12 @@ a.vx-contact-card:hover .vx-contact-card__icon {
     </nav>
     <div class="vx-drawer__foot">
       <div class="vx-drawer__foot-socials">
-        <a class="vx-drawer__foot-social" href="https://t.me/Kalashnikov_7_62" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><img src="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/tg-icon.png" alt="" decoding="async"></a>
-        <a class="vx-drawer__foot-social" href="https://www.instagram.com/kalashnikov.v.vbeton?stkn=MWlkZ2d2dTg0MTV6dQ%3D%3D&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/insta-icon.png" alt="" decoding="async"></a>
+        <a class="vx-drawer__foot-social" href="https://t.me/Kalashnikov_7_62" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-7-7 18-3-7-8-4z"/></svg>
+        </a>
+        <a class="vx-drawer__foot-social" href="https://www.instagram.com/kalashnikov.v.vbeton?stkn=MWlkZ2d2dTg0MTV6dQ%3D%3D&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".8" fill="currentColor" stroke="none"/></svg>
+        </a>
       </div>
       <a class="vx-drawer__foot-cta" href="#vxForm">Получить расчёт стоимости</a>
     </div>
