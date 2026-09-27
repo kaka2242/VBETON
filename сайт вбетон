@@ -2642,7 +2642,10 @@ a.vx-contact-item__val:hover { color: var(--gold); }
   var topBtn = document.getElementById('vxTop');
   function onScroll() {
     if (nav) nav.classList.toggle('scrolled', window.scrollY > 50);
-    if (topBtn) topBtn.classList.toggle('is-visible', window.scrollY > window.innerHeight * 0.8);
+    if (topBtn) {
+      var pastOwnContent = site.getBoundingClientRect().bottom <= window.innerHeight;
+      topBtn.classList.toggle('is-visible', window.scrollY > window.innerHeight * 0.8 && !pastOwnContent);
+    }
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
