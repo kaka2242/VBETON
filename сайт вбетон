@@ -1547,27 +1547,36 @@ html, body { background: #080808; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 78px;
+  min-height: 92px;
   border-bottom: 1px solid var(--line);
   gap: 24px;
+  padding: 0 4px;
+  transition: padding-left .3s var(--ease), background .3s ease;
 }
+
+.vx-contact-item:hover {
+  padding-left: 14px;
+  background: rgba(255,255,255,.02);
+}
+
+.vx-contacts.vx-light .vx-contact-item:hover { background: rgba(34,29,20,.035); }
 
 .vx-contact-item__label {
   color: var(--muted);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: .12em;
+  letter-spacing: .14em;
   text-transform: uppercase;
   flex-shrink: 0;
-  min-width: 80px;
+  min-width: 90px;
 }
 
 .vx-contact-item__val {
   color: var(--white);
   text-decoration: none;
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: -.01em;
+  font-size: clamp(19px, 2vw, 24px);
+  font-weight: 700;
+  letter-spacing: -.02em;
   transition: color .2s ease;
 }
 
@@ -1581,18 +1590,12 @@ a.vx-contact-item__val:hover { color: var(--gold); }
   background: var(--panel);
 }
 
-.vx-map {
+.vx-contacts__visual img {
   position: absolute;
   inset: 0;
-  background: #dbe6e2;
-}
-
-.vx-map--embed iframe,
-.vx-map--embed ymaps {
-  width: 100% !important;
-  height: 100% !important;
-  border: 0;
-  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* ─────────────────────────────────────────────
@@ -2031,8 +2034,9 @@ a.vx-contact-item__val:hover { color: var(--gold); }
   .vx-form__submit { width: 100%; justify-content: center; }
 
   .vx-contacts__visual { min-height: 340px; border-radius: 14px; }
-  .vx-contact-item { flex-direction: column; align-items: flex-start; min-height: auto; padding: 16px 0; gap: 4px; }
-  .vx-contact-item__val { font-size: 14px; }
+  .vx-contact-item { flex-direction: column; align-items: flex-start; min-height: auto; padding: 16px 4px; gap: 4px; }
+  .vx-contact-item:hover { padding-left: 4px; }
+  .vx-contact-item__val { font-size: 19px; }
 
   .vx-footer { padding: 28px 20px; gap: 16px; }
 
@@ -2577,9 +2581,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
         </div>
 
         <div class="vx-contacts__visual vx-reveal vx-d1">
-          <div class="vx-map vx-map--embed" role="group" aria-label="Наши офисы на карте Яндекс">
-            <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A0aa57aa5790898851199a88118b430ceb90b579d44ab46f7e39b9be8a3deb465&amp;width=100%25&amp;height=100%25&amp;lang=ru_RU&amp;scroll=true"></script>
-          </div>
+          <img src="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/service-monolith.jpg" alt="Монолитное строительство ВБЕТОН" loading="lazy" decoding="async">
         </div>
       </div>
     </div>
