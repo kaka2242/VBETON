@@ -949,13 +949,6 @@ html, body { background: #080808; }
   transition: opacity .4s ease, transform .55s ease;
 }
 
-.vx-service__bg::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(8,8,8,.42);
-}
-
 .vx-service__row:hover { padding-left: 8px; }
 .vx-service__row:hover .vx-service__bg { opacity: 1; transform: scale(1); }
 
