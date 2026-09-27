@@ -85,6 +85,11 @@ html, body { background: #080808; }
   will-change: transform;
 }
 
+.vx-site section[id],
+.vx-cta__form-area {
+  scroll-margin-top: 88px;
+}
+
 .vx-nav::before {
   content: '';
   position: absolute;
@@ -2506,7 +2511,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
   </section>
 
   <!-- ═══════════════════ CTA / FORM ═══════════════════ -->
-  <section class="vx-cta" id="vxForm" aria-labelledby="vxFormTitle">
+  <section class="vx-cta" aria-labelledby="vxFormTitle">
     <div class="vx-container">
       <div class="vx-cta__layout">
         <div class="vx-cta__img vx-reveal">
@@ -2514,7 +2519,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
           <div class="vx-cta__img-overlay" aria-hidden="true"></div>
         </div>
 
-        <div class="vx-cta__form-area vx-reveal vx-d1">
+        <div class="vx-cta__form-area vx-reveal vx-d1" id="vxForm">
           <div class="vx-section-label">Начать проект</div>
           <h2 class="vx-h2" id="vxFormTitle">Обсудим<br>ваш дом?</h2>
           <p class="vx-body" style="margin-top:16px;">
