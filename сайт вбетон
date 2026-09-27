@@ -2537,15 +2537,15 @@ a.vx-contact-item__val:hover { color: var(--gold); }
           <div class="vx-contacts__list" style="margin-top:44px;">
             <div class="vx-contact-item">
               <span class="vx-contact-item__label">Телефон</span>
-              <a class="vx-contact-item__val" href="tel:+78612345678">+7 (861) 234-56-78</a>
+              <a class="vx-contact-item__val" href="tel:+79994288668">+7 (999) 428-86-68</a>
             </div>
             <div class="vx-contact-item">
               <span class="vx-contact-item__label">E-mail</span>
-              <a class="vx-contact-item__val" href="mailto:info@vbeton.ru">info@vbeton.ru</a>
+              <a class="vx-contact-item__val" href="mailto:[e-mail]">[e-mail]</a>
             </div>
             <div class="vx-contact-item">
               <span class="vx-contact-item__label">Telegram</span>
-              <a class="vx-contact-item__val" href="https://t.me/" target="_blank" rel="noopener noreferrer">@vbeton</a>
+              <a class="vx-contact-item__val" href="https://t.me/Kalashnikov_7_62" target="_blank" rel="noopener noreferrer">@Kalashnikov_7_62</a>
             </div>
             <div class="vx-contact-item">
               <span class="vx-contact-item__label">Регион</span>
