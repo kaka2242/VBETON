@@ -2163,7 +2163,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
   <!-- ═══════════════════ ABOUT ═══════════════════ -->
   <section class="vx-about vx-light" id="vxAbout" aria-labelledby="vxAboutTitle">
     <div class="vx-about__image vx-reveal">
-      <img src="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/about-photo.jpg" alt="Строительный процесс ВБЕТОН" loading="lazy" decoding="async">
+      <img src="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/about-photo.jpg" alt="Строительный процесс ВБЕТОН" width="1400" height="781" loading="lazy" decoding="async">
       <div class="vx-about__image-tag">ВБЕТОН / Строительство</div>
     </div>
     <div class="vx-about__text">
@@ -2305,7 +2305,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
 
       <div class="vx-projects__grid">
         <article class="vx-card vx-card--tall vx-reveal">
-          <img src="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/project-south-house.jpg" alt="Дом на юге России" loading="lazy" decoding="async">
+          <img src="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/project-south-house.jpg" alt="Дом на юге России" width="1400" height="781" loading="lazy" decoding="async">
           <div class="vx-card__info">
             <div>
               <div class="vx-card__tag">01 / Краснодар</div>
@@ -2316,7 +2316,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
         </article>
 
         <article class="vx-card vx-card--short vx-reveal vx-d1">
-          <img src="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/project-sochi.jpg" alt="Проект в Сочи" loading="lazy" decoding="async">
+          <img src="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/project-sochi.jpg" alt="Проект в Сочи" width="1400" height="781" loading="lazy" decoding="async">
           <div class="vx-card__info">
             <div>
               <div class="vx-card__tag">02 / Сочи</div>
@@ -2327,7 +2327,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
         </article>
 
         <article class="vx-card vx-card--short vx-reveal vx-d2">
-          <img src="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/project-monolith.jpg" alt="Проект в Анапе" loading="lazy" decoding="async">
+          <img src="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/project-monolith.jpg" alt="Проект в Анапе" width="1400" height="781" loading="lazy" decoding="async">
           <div class="vx-card__info">
             <div>
               <div class="vx-card__tag">03 / Анапа</div>
