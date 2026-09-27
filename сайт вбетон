@@ -2549,7 +2549,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
             </div>
             <div class="vx-contact-item">
               <span class="vx-contact-item__label">Регион</span>
-              <span class="vx-contact-item__val">Краснодарский край</span>
+              <span class="vx-contact-item__val">Анапа, Сочи, Краснодар</span>
             </div>
           </div>
         </div>
