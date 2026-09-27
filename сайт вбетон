@@ -534,19 +534,29 @@ html, body { background: #080808; }
 }
 
 .vx-hero__title {
-  font-size: clamp(52px, 9.5vw, 96px);
+  font-size: clamp(46px, 8.4vw, 84px);
   font-weight: 900;
   line-height: .96;
   letter-spacing: -.06em;
   text-transform: uppercase;
   text-wrap: balance;
   max-width: 1100px;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 
 .vx-hero__title em {
   font-style: normal;
   color: var(--gold);
+}
+
+.vx-hero__sub {
+  max-width: 520px;
+  color: var(--soft);
+  font-size: clamp(14px, 1.3vw, 18px);
+  line-height: 1.5;
+  letter-spacing: -.01em;
+  margin-bottom: 38px;
+  text-wrap: pretty;
 }
 
 .vx-hero__btns {
@@ -577,24 +587,24 @@ html, body { background: #080808; }
 .vx-btn--primary {
   background: var(--gold);
   color: var(--black);
-  box-shadow: 0 8px 28px rgba(201,169,110,.32);
+  box-shadow: 0 10px 34px rgba(201,169,110,.4);
 }
 
 .vx-btn--primary:hover {
   background: var(--gold2);
-  box-shadow: 0 14px 40px rgba(201,169,110,.48);
+  box-shadow: 0 16px 46px rgba(201,169,110,.55);
 }
 
 .vx-btn--ghost {
-  border: 1px solid rgba(255,255,255,.25);
-  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(0,0,0,.15);
   color: var(--white);
   backdrop-filter: blur(8px);
 }
 
 .vx-btn--ghost:hover {
-  background: rgba(255,255,255,.12);
-  border-color: rgba(255,255,255,.5);
+  background: rgba(255,255,255,.08);
+  border-color: rgba(255,255,255,.32);
 }
 
 .vx-btn__icon {
@@ -652,7 +662,7 @@ html, body { background: #080808; }
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   background: var(--surface);
-  height: 48px;
+  height: 38px;
   display: flex;
   align-items: center;
 }
@@ -674,21 +684,21 @@ html, body { background: #080808; }
   align-items: center;
   gap: 18px;
   padding: 0 28px;
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 700;
   letter-spacing: .18em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: rgba(255,255,255,.32);
   flex-shrink: 0;
 }
 
 .vx-ticker__item::after {
   content: '';
-  width: 4px;
-  height: 4px;
+  width: 3px;
+  height: 3px;
   border-radius: 50%;
   background: var(--gold);
-  opacity: .7;
+  opacity: .5;
   flex-shrink: 0;
 }
 
@@ -1863,11 +1873,13 @@ a.vx-contact-item__val:hover { color: var(--gold); }
   }
 
   .vx-hero__title {
-    font-size: clamp(28px, 8.2vw, 42px);
+    font-size: clamp(25px, 7.2vw, 37px);
     line-height: 1.05;
     letter-spacing: -.04em;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
   }
+
+  .vx-hero__sub { font-size: 13px; margin-bottom: 28px; }
 
   .vx-hero__btns { flex-direction: column; width: 100%; gap: 8px; margin-top: auto; padding-top: 24px; }
   .vx-btn { width: 100%; justify-content: center; height: 52px; border-radius: 14px; }
@@ -1932,7 +1944,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
   .vx-nav__mobile-social { width: 44px; height: 44px; }
   .vx-nav__mobile-social img { width: 28px; height: 28px; }
   .vx-nav__burger { width: 44px; height: 44px; border-radius: 12px; }
-  .vx-hero__title { font-size: clamp(24px, 8.5vw, 30px); }
+  .vx-hero__title { font-size: clamp(21px, 7.5vw, 26px); }
   .vx-about__nums { grid-template-columns: 1fr; border-top: 1px solid var(--line); }
   .vx-num { border-right: 0; padding: 14px 0; border-bottom: 1px solid var(--line); }
   .vx-num:last-child { border-bottom: 0; }
@@ -2015,8 +2027,10 @@ a.vx-contact-item__val:hover { color: var(--gold); }
 
     <div class="vx-hero__body">
       <h1 class="vx-hero__title" id="vxHeroTitle">
-        ВБЕТОН — надёжный партнёр<br>в строительстве <em>вашего дома</em>
+        ВБЕТОН — надёжный партнёр<br>в строительстве<br><em>вашего дома</em>
       </h1>
+
+      <p class="vx-hero__sub">Проектируем и строим частные дома в Краснодарском крае.</p>
 
       <div class="vx-hero__btns">
         <a class="vx-btn vx-btn--primary" href="#vxForm">
@@ -2034,12 +2048,12 @@ a.vx-contact-item__val:hover { color: var(--gold); }
         <span>Проектов сдано</span>
       </div>
       <div class="vx-hero__stat">
-        <strong>ЭСКРОУ</strong>
-        <span>Безопасная схема</span>
+        <strong>10 лет</strong>
+        <span>Гарантии</span>
       </div>
       <div class="vx-hero__stat">
-        <strong>10 лет</strong>
-        <span>Гарантия</span>
+        <strong>ЭСКРОУ</strong>
+        <span>Безопасная схема расчётов</span>
       </div>
     </div>
   </section>
