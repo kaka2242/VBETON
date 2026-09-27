@@ -1754,21 +1754,9 @@ a.vx-contact-item__val:hover { color: var(--gold); }
 
 /* ─────────────────────────────────────────────
    REVEAL
-   Контент виден всегда по умолчанию. Анимация появления
-   при скролле — необязательное усиление: если JS отработает,
-   .vx-reveal на мгновение приглушается и проявляется красиво;
-   если нет — контент просто виден без анимации, никогда не пропадает.
+   Анимация появления при скролле отключена (см. JS) — контент
+   всегда виден сразу без opacity:0 и зависимости от IntersectionObserver.
 ───────────────────────────────────────────── */
-.vx-reveal.pre {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity .7s var(--ease), transform .7s var(--ease);
-}
-
-.vx-reveal.in { opacity: 1; transform: none; }
-.vx-d1 { transition-delay: .08s; }
-.vx-d2 { transition-delay: .16s; }
-.vx-d3 { transition-delay: .24s; }
 
 /* ─────────────────────────────────────────────
    TOUCH / ACTIVE STATES
@@ -2071,10 +2059,6 @@ a.vx-contact-item__val:hover { color: var(--gold); }
   }
 }
 </style>
-
-<noscript>
-<style>.vx-site .vx-reveal { opacity: 1 !important; transform: none !important; }</style>
-</noscript>
 
 <div class="vx-site" id="vxSite">
 
@@ -2773,28 +2757,10 @@ a.vx-contact-item__val:hover { color: var(--gold); }
     if (e.key === 'Escape') closePolicy();
   });
 
-  /* ── Reveal on scroll ──
-     Контент виден по умолчанию (см. CSS). Если что-то тут упадёт —
-     try/catch не даёт этому сломать остальной скрипт (меню, FAQ, форму),
-     а сам контент всё равно останется видимым, просто без анимации. */
-  try {
-    if ('IntersectionObserver' in window) {
-      var reveals = site.querySelectorAll('.vx-reveal');
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          if (e.isIntersecting) {
-            e.target.classList.add('in');
-            e.target.classList.remove('pre');
-            io.unobserve(e.target);
-          }
-        });
-      }, { threshold: 0.07, rootMargin: '0px 0px -40px 0px' });
-      reveals.forEach(function (el) {
-        el.classList.add('pre');
-        io.observe(el);
-      });
-    }
-  } catch (err) {}
+  /* ── Reveal-on-scroll отключён: в предпросмотре Tilda наблюдатель
+     срабатывал ненадёжно, и контент оставался невидимым до скролла
+     в самый низ. Контент теперь всегда виден сразу (см. CSS
+     .vx-reveal без модификаторов — opacity:1 по умолчанию). ── */
 
   /* ── FAQ accordion ── */
   site.querySelectorAll('.vx-faq__item').forEach(function (item) {
