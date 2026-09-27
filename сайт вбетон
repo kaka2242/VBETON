@@ -2597,7 +2597,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
     <a class="vx-footer__brand" href="#vxHero">
       <img src="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/logo-icon.png" alt="" decoding="async">ВБЕТОН
     </a>
-    <p class="vx-footer__copy">© 2026 ВБЕТОН · Монолитное строительство на Юге России</p>
+    <p class="vx-footer__copy">© 2026 ВБЕТОН · Монолитное строительство на Юге России<br>ИП Калашников В. О. · ОГРНИП [ОГРНИП] · ИНН [ИНН]</p>
     <nav class="vx-footer__links" aria-label="Навигация в подвале">
       <a href="#vxAbout">О нас</a>
       <a href="#vxServices">Услуги</a>
