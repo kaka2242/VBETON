@@ -551,12 +551,13 @@ html, body { background: #080808; }
 
 .vx-hero__sub {
   max-width: 520px;
-  color: var(--soft);
+  color: #fff;
   font-size: clamp(14px, 1.3vw, 18px);
   line-height: 1.5;
   letter-spacing: -.01em;
   margin-bottom: 38px;
   text-wrap: pretty;
+  text-shadow: 0 1px 3px rgba(0,0,0,.9), 0 6px 20px rgba(0,0,0,.55);
 }
 
 .vx-hero__btns {
@@ -1880,8 +1881,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
   .vx-hero__sub {
     font-size: 13px;
     margin-bottom: 20px;
-    color: #fff;
-    text-shadow: 0 2px 8px rgba(0,0,0,.7);
+    text-shadow: 0 1px 3px rgba(0,0,0,.95), 0 6px 18px rgba(0,0,0,.6);
   }
 
   .vx-hero__btns { flex-direction: column; align-items: center; width: 100%; gap: 11px; margin-top: auto; padding-top: 24px; }
