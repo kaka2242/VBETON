@@ -1788,6 +1788,12 @@ a.vx-contact-item__val:hover { color: var(--gold); }
   .vx-services__head { grid-template-columns: 1fr; gap: 24px; }
 
   .vx-service__bg { opacity: 1; transform: scale(1); }
+  .vx-service__row::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(8,8,8,.32);
+  }
   .vx-services.vx-light .vx-service__row { color: #fff; }
 
   .vx-projects__grid { grid-template-columns: 1fr; }
