@@ -1866,7 +1866,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
     flex: 1;
     padding-left: 20px;
     padding-right: 20px;
-    padding-bottom: max(64px, calc(env(safe-area-inset-bottom) + 48px));
+    padding-bottom: max(36px, calc(env(safe-area-inset-bottom) + 20px));
     padding-top: calc(118px + env(safe-area-inset-top));
   }
 
