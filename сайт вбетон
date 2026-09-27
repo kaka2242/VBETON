@@ -1231,7 +1231,21 @@ html, body { background: #080808; }
   transform: scale(1.06);
 }
 
+.vx-step__head {
+  display: block;
+  width: 100%;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  font: inherit;
+  text-align: left;
+  color: inherit;
+  cursor: default;
+}
+
 .vx-step__title {
+  display: block;
   font-size: clamp(22px, 2.4vw, 34px);
   font-weight: 800;
   letter-spacing: -.045em;
@@ -1242,6 +1256,15 @@ html, body { background: #080808; }
 }
 
 .vx-step:hover .vx-step__title { transform: translateX(4px); }
+
+.vx-step__arrow { display: none; }
+
+.vx-step__desc {
+  max-height: none;
+  overflow: visible;
+}
+
+.vx-step__desc-inner { padding: 0; }
 
 .vx-step__text {
   color: rgba(255,255,255,.5);
@@ -1923,20 +1946,57 @@ a.vx-contact-item__val:hover { color: var(--gold); }
   .vx-card__info { left: 16px; right: 16px; bottom: 16px; }
   .vx-card__name { font-size: 22px; }
 
-  .vx-steps { grid-template-columns: 1fr; }
+  .vx-steps { grid-template-columns: 1fr; border-top: 0; }
   .vx-step,
   .vx-step:nth-child(3n),
   .vx-step:nth-child(even),
   .vx-step:nth-child(n+4) {
-    padding: 24px 0;
+    padding: 0;
     border-right: 0;
     border-bottom: 1px solid var(--line);
     border-top: 0;
-    padding-left: 0;
   }
   .vx-step:last-child { border-bottom: 0; }
-  .vx-step__n { margin-bottom: 28px; }
-  .vx-step__title { font-size: 22px; }
+
+  .vx-step__head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 0;
+    cursor: pointer;
+  }
+  .vx-step__n { margin-bottom: 0; width: 32px; height: 32px; font-size: 11px; flex-shrink: 0; }
+  .vx-step__title { font-size: 17px; margin-bottom: 0; flex: 1; }
+  .vx-step:hover .vx-step__title,
+  .vx-step.is-open .vx-step__title { transform: none; }
+
+  .vx-step__arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    flex-shrink: 0;
+    border: 1px solid var(--ink-line);
+    border-radius: 50%;
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--ink-muted);
+    transition: transform .3s var(--ease), background .25s ease, border-color .25s ease, color .25s ease;
+  }
+  .vx-step.is-open .vx-step__arrow {
+    transform: rotate(45deg);
+    background: var(--gold-deep);
+    border-color: var(--gold-deep);
+    color: #fff;
+  }
+
+  .vx-step__desc {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .4s ease;
+  }
+  .vx-step__desc-inner { padding: 0 40px 20px 46px; }
 
   .vx-faq__q { font-size: 15px; }
 
@@ -2290,34 +2350,76 @@ a.vx-contact-item__val:hover { color: var(--gold); }
 
       <div class="vx-steps">
         <article class="vx-step vx-reveal">
-          <div class="vx-step__n">01</div>
-          <div class="vx-step__title">Консультация</div>
-          <p class="vx-step__text">Обсуждаем участок, пожелания и бюджет.</p>
+          <button class="vx-step__head" type="button" aria-expanded="false">
+            <span class="vx-step__n">01</span>
+            <span class="vx-step__title">Консультация</span>
+            <span class="vx-step__arrow" aria-hidden="true">+</span>
+          </button>
+          <div class="vx-step__desc" role="region">
+            <div class="vx-step__desc-inner">
+              <p class="vx-step__text">Обсуждаем участок, пожелания и бюджет.</p>
+            </div>
+          </div>
         </article>
         <article class="vx-step vx-reveal vx-d1">
-          <div class="vx-step__n">02</div>
-          <div class="vx-step__title">Анализ участка</div>
-          <p class="vx-step__text">Изучаем исходные данные и ограничения.</p>
+          <button class="vx-step__head" type="button" aria-expanded="false">
+            <span class="vx-step__n">02</span>
+            <span class="vx-step__title">Анализ участка</span>
+            <span class="vx-step__arrow" aria-hidden="true">+</span>
+          </button>
+          <div class="vx-step__desc" role="region">
+            <div class="vx-step__desc-inner">
+              <p class="vx-step__text">Изучаем исходные данные и ограничения.</p>
+            </div>
+          </div>
         </article>
         <article class="vx-step vx-reveal vx-d2">
-          <div class="vx-step__n">03</div>
-          <div class="vx-step__title">Проектирование</div>
-          <p class="vx-step__text">Концепция, чертежи и сметная часть.</p>
+          <button class="vx-step__head" type="button" aria-expanded="false">
+            <span class="vx-step__n">03</span>
+            <span class="vx-step__title">Проектирование</span>
+            <span class="vx-step__arrow" aria-hidden="true">+</span>
+          </button>
+          <div class="vx-step__desc" role="region">
+            <div class="vx-step__desc-inner">
+              <p class="vx-step__text">Концепция, чертежи и сметная часть.</p>
+            </div>
+          </div>
         </article>
         <article class="vx-step vx-reveal">
-          <div class="vx-step__n">04</div>
-          <div class="vx-step__title">Строительство</div>
-          <p class="vx-step__text">Возводим объект с пошаговым контролем.</p>
+          <button class="vx-step__head" type="button" aria-expanded="false">
+            <span class="vx-step__n">04</span>
+            <span class="vx-step__title">Строительство</span>
+            <span class="vx-step__arrow" aria-hidden="true">+</span>
+          </button>
+          <div class="vx-step__desc" role="region">
+            <div class="vx-step__desc-inner">
+              <p class="vx-step__text">Возводим объект с пошаговым контролем.</p>
+            </div>
+          </div>
         </article>
         <article class="vx-step vx-reveal vx-d1">
-          <div class="vx-step__n">05</div>
-          <div class="vx-step__title">Отделка</div>
-          <p class="vx-step__text">Фасады, инженерия, финальная подготовка.</p>
+          <button class="vx-step__head" type="button" aria-expanded="false">
+            <span class="vx-step__n">05</span>
+            <span class="vx-step__title">Отделка</span>
+            <span class="vx-step__arrow" aria-hidden="true">+</span>
+          </button>
+          <div class="vx-step__desc" role="region">
+            <div class="vx-step__desc-inner">
+              <p class="vx-step__text">Фасады, инженерия, финальная подготовка.</p>
+            </div>
+          </div>
         </article>
         <article class="vx-step vx-reveal vx-d2">
-          <div class="vx-step__n">06</div>
-          <div class="vx-step__title">Сдача объекта</div>
-          <p class="vx-step__text">Проверка и передача готового дома.</p>
+          <button class="vx-step__head" type="button" aria-expanded="false">
+            <span class="vx-step__n">06</span>
+            <span class="vx-step__title">Сдача объекта</span>
+            <span class="vx-step__arrow" aria-hidden="true">+</span>
+          </button>
+          <div class="vx-step__desc" role="region">
+            <div class="vx-step__desc-inner">
+              <p class="vx-step__text">Проверка и передача готового дома.</p>
+            </div>
+          </div>
         </article>
       </div>
     </div>
@@ -2689,6 +2791,27 @@ a.vx-contact-item__val:hover { color: var(--gold); }
       if (!open) {
         item.classList.add('is-open');
         row.setAttribute('aria-expanded', 'true');
+        desc.style.maxHeight = desc.scrollHeight + 'px';
+      }
+    });
+  });
+
+  /* ── Process steps accordion (mobile only, CSS no-ops on desktop) ── */
+  site.querySelectorAll('.vx-step').forEach(function (item) {
+    var head = item.querySelector('.vx-step__head');
+    var desc = item.querySelector('.vx-step__desc');
+    if (!head || !desc) return;
+    head.addEventListener('click', function () {
+      var open = item.classList.contains('is-open');
+      site.querySelectorAll('.vx-step.is-open').forEach(function (other) {
+        other.classList.remove('is-open');
+        other.querySelector('.vx-step__head').setAttribute('aria-expanded', 'false');
+        var d = other.querySelector('.vx-step__desc');
+        if (d) d.style.maxHeight = null;
+      });
+      if (!open) {
+        item.classList.add('is-open');
+        head.setAttribute('aria-expanded', 'true');
         desc.style.maxHeight = desc.scrollHeight + 'px';
       }
     });
