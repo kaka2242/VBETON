@@ -375,6 +375,39 @@ html, body { background: #080808; }
   padding-top: 24px;
 }
 
+.vx-drawer__foot-socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 16px;
+}
+
+.vx-drawer__foot-social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  transition: background .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+.vx-drawer__foot-social:hover {
+  background: rgba(201,169,110,.14);
+  border-color: rgba(201,169,110,.4);
+}
+
+.vx-drawer__foot-social:active { transform: scale(.94); }
+
+.vx-drawer__foot-social img {
+  width: 30px;
+  height: 30px;
+  display: block;
+}
+
 .vx-drawer__foot-cta {
   display: flex;
   align-items: center;
@@ -2097,6 +2130,10 @@ a.vx-contact-item__val:hover { color: var(--gold); }
       <a href="#vxContacts">Контакты <span>↗</span></a>
     </nav>
     <div class="vx-drawer__foot">
+      <div class="vx-drawer__foot-socials">
+        <a class="vx-drawer__foot-social" href="https://t.me/Kalashnikov_7_62" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><img src="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/tg-icon.png" alt="" decoding="async"></a>
+        <a class="vx-drawer__foot-social" href="https://www.instagram.com/kalashnikov.v.vbeton?stkn=MWlkZ2d2dTg0MTV6dQ%3D%3D&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/insta-icon.png" alt="" decoding="async"></a>
+      </div>
       <a class="vx-drawer__foot-cta" href="#vxForm">Получить расчёт стоимости</a>
     </div>
   </div>
