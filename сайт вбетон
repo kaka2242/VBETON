@@ -2135,10 +2135,9 @@ a.vx-contact-item__val:hover { color: var(--gold); }
     <div class="vx-container">
       <div class="vx-banks__head vx-reveal">
         <div class="vx-section-label">Ипотека · ЭСКРОУ</div>
-        <h2 class="vx-h2" id="vxBanksTitle">Аккредитованы<br>в банках РФ.</h2>
+        <h2 class="vx-h2" id="vxBanksTitle">Лидеры ипотечного строительства ЭСКРОУ на Юге России.</h2>
         <p class="vx-body" style="margin-top:24px;">
-          Строим по эскроу-счетам — деньги дольщика защищены до сдачи объекта.
-          Работаем по ипотечным программам с ведущими банками Юга России.
+          Аккредитованы во всех лидирующих банках РФ.
         </p>
       </div>
       <div class="vx-banks__grid vx-reveal vx-d1">
