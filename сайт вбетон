@@ -2506,7 +2506,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
     <div class="vx-container">
       <div class="vx-cta__layout">
         <div class="vx-cta__img vx-reveal">
-          <img src="https://static.tildacdn.com/tild6266-3734-4261-a562-653736653436/photo-1762117360986-.jpg" alt="Готовый дом ВБЕТОН" loading="lazy" decoding="async">
+          <img src="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/cta-house.jpg" alt="Готовый дом ВБЕТОН" width="1400" height="1400" loading="lazy" decoding="async">
           <div class="vx-cta__img-overlay" aria-hidden="true"></div>
         </div>
 
