@@ -1877,7 +1877,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
 
   .vx-nav > nav { display: none !important; }
 
-  .vx-nav__actions { gap: 5px; align-self: center; margin-left: auto; }
+  .vx-nav__actions { gap: 16px; align-self: center; margin-left: auto; }
 
   .vx-nav__mobile-socials { gap: 5px; }
 
