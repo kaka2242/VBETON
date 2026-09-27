@@ -1886,7 +1886,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
     height: 44px;
   }
 
-  .vx-nav__mobile-social img { width: 28px; height: 28px; }
+  .vx-nav__mobile-social img { width: 24px; height: 24px; }
 
   .vx-nav__burger {
     width: 44px;
@@ -2022,7 +2022,7 @@ a.vx-contact-item__val:hover { color: var(--gold); }
   .vx-nav__logo-icon { height: 16px; }
   .vx-nav__mobile-socials { gap: 7px; }
   .vx-nav__mobile-social { width: 44px; height: 44px; }
-  .vx-nav__mobile-social img { width: 28px; height: 28px; }
+  .vx-nav__mobile-social img { width: 24px; height: 24px; }
   .vx-nav__burger { width: 44px; height: 44px; border-radius: 12px; }
   .vx-hero__title { font-size: clamp(20px, 7vw, 24px); }
   .vx-about__nums { grid-template-columns: 1fr; border-top: 1px solid var(--line); }
