@@ -2014,7 +2014,8 @@ a.vx-contact-card:hover .vx-contact-card__icon {
     font-size: 15px;
     padding: 12px 18px;
     border-radius: 20px;
-    margin-bottom: 20px;
+    margin-top: auto;
+    margin-bottom: 30px;
     box-shadow: 0 14px 32px rgba(0,0,0,.35), 0 2px 8px rgba(0,0,0,.25);
     animation: vxSubPopIn 1.7s cubic-bezier(.4, 0, .2, 1) .35s both;
   }
@@ -2024,7 +2025,7 @@ a.vx-contact-card:hover .vx-contact-card__icon {
     100% { opacity: 1; transform: translateY(0) scale(1); }
   }
 
-  .vx-hero__btns { flex-direction: column; align-items: center; width: 100%; gap: 11px; margin-top: auto; padding-top: 24px; }
+  .vx-hero__btns { flex-direction: column; align-items: center; width: 100%; gap: 11px; }
   .vx-btn { justify-content: center; height: 54px; padding: 0 38px; border-radius: 14px; }
 
   .vx-container { width: calc(100% - 40px); }
