@@ -1562,7 +1562,7 @@ html, body { background: #080808; }
   align-items: flex-start;
   gap: 14px;
   padding: 28px 24px;
-  border: 1px solid var(--line);
+  border: 1.5px solid rgba(20,16,10,.75);
   border-radius: 16px;
   text-decoration: none;
   transition: border-color .25s ease, background .25s ease, transform .25s var(--ease);
