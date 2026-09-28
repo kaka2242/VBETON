@@ -1989,7 +1989,7 @@ a.vx-contact-card:hover .vx-contact-card__icon {
 
   .vx-hero__bg::after {
     background:
-      linear-gradient(180deg, rgba(8,8,8,.42) 0%, rgba(8,8,8,.35) 30%, rgba(8,8,8,.3) 50%, rgba(8,8,8,.42) 70%, rgba(8,8,8,.62) 100%);
+      linear-gradient(180deg, rgba(8,8,8,.42) 0%, rgba(8,8,8,.35) 30%, rgba(8,8,8,.48) 55%, rgba(8,8,8,.66) 78%, rgba(8,8,8,.88) 100%);
   }
 
   .vx-hero__body {
