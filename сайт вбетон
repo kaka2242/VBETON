@@ -1976,7 +1976,7 @@ a.vx-contact-card:hover .vx-contact-card__icon {
 
   .vx-container { width: calc(100% - 40px); }
 
-  .vx-about__image { min-height: 300px; }
+  .vx-about__image { min-height: 275px; }
   .vx-about__text { padding: 40px 20px; }
   .vx-about__nums { grid-template-columns: repeat(3, 1fr); }
   .vx-num + .vx-num { padding-left: 12px; }
