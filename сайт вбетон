@@ -5,10 +5,12 @@
 -->
 
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="icon" href="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/logo-icon.png">
 <link rel="preload" as="image" fetchpriority="high" media="(max-width: 620px)" href="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/%D0%BC%D0%BE%D0%B1%D0%B8%D0%BB%D0%BA%D0%B0.jpg">
 <link rel="preload" as="image" fetchpriority="high" media="(min-width: 621px)" href="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/6666.jpg">
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
 
 <style>
 /* ─────────────────────────────────────────────
@@ -2353,7 +2355,7 @@ a.vx-contact-card:hover .vx-contact-card__icon {
       <div class="vx-services__list">
         <div class="vx-service vx-reveal">
           <button class="vx-service__row" type="button" aria-expanded="false">
-            <div class="vx-service__bg" style="background-image:url('https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/service-design.jpg');"></div>
+            <div class="vx-service__bg" data-bg="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/service-design.jpg"></div>
             <span class="vx-service__idx">01</span>
             <span class="vx-service__name">Проектирование</span>
             <span class="vx-service__arrow" aria-hidden="true">+</span>
@@ -2367,7 +2369,7 @@ a.vx-contact-card:hover .vx-contact-card__icon {
         </div>
         <div class="vx-service vx-reveal vx-d1">
           <button class="vx-service__row" type="button" aria-expanded="false">
-            <div class="vx-service__bg" style="background-image:url('https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/service-monolith.jpg');"></div>
+            <div class="vx-service__bg" data-bg="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/service-monolith.jpg"></div>
             <span class="vx-service__idx">02</span>
             <span class="vx-service__name">Монолитное строительство</span>
             <span class="vx-service__arrow" aria-hidden="true">+</span>
@@ -2381,7 +2383,7 @@ a.vx-contact-card:hover .vx-contact-card__icon {
         </div>
         <div class="vx-service vx-reveal vx-d2">
           <button class="vx-service__row" type="button" aria-expanded="false">
-            <div class="vx-service__bg" style="background-image:url('https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/service-turnkey.jpg');"></div>
+            <div class="vx-service__bg" data-bg="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/service-turnkey.jpg"></div>
             <span class="vx-service__idx">03</span>
             <span class="vx-service__name">Дома под ключ</span>
             <span class="vx-service__arrow" aria-hidden="true">+</span>
@@ -2395,7 +2397,7 @@ a.vx-contact-card:hover .vx-contact-card__icon {
         </div>
         <div class="vx-service vx-reveal vx-d3">
           <button class="vx-service__row" type="button" aria-expanded="false">
-            <div class="vx-service__bg" style="background-image:url('https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/service-facade.jpg');"></div>
+            <div class="vx-service__bg" data-bg="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/service-facade.jpg"></div>
             <span class="vx-service__idx">04</span>
             <span class="vx-service__name">Фасадные работы</span>
             <span class="vx-service__arrow" aria-hidden="true">+</span>
@@ -2813,6 +2815,31 @@ a.vx-contact-card:hover .vx-contact-card__icon {
     setTimeout(function () { heroBg.style.transform = 'scale(1)'; }, 100);
   }
 
+  /* ── Lazy-load service card background photos ──
+     Раньше эти 4 фото грузились сразу при открытии страницы через inline
+     background-image, хотя блок «Услуги» находится далеко ниже экрана и
+     фото становится видно только по hover/клику. Догружаем их через
+     IntersectionObserver, когда блок приближается к экрану. */
+  var serviceBgs = site.querySelectorAll('.vx-service__bg[data-bg]');
+  if (serviceBgs.length) {
+    if ('IntersectionObserver' in window) {
+      var bgObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          var el = entry.target;
+          el.style.backgroundImage = 'url("' + el.getAttribute('data-bg') + '")';
+          el.removeAttribute('data-bg');
+          bgObserver.unobserve(el);
+        });
+      }, { rootMargin: '600px 0px' });
+      serviceBgs.forEach(function (el) { bgObserver.observe(el); });
+    } else {
+      serviceBgs.forEach(function (el) {
+        el.style.backgroundImage = 'url("' + el.getAttribute('data-bg') + '")';
+      });
+    }
+  }
+
   /* ── Count-up stats (150+ / 10 лет) при загрузке страницы ── */
   try {
     var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -2979,6 +3006,22 @@ a.vx-contact-card:hover .vx-contact-card__icon {
     });
   });
 
+  /* ── Держим открытые аккордеоны (FAQ / услуги / шаги) на нужной высоте
+     при повороте экрана или изменении размера окна — иначе зафиксированный
+     ранее max-height может обрезать текст, если он перетёкся на другую
+     высоту (например, стал занимать больше строк). ── */
+  var openDescSelector = '.vx-faq__item.is-open .vx-faq__answer, .vx-service.is-open .vx-service__desc, .vx-step.is-open .vx-step__desc';
+  var resizeRaf = null;
+  window.addEventListener('resize', function () {
+    if (resizeRaf) return;
+    resizeRaf = requestAnimationFrame(function () {
+      resizeRaf = null;
+      site.querySelectorAll(openDescSelector).forEach(function (el) {
+        el.style.maxHeight = el.scrollHeight + 'px';
+      });
+    });
+  });
+
   /* ── Phone formatter ── */
   var phoneInput = document.getElementById('vxPhone');
   if (phoneInput) {
@@ -3010,8 +3053,14 @@ a.vx-contact-card:hover .vx-contact-card__icon {
   var status = document.getElementById('vxFormStatus');
   var consent = document.getElementById('vxConsent');
 
-  if (form && window.emailjs && EMAILJS_PUBLIC_KEY.indexOf('ВСТАВЬТЕ') === -1) {
+  /* EmailJS-скрипт подключён с defer (не блокирует отрисовку страницы),
+     поэтому к моменту выполнения этого кода window.emailjs может быть ещё
+     не готов — инициализируем лениво, прямо перед первой отправкой. */
+  var emailjsReady = false;
+  function ensureEmailjsInit() {
+    if (emailjsReady || !window.emailjs || EMAILJS_PUBLIC_KEY.indexOf('ВСТАВЬТЕ') !== -1) return;
     emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+    emailjsReady = true;
   }
 
   if (form) {
@@ -3038,6 +3087,8 @@ a.vx-contact-card:hover .vx-contact-card__icon {
         if (submitBtn) submitBtn.disabled = false;
         return;
       }
+
+      ensureEmailjsInit();
 
       emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
         name: name.value.trim(),
