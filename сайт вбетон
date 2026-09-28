@@ -421,21 +421,22 @@ html, body { background: #080808; }
   align-items: center;
   justify-content: center;
   height: 56px;
-  border: 1px solid rgba(255,255,255,.22);
+  border: none;
   border-radius: 16px;
-  color: var(--white);
+  color: var(--black);
   text-decoration: none;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: .06em;
   text-transform: uppercase;
-  background: rgba(255,255,255,.06);
-  transition: background .2s ease, border-color .2s ease;
+  background: var(--gold);
+  box-shadow: 0 10px 34px rgba(201,169,110,.4);
+  transition: background .2s ease, box-shadow .2s ease;
 }
 
 .vx-drawer__foot-cta:hover {
-  background: rgba(201,169,110,.12);
-  border-color: rgba(201,169,110,.4);
+  background: var(--gold2);
+  box-shadow: 0 16px 46px rgba(201,169,110,.55);
   color: var(--gold2);
 }
 
@@ -1855,7 +1856,7 @@ a.vx-contact-card:hover .vx-contact-card__icon {
 .vx-faq__btn:active { padding-left: 6px; }
 
 .vx-drawer__nav a:active { color: var(--gold); }
-.vx-drawer__foot-cta:active,
+.vx-drawer__foot-cta:active { background: var(--gold2); }
 .vx-drawer__close:active { background: rgba(201,169,110,.12); }
 
 .vx-bank:active {
