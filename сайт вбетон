@@ -1966,9 +1966,17 @@ a.vx-contact-card:hover .vx-contact-card__icon {
 
   .vx-hero__sub {
     font-size: 15px;
-    padding: 11px 18px;
-    border-radius: 14px;
+    padding: 12px 18px;
+    border-radius: 20px;
     margin-bottom: 20px;
+    box-shadow: 0 14px 32px rgba(0,0,0,.35), 0 2px 8px rgba(0,0,0,.25);
+    animation: vxSubPopIn .6s cubic-bezier(.2, 1.2, .3, 1) .35s both;
+  }
+
+  @keyframes vxSubPopIn {
+    0%   { opacity: 0; transform: translateY(-16px) scale(.9); }
+    60%  { opacity: 1; transform: translateY(2px) scale(1.02); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
   }
 
   .vx-hero__btns { flex-direction: column; align-items: center; width: 100%; gap: 11px; margin-top: auto; padding-top: 24px; }
