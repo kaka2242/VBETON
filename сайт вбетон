@@ -437,7 +437,6 @@ html, body { background: #080808; }
 .vx-drawer__foot-cta:hover {
   background: var(--gold2);
   box-shadow: 0 16px 46px rgba(201,169,110,.55);
-  color: var(--gold2);
 }
 
 /* ─────────────────────────────────────────────
