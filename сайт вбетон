@@ -6,11 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
-<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="icon" href="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/logo-icon.png">
 <link rel="preload" as="image" fetchpriority="high" media="(max-width: 620px)" href="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/%D0%BC%D0%BE%D0%B1%D0%B8%D0%BB%D0%BA%D0%B0.jpg">
 <link rel="preload" as="image" fetchpriority="high" media="(min-width: 621px)" href="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/6666.jpg">
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
 
 <style>
 /* ─────────────────────────────────────────────
@@ -2764,10 +2762,10 @@ a.vx-contact-card:hover .vx-contact-card__icon {
         <p>Согласие субъекта персональных данных (ст. 6, ст. 9 152-ФЗ), выраженное путём проставления отметки в форме на сайте.</p>
 
         <h3>5. Способы и сроки обработки</h3>
-        <p>Обработка осуществляется с использованием средств автоматизации: данные из формы направляются Оператору по электронной почте и отдельно на стороне сайта не хранятся. Данные хранятся до достижения целей обработки либо до отзыва согласия субъектом, но не дольше срока, необходимого для указанных целей.</p>
+        <p>Обработка осуществляется с использованием средств автоматизации: заявка с формы обрабатывается инструментами платформы Tilda, на которой размещён сайт, включая приём формы и передачу заявки в CRM-систему, подключённую Оператором в настройках Tilda. Данные хранятся до достижения целей обработки либо до отзыва согласия субъектом, но не дольше срока, необходимого для указанных целей.</p>
 
         <h3>6. Передача третьим лицам</h3>
-        <p>Для доставки заявок с формы обратной связи на электронную почту Оператора используется сервис автоматической отправки писем (EmailJS) — он получает введённые в форму данные (имя, телефон, текст обращения) исключительно для их пересылки Оператору и может обрабатывать их на серверах за пределами Российской Федерации. Иным третьим лицам персональные данные не передаются и не продаются.</p>
+        <p>Сайт не использует сторонние сервисы рассылок и аналогичные внешние сервисы для обработки заявок — форма обрабатывается средствами платформы Tilda и подключённой к ней CRM-системой Оператора. Иным третьим лицам персональные данные не передаются и не продаются.</p>
 
         <h3>7. Права субъекта персональных данных</h3>
         <p>Пользователь вправе получить информацию об обработке своих данных, требовать их уточнения, блокирования или уничтожения, а также в любой момент отозвать согласие, направив обращение на e-mail, указанный в разделе 1.</p>
@@ -3066,35 +3064,21 @@ a.vx-contact-card:hover .vx-contact-card__icon {
     });
   }
 
-  /* ── Form submit (EmailJS) ──
-     Заявки уходят напрямую из браузера на почту через EmailJS —
-     сервера/хостинга не требуется. Три значения ниже нужно получить
-     на emailjs.com (Service ID, Template ID, Public Key) и вставить
-     сюда вместо плейсхолдеров. */
-  var EMAILJS_PUBLIC_KEY = 'ВСТАВЬТЕ_PUBLIC_KEY';
-  var EMAILJS_SERVICE_ID = 'ВСТАВЬТЕ_SERVICE_ID';
-  var EMAILJS_TEMPLATE_ID = 'ВСТАВЬТЕ_TEMPLATE_ID';
-
+  /* ── Form submit ──
+     Сторонние сервисы (вроде EmailJS) не используются — приём и доставку
+     заявки настраивает сама Тильда (форма/CRM в её настройках). Здесь —
+     только клиентская проверка полей; у формы нет action на реальный
+     адрес, поэтому обычная отправка всегда блокируется, чтобы не
+     перезагружать страницу впустую. */
   var form = document.getElementById('vxContactForm');
   var status = document.getElementById('vxFormStatus');
   var consent = document.getElementById('vxConsent');
-
-  /* EmailJS-скрипт подключён с defer (не блокирует отрисовку страницы),
-     поэтому к моменту выполнения этого кода window.emailjs может быть ещё
-     не готов — инициализируем лениво, прямо перед первой отправкой. */
-  var emailjsReady = false;
-  function ensureEmailjsInit() {
-    if (emailjsReady || !window.emailjs || EMAILJS_PUBLIC_KEY.indexOf('ВСТАВЬТЕ') !== -1) return;
-    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
-    emailjsReady = true;
-  }
 
   if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var name = document.getElementById('vxName');
       var phone = document.getElementById('vxPhone');
-      var msg = document.getElementById('vxMsg');
       var digits = phone ? phone.value.replace(/\D/g, '') : '';
 
       if (!name || !name.value.trim()) { if (name) name.focus(); return; }
@@ -3103,31 +3087,8 @@ a.vx-contact-card:hover .vx-contact-card__icon {
         if (status) { status.style.display = 'block'; status.textContent = 'Подтвердите согласие.'; }
         return;
       }
-
-      var submitBtn = form.querySelector('.vx-form__submit');
-      if (submitBtn) submitBtn.disabled = true;
-      if (status) { status.style.display = 'block'; status.textContent = 'Отправляем…'; }
-
-      if (!window.emailjs || EMAILJS_PUBLIC_KEY.indexOf('ВСТАВЬТЕ') !== -1) {
-        if (status) { status.textContent = 'Форма пока не подключена к почте (нет ключей EmailJS).'; }
-        if (submitBtn) submitBtn.disabled = false;
-        return;
-      }
-
-      ensureEmailjsInit();
-
-      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-        name: name.value.trim(),
-        phone: phone.value.trim(),
-        message: msg ? msg.value.trim() : ''
-      }).then(function () {
-        if (status) { status.textContent = 'Спасибо! Заявка отправлена, скоро свяжемся с вами.'; }
-        form.reset();
-        if (submitBtn) submitBtn.disabled = false;
-      }, function () {
-        if (status) { status.textContent = 'Не получилось отправить. Позвоните нам напрямую, пожалуйста.'; }
-        if (submitBtn) submitBtn.disabled = false;
-      });
+      if (status) { status.style.display = 'block'; status.textContent = 'Спасибо! Заявка принята, скоро свяжемся с вами.'; }
+      form.reset();
     });
   }
 
