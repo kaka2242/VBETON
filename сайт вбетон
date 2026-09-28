@@ -1989,7 +1989,7 @@ a.vx-contact-card:hover .vx-contact-card__icon {
 
   .vx-hero__bg::after {
     background:
-      linear-gradient(180deg, rgba(8,8,8,.4) 0%, rgba(8,8,8,.34) 40%, rgba(8,8,8,.8) 72%, rgba(8,8,8,.96) 100%);
+      linear-gradient(180deg, rgba(8,8,8,.42) 0%, rgba(8,8,8,.35) 30%, rgba(8,8,8,.3) 50%, rgba(8,8,8,.42) 70%, rgba(8,8,8,.62) 100%);
   }
 
   .vx-hero__body {
@@ -2007,6 +2007,7 @@ a.vx-contact-card:hover .vx-contact-card__icon {
     line-height: 1.05;
     letter-spacing: -.03em;
     margin-bottom: 18px;
+    text-shadow: 0 2px 14px rgba(0,0,0,.55), 0 1px 3px rgba(0,0,0,.6);
   }
 
   .vx-hero__sub {
