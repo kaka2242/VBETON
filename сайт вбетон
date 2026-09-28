@@ -1970,12 +1970,11 @@ a.vx-contact-card:hover .vx-contact-card__icon {
     border-radius: 20px;
     margin-bottom: 20px;
     box-shadow: 0 14px 32px rgba(0,0,0,.35), 0 2px 8px rgba(0,0,0,.25);
-    animation: vxSubPopIn .6s cubic-bezier(.2, 1.2, .3, 1) .35s both;
+    animation: vxSubPopIn 1.1s cubic-bezier(.16, 1, .3, 1) .35s both;
   }
 
   @keyframes vxSubPopIn {
-    0%   { opacity: 0; transform: translateY(-16px) scale(.9); }
-    60%  { opacity: 1; transform: translateY(2px) scale(1.02); }
+    0%   { opacity: 0; transform: translateY(-14px) scale(.96); }
     100% { opacity: 1; transform: translateY(0) scale(1); }
   }
 
