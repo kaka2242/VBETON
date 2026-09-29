@@ -1639,30 +1639,12 @@ html, body { background: #080808; }
   color: inherit !important;
 }
 
-.vx-tilda-form .t-form__successbox:empty {
+/* Своё сообщение над формой убрали насовсем — на живом сайте оно
+   иногда показывалось пустой рамкой без текста (несмотря на фикс),
+   решили не рисковать и оставить единственным источником обратной
+   связи родной попап Тильды ниже, который надёжно работает. */
+.vx-tilda-form .t-form__successbox {
   display: none !important;
-}
-
-.vx-tilda-form .t-form__successbox:not(:empty) {
-  display: inline-block !important;
-  max-width: 100%;
-  color: var(--gold) !important;
-  font-size: 13px !important;
-  line-height: 1.5 !important;
-  margin-bottom: 16px;
-  padding: 12px 20px;
-  border-radius: 14px;
-  background: rgba(20,20,20,.6);
-  border: 1px solid rgba(255,255,255,.1);
-  backdrop-filter: blur(20px) saturate(160%);
-  -webkit-backdrop-filter: blur(20px) saturate(160%);
-  box-shadow: 0 8px 26px rgba(0,0,0,.35);
-  animation: vxSuccessPopIn .5s cubic-bezier(.22,1,.36,1) both;
-}
-
-@keyframes vxSuccessPopIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* Родной попап Тильды после отправки формы — общий для всей страницы
@@ -1674,9 +1656,11 @@ html, body { background: #080808; }
    страницы, которую Тильда ставит при открытии попапа; если попап
    спрятан, нажать эту кнопку невозможно, и блокировка остаётся
    навсегда. Поэтому попап должен оставаться видимым и рабочим —
-   только перекрашиваем его под тёмную тему сайта. */
+   только максимально перекрашиваем его под тёмную/золотую тему сайта. */
 #tildaformsuccesspopup-new {
   background: rgba(8,8,8,.75) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
 }
 
 #tildaformsuccesspopup-new .t-form-success-popup__wrapper {
@@ -1689,12 +1673,41 @@ html, body { background: #080808; }
 #tildaformsuccesspopup-new .t-form-success-popup__wrapper,
 #tildaformsuccesspopup-new .t-form-success-popup__wrapper * {
   color: #f3ecda !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', Arial, sans-serif !important;
 }
 
 #tildaformsuccesspopup-new .t-form-success-popup__wrapper button {
   background: #c9a96e !important;
   color: #080808 !important;
   border: none !important;
+  border-radius: 14px !important;
+  font-weight: 800 !important;
+  transition: background .2s ease, box-shadow .2s ease !important;
+}
+
+#tildaformsuccesspopup-new .t-form-success-popup__wrapper button:hover {
+  background: #e8c98a !important;
+  box-shadow: 0 10px 28px rgba(201,169,110,.4) !important;
+}
+
+/* Крестик закрытия в углу — обычно отдельная маленькая кнопка/иконка,
+   не основная кнопка «Хорошо»; лишаем его золотого фона и рамки, чтобы
+   он остался лёгким и нейтральным, как в остальных модалках сайта. */
+#tildaformsuccesspopup-new .t-popup__close,
+#tildaformsuccesspopup-new [class*="__close"],
+#tildaformsuccesspopup-new button[class*="__close"],
+#tildaformsuccesspopup-new button.t-popup__close {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: rgba(243,236,218,.6) !important;
+}
+
+#tildaformsuccesspopup-new .t-popup__close:hover,
+#tildaformsuccesspopup-new [class*="__close"]:hover,
+#tildaformsuccesspopup-new button[class*="__close"]:hover,
+#tildaformsuccesspopup-new button.t-popup__close:hover {
+  color: #f3ecda !important;
 }
 
 /* ─────────────────────────────────────────────
