@@ -2652,7 +2652,7 @@ a.vx-contact-card:hover .vx-contact-card__icon {
             </div>
             <div class="vx-form__foot">
               <label class="vx-form__consent" id="vxConsentLabel">
-                <input type="checkbox" id="vxConsentCheckbox" required>
+                <input type="checkbox" id="vxConsentCheckbox" name="Consent" value="Согласие на обработку ПДн получено" required>
                 <span>Я даю <a href="#vxConsent" id="vxConsentOpen">согласие на обработку персональных данных</a> и ознакомлен(а) с <a href="#vxPolicy" id="vxPolicyOpen">Политикой обработки персональных данных</a>.</span>
               </label>
               <button class="vx-btn vx-btn--primary vx-form__submit" type="submit">
