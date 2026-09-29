@@ -1582,12 +1582,19 @@ html, body { background: #080808; }
 
 .vx-tilda-form .t-form__errorbox-wrapper { margin-top: 8px; }
 .vx-tilda-form .t-form__errorbox-text { list-style: none; }
-.vx-tilda-form .t-form__errorbox-item { display: none; }
+.vx-tilda-form .t-form__errorbox-item {
+  display: none !important;
+  background: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+}
 .vx-tilda-form .t-form__errorbox-link,
 .vx-tilda-form .t-form__errorbox-item {
   color: #e5484d !important;
   font-size: 12px !important;
   text-decoration: none;
+  background: none !important;
 }
 
 .vx-tilda-form .t-form__submit { margin: 0; }
@@ -3245,13 +3252,20 @@ a.vx-contact-card:hover .vx-contact-card__icon {
     });
   });
 
-  /* ── Форматирование телефона в форме Тильды ──
-     Собственный виджет маски Тильды (флаг + разбивка по цифрам)
-     корректно грузится только внутри её родных блоков — в нашем
-     кастомном блоке его CSS/JS не подключались и разметка наезжала
-     друг на друга. Заменили на простое поле и форматируем вручную. */
-  var tildaPhoneInput = document.getElementById('input_6143215261581');
-  if (tildaPhoneInput) {
+  /* ── Форма Тильды: форматирование телефона, своя валидация и
+     согласие перед отправкой ──
+     Саму отправку/приём заявки обрабатывает встроенный скрипт Тильды (он
+     слушает submit этой формы и шлёт в подключённые приёмники — Telegram
+     и т.д.). После успешной отправки Тильда может заново пересобирать
+     поля/кнопку внутри формы (анти-дубль-сабмит) — если бы мы держали
+     ссылки на конкретные DOM-узлы, полученные один раз при загрузке
+     страницы, наши же обработчики отвязались бы от новых узлов после
+     первой отправки. Поэтому все обработчики навешены один раз на саму
+     форму (её Тильда не пересоздаёт) и внутри каждого свежим
+     document.getElementById достаём актуальные узлы полей на момент
+     события — работает одинаково для первой и для повторной отправки. */
+  var tildaForm = document.getElementById('form4339331901');
+  if (tildaForm) {
     function vxFormatPhone(digits) {
       if (!digits) return '';
       if (digits[0] === '8') digits = '7' + digits.slice(1);
@@ -3265,82 +3279,79 @@ a.vx-contact-card:hover .vx-contact-card__icon {
       return f;
     }
 
-    /* Backspace на разделителе (пробел/скобка/тире) раньше просто
+    function vxSetFieldError(input, errorEl, message) {
+      if (input) input.classList.toggle('is-invalid', !!message);
+      if (errorEl) errorEl.textContent = message || '';
+    }
+
+    /* Собственный виджет маски Тильды (флаг + разбивка по цифрам)
+       корректно грузится только внутри её родных блоков — в нашем
+       кастомном блоке его CSS/JS не подключались и разметка наезжала
+       друг на друга. Заменили на простое поле и форматируем вручную.
+       Backspace на разделителе (пробел/скобка/тире) раньше просто
        переформатировал то же значение обратно — визуально казалось,
        что стирание залипает. Расширяем выделение на разделитель и
        цифру перед ним, чтобы один Backspace стирал реальную цифру —
        дальше стандартное удаление браузера и переформатирование в input. */
-    tildaPhoneInput.addEventListener('keydown', function (e) {
-      if (e.key !== 'Backspace' || this.selectionStart !== this.selectionEnd) return;
-      var pos = this.selectionStart;
-      if (pos === 0 || /\d/.test(this.value[pos - 1])) return;
+    tildaForm.addEventListener('keydown', function (e) {
+      if (e.target.id !== 'input_6143215261581') return;
+      if (e.key !== 'Backspace' || e.target.selectionStart !== e.target.selectionEnd) return;
+      var pos = e.target.selectionStart;
+      if (pos === 0 || /\d/.test(e.target.value[pos - 1])) return;
       var start = pos - 1;
-      while (start > 0 && !/\d/.test(this.value[start - 1])) start--;
+      while (start > 0 && !/\d/.test(e.target.value[start - 1])) start--;
       if (start === 0) return;
-      this.setSelectionRange(start - 1, pos);
+      e.target.setSelectionRange(start - 1, pos);
     });
 
-    tildaPhoneInput.addEventListener('input', function () {
-      this.value = vxFormatPhone(this.value.replace(/\D/g, ''));
+    tildaForm.addEventListener('input', function (e) {
+      if (e.target.id === 'input_6143215261581') {
+        e.target.value = vxFormatPhone(e.target.value.replace(/\D/g, ''));
+        if (e.target.value.replace(/\D/g, '').length === 11) {
+          vxSetFieldError(e.target, document.getElementById('error_6143215261581'), '');
+        }
+      } else if (e.target.id === 'input_6143215261580') {
+        if (e.target.value.trim()) vxSetFieldError(e.target, document.getElementById('error_6143215261580'), '');
+      }
     });
-  }
 
-  /* ── Форма Тильды: проверка обязательных полей и согласия перед отправкой ──
-     Саму отправку/приём заявки обрабатывает встроенный скрипт Тильды (он
-     слушает submit этой формы и шлёт в подключённые приёмники — Telegram
-     и т.д.). Раньше мы блокировали клик по «Отправить» через preventDefault
-     ТОЛЬКО из-за непроставленного чекбоза согласия — но preventDefault на
-     клике по кнопке submit целиком отменяет отправку формы, так что даже
-     встроенная проверка полей Тильды (имя/телефон) не успевала запуститься,
-     и при пустой форме подсвечивался только чекбокс. Теперь проверяем сами
-     все обязательные поля (имя, телефон) и согласие ДО того, как решаем,
-     пропускать клик дальше к Тильде или нет — так подсвечивается сразу
-     всё, что не заполнено, а не только последнее найденное. */
-  var tildaNameInput = document.getElementById('input_6143215261580');
-  var tildaNameError = document.getElementById('error_6143215261580');
-  var tildaPhoneError = document.getElementById('error_6143215261581');
-  var tildaConsent = document.getElementById('vxConsentCheckbox');
-  var tildaConsentLabel = document.getElementById('vxConsentLabel');
-  var tildaSubmitBtn = document.querySelector('#form4339331901 .t-submit');
-
-  function vxSetFieldError(input, errorEl, message) {
-    if (input) input.classList.toggle('is-invalid', !!message);
-    if (errorEl) errorEl.textContent = message || '';
-  }
-
-  if (tildaNameInput) {
-    tildaNameInput.addEventListener('input', function () {
-      if (tildaNameInput.value.trim()) vxSetFieldError(tildaNameInput, tildaNameError, '');
+    tildaForm.addEventListener('change', function (e) {
+      if (e.target.id !== 'vxConsentCheckbox') return;
+      if (e.target.checked) {
+        var label = document.getElementById('vxConsentLabel');
+        if (label) label.classList.remove('vx-form__consent--invalid');
+      }
     });
-  }
 
-  if (tildaPhoneInput) {
-    tildaPhoneInput.addEventListener('input', function () {
-      if (tildaPhoneInput.value.replace(/\D/g, '').length === 11) vxSetFieldError(tildaPhoneInput, tildaPhoneError, '');
-    });
-  }
+    /* Раньше мы блокировали клик по «Отправить» через preventDefault
+       ТОЛЬКО из-за непроставленного чекбокса согласия — но preventDefault
+       на клике по кнопке submit целиком отменяет отправку формы, так что
+       даже встроенная проверка полей Тильды (имя/телефон) не успевала
+       запуститься, и при пустой форме подсвечивался только чекбокс.
+       Теперь проверяем сами все обязательные поля (имя, телефон) и
+       согласие ДО того, как решаем, пропускать клик дальше к Тильде
+       или нет — так подсвечивается сразу всё, что не заполнено. */
+    tildaForm.addEventListener('click', function (e) {
+      var submitBtn = e.target.closest('.t-submit');
+      if (!submitBtn) return;
 
-  if (tildaConsent && tildaConsentLabel) {
-    tildaConsent.addEventListener('change', function () {
-      if (tildaConsent.checked) tildaConsentLabel.classList.remove('vx-form__consent--invalid');
-    });
-  }
-
-  if (tildaSubmitBtn) {
-    tildaSubmitBtn.addEventListener('click', function (e) {
+      var nameInput = document.getElementById('input_6143215261580');
+      var phoneInput = document.getElementById('input_6143215261581');
+      var consent = document.getElementById('vxConsentCheckbox');
+      var consentLabel = document.getElementById('vxConsentLabel');
       var firstInvalid = null;
 
-      var nameOk = !tildaNameInput || tildaNameInput.value.trim().length > 0;
-      vxSetFieldError(tildaNameInput, tildaNameError, nameOk ? '' : 'Укажите имя');
-      if (!nameOk && !firstInvalid) firstInvalid = tildaNameInput;
+      var nameOk = !nameInput || nameInput.value.trim().length > 0;
+      vxSetFieldError(nameInput, document.getElementById('error_6143215261580'), nameOk ? '' : 'Укажите имя');
+      if (!nameOk && !firstInvalid) firstInvalid = nameInput;
 
-      var phoneOk = !tildaPhoneInput || tildaPhoneInput.value.replace(/\D/g, '').length === 11;
-      vxSetFieldError(tildaPhoneInput, tildaPhoneError, phoneOk ? '' : 'Укажите корректный номер телефона');
-      if (!phoneOk && !firstInvalid) firstInvalid = tildaPhoneInput;
+      var phoneOk = !phoneInput || phoneInput.value.replace(/\D/g, '').length === 11;
+      vxSetFieldError(phoneInput, document.getElementById('error_6143215261581'), phoneOk ? '' : 'Укажите корректный номер телефона');
+      if (!phoneOk && !firstInvalid) firstInvalid = phoneInput;
 
-      var consentOk = !tildaConsent || tildaConsent.checked;
-      if (tildaConsentLabel) tildaConsentLabel.classList.toggle('vx-form__consent--invalid', !consentOk);
-      if (!consentOk && !firstInvalid) firstInvalid = tildaConsent;
+      var consentOk = !consent || consent.checked;
+      if (consentLabel) consentLabel.classList.toggle('vx-form__consent--invalid', !consentOk);
+      if (!consentOk && !firstInvalid) firstInvalid = consent;
 
       if (!nameOk || !phoneOk || !consentOk) {
         e.preventDefault();
