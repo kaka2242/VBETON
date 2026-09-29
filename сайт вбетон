@@ -3427,8 +3427,55 @@ a.vx-contact-card:hover .vx-contact-card__icon {
         e.preventDefault();
         e.stopPropagation();
         if (firstInvalid) firstInvalid.focus();
+      } else {
+        vxScrollBeforeSuccess = window.scrollY;
       }
     }, true);
+  }
+
+  /* ── Родной попап Тильды после отправки слегка проскраливал страницу
+     вверх при появлении (похоже, из-за фокуса/блокировки скролла внутри
+     собственного скрипта Тильды) — фиксируем скролл там, где он был
+     прямо перед отправкой, в момент появления попапа. Попап Тильда
+     создаёт динамически, поэтому если его ещё нет в DOM — ждём появления
+     через MutationObserver на body. */
+  var vxScrollBeforeSuccess = null;
+  function vxWatchSuccessPopup(popup) {
+    function vxMaybeRestoreScroll() {
+      if (vxScrollBeforeSuccess !== null && popup.classList.contains('t-popup_show')) {
+        var pos = vxScrollBeforeSuccess;
+        vxScrollBeforeSuccess = null;
+        /* Двойной rAF — ждём, пока применятся любые собственные сдвиги
+           скролла/фокуса скрипта Тильды за этот и следующий кадр, и
+           только потом восстанавливаем позицию — иначе Тильда может
+           перебить нашу коррекцию своей уже после неё. */
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            window.scrollTo(0, pos);
+          });
+        });
+      }
+    }
+    /* Если попап создаётся сразу с классом-показом (атомарно), то
+       ждать изменения атрибута бессмысленно — оно уже произошло до
+       того, как мы начали наблюдать. Поэтому проверяем сразу же при
+       обнаружении элемента, а MutationObserver — на случай повторного
+       открытия того же попапа без пересоздания узла. */
+    vxMaybeRestoreScroll();
+    new MutationObserver(vxMaybeRestoreScroll).observe(popup, { attributes: true, attributeFilter: ['class', 'style'] });
+  }
+  var existingSuccessPopup = document.getElementById('tildaformsuccesspopup-new');
+  if (existingSuccessPopup) {
+    vxWatchSuccessPopup(existingSuccessPopup);
+  } else {
+    var vxPopupWaiter = new MutationObserver(function () {
+      var popup = document.getElementById('tildaformsuccesspopup-new');
+      if (popup) {
+        vxWatchSuccessPopup(popup);
+        vxPopupWaiter.disconnect();
+      }
+    });
+    vxPopupWaiter.observe(document.body, { childList: true, subtree: true });
   }
 
 })();
