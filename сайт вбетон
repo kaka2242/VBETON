@@ -1635,7 +1635,11 @@ html, body { background: #080808; }
   color: inherit !important;
 }
 
-.vx-tilda-form .t-form__successbox {
+.vx-tilda-form .t-form__successbox:empty {
+  display: none !important;
+}
+
+.vx-tilda-form .t-form__successbox:not(:empty) {
   display: inline-block !important;
   max-width: 100%;
   color: var(--gold) !important;
@@ -2727,7 +2731,7 @@ a.vx-contact-card:hover .vx-contact-card__icon {
           <div id="rec4339331901" class="vx-tilda-form">
           <form id="form4339331901" name="form4339331901" role="form" action="" method="POST" data-formactiontype="0" data-inputbox=".t-input-group" class="t-form js-form-proccess t-form_inputs-total_3" data-success-callback="t698_onSuccess">
             <!-- @classes t-title t-text t-btn -->
-            <div class="js-successbox t-form__successbox t-text t-text_md t-form-success-popup" aria-live="polite" style="display:none;"></div>
+            <div class="js-successbox t-form__successbox t-text t-text_md" aria-live="polite" style="display:none;"></div>
             <div class="t-form__inputsbox t-form__inputsbox_vertical-form t-form__inputsbox_inrow">
               <div class="t-input-group t-input-group_nm " data-input-lid="6143215261580" data-field-type="nm" data-field-name="Name">
                 <div class="t-input-block " style="border-radius:7px;">
