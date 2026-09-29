@@ -3248,9 +3248,8 @@ a.vx-contact-card:hover .vx-contact-card__icon {
      друг на друга. Заменили на простое поле и форматируем вручную. */
   var tildaPhoneInput = document.getElementById('input_6143215261581');
   if (tildaPhoneInput) {
-    tildaPhoneInput.addEventListener('input', function () {
-      var digits = this.value.replace(/\D/g, '');
-      if (!digits) { this.value = ''; return; }
+    function vxFormatPhone(digits) {
+      if (!digits) return '';
       if (digits[0] === '8') digits = '7' + digits.slice(1);
       if (digits[0] !== '7') digits = '7' + digits;
       digits = digits.slice(0, 11);
@@ -3259,7 +3258,26 @@ a.vx-contact-card:hover .vx-contact-card__icon {
       if (digits.length >= 4) f += ') ' + digits.slice(4, 7);
       if (digits.length >= 7) f += '-' + digits.slice(7, 9);
       if (digits.length >= 9) f += '-' + digits.slice(9, 11);
-      this.value = f;
+      return f;
+    }
+
+    /* Backspace на разделителе (пробел/скобка/тире) раньше просто
+       переформатировал то же значение обратно — визуально казалось,
+       что стирание залипает. Расширяем выделение на разделитель и
+       цифру перед ним, чтобы один Backspace стирал реальную цифру —
+       дальше стандартное удаление браузера и переформатирование в input. */
+    tildaPhoneInput.addEventListener('keydown', function (e) {
+      if (e.key !== 'Backspace' || this.selectionStart !== this.selectionEnd) return;
+      var pos = this.selectionStart;
+      if (pos === 0 || /\d/.test(this.value[pos - 1])) return;
+      var start = pos - 1;
+      while (start > 0 && !/\d/.test(this.value[start - 1])) start--;
+      if (start === 0) return;
+      this.setSelectionRange(start - 1, pos);
+    });
+
+    tildaPhoneInput.addEventListener('input', function () {
+      this.value = vxFormatPhone(this.value.replace(/\D/g, ''));
     });
   }
 
