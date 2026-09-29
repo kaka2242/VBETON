@@ -2202,6 +2202,27 @@ a.vx-contact-card:hover .vx-contact-card__icon {
     transition-duration: .01ms !important;
   }
 }
+
+/* ─────────────────────────────────────────────
+   Родной блок формы Тильды (#rec4340376101) —
+   должен физически оставаться на странице: без него
+   приёмники (Telegram/CRM) перестают получать заявки
+   даже из нашей собственной формы (проверено на живом
+   сайте). Прячем его от глаз, не убирая из потока и не
+   выключая через display:none/visibility:hidden — так
+   инициализация скрипта Тильды продолжает отрабатывать
+   как обычно. ── */
+#rec4340376101 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 </style>
 
 <div class="vx-site" id="vxSite">
