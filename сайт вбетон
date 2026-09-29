@@ -1575,6 +1575,7 @@ html, body { background: #080808; }
 }
 
 .vx-tilda-form .t-input-error {
+  display: block !important;
   color: #e5484d !important;
   font-size: 11px !important;
   margin-top: 6px;
