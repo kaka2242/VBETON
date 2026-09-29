@@ -1667,15 +1667,34 @@ html, body { background: #080808; }
 
 /* Родной попап Тильды после отправки формы — общий для всей страницы
    элемент, создаётся скриптом Тильды вне нашей вёрстки, найден через
-   DevTools на живом сайте: #tildaformsuccesspopup-new. Подтвердили на
-   живом сайте, что наше собственное сообщение (.t-form__successbox
-   выше) Тильда всё-таки показывает само по себе — значит, второй,
-   отдельный попап поверх него избыточен и просто дублирует то же самое
-   сообщение. Прячем его насовсем: Тильда показывает его через
-   инлайн-стиль (style="display:block"), который бьёт обычный CSS,
-   поэтому только с !important. */
+   DevTools на живом сайте: #tildaformsuccesspopup-new. Пробовали
+   прятать его через display:none — сайт после отправки переставал
+   скроллиться насовсем. Похоже, кнопка «Хорошо»/крестик в попапе не
+   только закрывает его, но и снимает собственную блокировку скролла
+   страницы, которую Тильда ставит при открытии попапа; если попап
+   спрятан, нажать эту кнопку невозможно, и блокировка остаётся
+   навсегда. Поэтому попап должен оставаться видимым и рабочим —
+   только перекрашиваем его под тёмную тему сайта. */
 #tildaformsuccesspopup-new {
-  display: none !important;
+  background: rgba(8,8,8,.75) !important;
+}
+
+#tildaformsuccesspopup-new .t-form-success-popup__wrapper {
+  background: #141414 !important;
+  border: 1px solid rgba(255,255,255,.1) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 20px 60px rgba(0,0,0,.5) !important;
+}
+
+#tildaformsuccesspopup-new .t-form-success-popup__wrapper,
+#tildaformsuccesspopup-new .t-form-success-popup__wrapper * {
+  color: #f3ecda !important;
+}
+
+#tildaformsuccesspopup-new .t-form-success-popup__wrapper button {
+  background: #c9a96e !important;
+  color: #080808 !important;
+  border: none !important;
 }
 
 /* ─────────────────────────────────────────────
