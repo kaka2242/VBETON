@@ -1615,8 +1615,7 @@ html, body { background: #080808; }
 
 .vx-tilda-form .t-input-group { margin: 0; }
 
-.vx-tilda-form .t-input,
-.vx-tilda-form .t-input-phonemask__wrap {
+.vx-tilda-form .t-input {
   width: 100% !important;
   box-sizing: border-box !important;
   background: rgba(255,255,255,.05) !important;
@@ -1632,26 +1631,12 @@ html, body { background: #080808; }
 
 .vx-tilda-form textarea.t-input { min-height: 90px; resize: vertical; }
 
-.vx-tilda-form .t-input:focus,
-.vx-tilda-form .t-input-phonemask__wrap:focus-within {
+.vx-tilda-form .t-input:focus {
   border-color: rgba(201,169,110,.5) !important;
   background: rgba(255,255,255,.07) !important;
 }
 
 .vx-tilda-form .t-input::placeholder { color: rgba(255,255,255,.25) !important; }
-
-.vx-tilda-form .t-input-phonemask {
-  background: transparent !important;
-  border: 0 !important;
-  padding: 0 !important;
-  color: var(--white) !important;
-  width: 100% !important;
-}
-
-.vx-tilda-form .t-input-phonemask__select-code,
-.vx-tilda-form .t-input-phonemask__select-triangle {
-  color: var(--white) !important;
-}
 
 .vx-tilda-form .t-input-error {
   color: #e5484d;
@@ -2763,15 +2748,9 @@ a.vx-contact-card:hover .vx-contact-card__icon {
                 </div>
                 <div class="t-input-error" aria-live="polite" id="error_6143215261580"></div>
               </div>
-              <div class="t-input-group t-input-group_ph " data-input-lid="6143215261581" data-field-async="true" data-field-type="ph" data-field-name="Phone" data-init-mask="yes" data-input-ready="true">
-                <div class="t-input-block " style="border-radius: 7px; overflow: visible;">
-                  <div class="t-input t-input-phonemask__wrap">
-                    <div class="t-input-phonemask__select"><span class="t-input-phonemask__select-flag" data-phonemask-flag="ru"></span><span class="t-input-phonemask__select-triangle"></span><span class="t-input-phonemask__select-code">+7</span></div>
-                    <input type="hidden" class="js-phonemask-result-iso" name="tildaspec-phone-part[]-iso" value="" tabindex="-1">
-                    <input type="tel" class="t-input t-input-phonemask" name="tildaspec-phone-part[]" value="" placeholder="(___) ___-__-__" id="input_6143215261581" data-phonemask-iso="ru" data-phonemask-code="+7" data-phonemask-mask="+7-000-000-0000" maxlength="11" data-phonemask-without-code="(000) 000-0000">
-                    <input type="hidden" class="js-phonemask-result js-tilda-rule" data-tilda-rule="phone" name="Phone" value="" tabindex="-1" data-tilda-rule-minlength="15">
-                  </div>
-                  <script type="text/javascript">t_onReady(function() {t_onFuncLoad('t_loadJsFile',function() {t_loadJsFile('https://static.tildacdn.pub/js/tilda-phone-mask-1.1.min.js',function() {t_onFuncLoad('t_form_phonemask_load',function() {var phoneMasks=document.querySelectorAll('#rec4339331901 [data-phonemask-lid="6143215261581"]');t_form_phonemask_load(phoneMasks);});})})});</script>
+              <div class="t-input-group t-input-group_ph " data-input-lid="6143215261581" data-field-type="ph" data-field-name="Phone">
+                <div class="t-input-block " style="border-radius:7px;">
+                  <input type="tel" autocomplete="tel" name="Phone" id="input_6143215261581" class="t-input js-tilda-rule" value="" placeholder="+7 (___) ___-__-__" data-tilda-rule="phone" aria-describedby="error_6143215261581">
                 </div>
                 <div class="t-input-error" aria-live="polite" id="error_6143215261581"></div>
               </div>
@@ -3259,6 +3238,28 @@ a.vx-contact-card:hover .vx-contact-card__icon {
       });
     });
   });
+
+  /* ── Форматирование телефона в форме Тильды ──
+     Собственный виджет маски Тильды (флаг + разбивка по цифрам)
+     корректно грузится только внутри её родных блоков — в нашем
+     кастомном блоке его CSS/JS не подключались и разметка наезжала
+     друг на друга. Заменили на простое поле и форматируем вручную. */
+  var tildaPhoneInput = document.getElementById('input_6143215261581');
+  if (tildaPhoneInput) {
+    tildaPhoneInput.addEventListener('input', function () {
+      var digits = this.value.replace(/\D/g, '');
+      if (!digits) { this.value = ''; return; }
+      if (digits[0] === '8') digits = '7' + digits.slice(1);
+      if (digits[0] !== '7') digits = '7' + digits;
+      digits = digits.slice(0, 11);
+      var f = '+7';
+      if (digits.length > 1) f += ' (' + digits.slice(1, 4);
+      if (digits.length >= 4) f += ') ' + digits.slice(4, 7);
+      if (digits.length >= 7) f += '-' + digits.slice(7, 9);
+      if (digits.length >= 9) f += '-' + digits.slice(9, 11);
+      this.value = f;
+    });
+  }
 
   /* ── Форма Тильды: проверка согласия перед отправкой ──
      Саму отправку/приём заявки обрабатывает встроенный скрипт Тильды
