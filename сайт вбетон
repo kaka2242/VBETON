@@ -491,6 +491,8 @@ html, body { background: #080808; }
 }
 
 .vx-policy__close:hover { background: rgba(255,255,255,.12); }
+.vx-policy__close:focus { outline: none; }
+.vx-policy__close:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 
 .vx-policy__title {
   font-size: clamp(20px, 2.6vw, 28px);
@@ -1482,57 +1484,6 @@ html, body { background: #080808; }
 
 .vx-cta__form-area { max-width: 520px; }
 
-.vx-form {
-  margin-top: 36px;
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', Arial, sans-serif;
-}
-
-.vx-form input,
-.vx-form textarea,
-.vx-form select { font: inherit; }
-
-.vx-form__row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-
-.vx-form__group { margin-bottom: 12px; }
-
-.vx-form label {
-  display: block;
-  margin-bottom: 8px;
-  color: var(--muted);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-}
-
-.vx-form input,
-.vx-form textarea {
-  width: 100%;
-  background: rgba(255,255,255,.05);
-  border: 1px solid rgba(255,255,255,.12);
-  border-radius: 10px;
-  color: var(--white);
-  padding: 14px 16px;
-  font-size: 14px;
-  outline: none;
-  transition: border-color .2s ease, background .2s ease;
-}
-
-.vx-form textarea { min-height: 90px; resize: vertical; }
-
-.vx-form input:focus,
-.vx-form textarea:focus {
-  border-color: rgba(201,169,110,.5);
-  background: rgba(255,255,255,.07);
-}
-
-.vx-form input::placeholder,
-.vx-form textarea::placeholder { color: rgba(255,255,255,.25); }
-
 .vx-form__foot {
   display: flex;
   align-items: center;
@@ -1570,19 +1521,6 @@ html, body { background: #080808; }
   outline-offset: 2px;
   box-shadow: 0 0 0 4px rgba(229,72,77,.25);
   border-radius: 3px;
-}
-
-.vx-form__submit {
-  border: 0;
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-.vx-form__status {
-  display: none;
-  margin-top: 16px;
-  font-size: 12px;
-  color: var(--gold);
 }
 
 /* ─────────────────────────────────────────────
@@ -2219,10 +2157,8 @@ a.vx-contact-card:hover .vx-contact-card__icon {
   .vx-cta__layout { gap: 36px; }
   .vx-cta__img { min-height: 280px; border-radius: 14px; }
   .vx-cta__img img { min-height: 280px; }
-  .vx-form__row { grid-template-columns: 1fr; }
   .vx-form__foot { flex-direction: column; align-items: stretch; }
   .vx-form__consent { max-width: none; }
-  .vx-form__submit { width: 100%; justify-content: center; }
   .vx-tilda-form .t-form__inputsbox { grid-template-columns: 1fr; }
   .vx-tilda-form .t-form__submit,
   .vx-tilda-form .t-submit { width: 100%; }
@@ -2273,7 +2209,7 @@ a.vx-contact-card:hover .vx-contact-card__icon {
   <!-- ═══════════════════ NAV ═══════════════════ -->
   <header class="vx-nav" id="vxNav" role="banner">
     <a class="vx-nav__logo" href="#vxHero">
-      <img class="vx-nav__logo-icon" src="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/logo-icon.png" alt="" decoding="async">ВБЕТОН
+      <img class="vx-nav__logo-icon" src="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/logo-icon.png" width="120" height="64" alt="" decoding="async">ВБЕТОН
     </a>
 
     <nav aria-label="Основная навигация">
@@ -2314,7 +2250,7 @@ a.vx-contact-card:hover .vx-contact-card__icon {
   <!-- ═══════════════════ DRAWER ═══════════════════ -->
   <div class="vx-drawer" id="vxDrawer" role="dialog" aria-label="Навигационное меню" aria-modal="true">
     <div class="vx-drawer__head">
-      <div class="vx-drawer__brand"><img src="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/logo-icon.png" alt="" decoding="async">ВБЕТОН</div>
+      <div class="vx-drawer__brand"><img src="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/logo-icon.png" width="120" height="64" alt="" decoding="async">ВБЕТОН</div>
       <button class="vx-drawer__close" id="vxDrawerClose" type="button" aria-label="Закрыть меню">×</button>
     </div>
     <nav class="vx-drawer__nav">
@@ -2475,13 +2411,13 @@ a.vx-contact-card:hover .vx-contact-card__icon {
 
       <div class="vx-services__list">
         <div class="vx-service vx-reveal">
-          <button class="vx-service__row" type="button" aria-expanded="false">
+          <button class="vx-service__row" type="button" aria-expanded="false" aria-controls="vxServiceDesc1" id="vxServiceBtn1">
             <div class="vx-service__bg" data-bg="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/service-design.jpg"></div>
             <span class="vx-service__idx">01</span>
             <span class="vx-service__name">Проектирование</span>
             <span class="vx-service__arrow" aria-hidden="true">+</span>
           </button>
-          <div class="vx-service__desc" role="region">
+          <div class="vx-service__desc" role="region" id="vxServiceDesc1" aria-labelledby="vxServiceBtn1">
             <div class="vx-service__desc-inner">
               <p><strong>Разрабатываем архитектурную концепцию, планировки и конструктив под ваш участок, бюджет и образ жизни семьи.</strong> На выходе — полный комплект рабочих чертежей, инженерных разделов и смета, с которыми можно спокойно заходить в стройку без сюрпризов.</p>
               <a class="vx-service__cta" href="#vxForm">Обсудить проект <span>→</span></a>
@@ -2489,13 +2425,13 @@ a.vx-contact-card:hover .vx-contact-card__icon {
           </div>
         </div>
         <div class="vx-service vx-reveal vx-d1">
-          <button class="vx-service__row" type="button" aria-expanded="false">
+          <button class="vx-service__row" type="button" aria-expanded="false" aria-controls="vxServiceDesc2" id="vxServiceBtn2">
             <div class="vx-service__bg" data-bg="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/service-monolith.jpg"></div>
             <span class="vx-service__idx">02</span>
             <span class="vx-service__name">Монолитное строительство</span>
             <span class="vx-service__arrow" aria-hidden="true">+</span>
           </button>
-          <div class="vx-service__desc" role="region">
+          <div class="vx-service__desc" role="region" id="vxServiceDesc2" aria-labelledby="vxServiceBtn2">
             <div class="vx-service__desc-inner">
               <p><strong>Возводим монолитный каркас на месте: заливаем фундамент, стены и перекрытия в опалубку прямо на участке.</strong> Такая технология не даёт усадочных трещин, позволяет свободную планировку без несущих перегородок и служит десятилетиями без потери прочности.</p>
               <a class="vx-service__cta" href="#vxForm">Обсудить проект <span>→</span></a>
@@ -2503,13 +2439,13 @@ a.vx-contact-card:hover .vx-contact-card__icon {
           </div>
         </div>
         <div class="vx-service vx-reveal vx-d2">
-          <button class="vx-service__row" type="button" aria-expanded="false">
+          <button class="vx-service__row" type="button" aria-expanded="false" aria-controls="vxServiceDesc3" id="vxServiceBtn3">
             <div class="vx-service__bg" data-bg="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/service-turnkey.jpg"></div>
             <span class="vx-service__idx">03</span>
             <span class="vx-service__name">Дома под ключ</span>
             <span class="vx-service__arrow" aria-hidden="true">+</span>
           </button>
-          <div class="vx-service__desc" role="region">
+          <div class="vx-service__desc" role="region" id="vxServiceDesc3" aria-labelledby="vxServiceBtn3">
             <div class="vx-service__desc-inner">
               <p><strong>Берём на себя весь цикл — от фундамента до финишной отделки, инженерных сетей и передачи ключей.</strong> Один подрядчик и один договор вместо десятка разрозненных бригад: вы получаете готовый для жизни дом, а не стройплощадку с недоделками.</p>
               <a class="vx-service__cta" href="#vxForm">Обсудить проект <span>→</span></a>
@@ -2517,13 +2453,13 @@ a.vx-contact-card:hover .vx-contact-card__icon {
           </div>
         </div>
         <div class="vx-service vx-reveal vx-d3">
-          <button class="vx-service__row" type="button" aria-expanded="false">
+          <button class="vx-service__row" type="button" aria-expanded="false" aria-controls="vxServiceDesc4" id="vxServiceBtn4">
             <div class="vx-service__bg" data-bg="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/service-facade.jpg"></div>
             <span class="vx-service__idx">04</span>
             <span class="vx-service__name">Фасадные работы</span>
             <span class="vx-service__arrow" aria-hidden="true">+</span>
           </button>
-          <div class="vx-service__desc" role="region">
+          <div class="vx-service__desc" role="region" id="vxServiceDesc4" aria-labelledby="vxServiceBtn4">
             <div class="vx-service__desc-inner">
               <p><strong>Утепляем и облицовываем фасад: штукатурные системы, вентфасады, натуральный камень, дерево или композитные панели.</strong> Подбираем решение под климат Юга России и бюджет — так, чтобы дом сохранял тепло и выглядел так же достойно через 10 лет.</p>
               <a class="vx-service__cta" href="#vxForm">Обсудить проект <span>→</span></a>
@@ -2594,72 +2530,72 @@ a.vx-contact-card:hover .vx-contact-card__icon {
 
       <div class="vx-steps">
         <article class="vx-step vx-reveal">
-          <button class="vx-step__head" type="button" aria-expanded="false">
+          <button class="vx-step__head" type="button" aria-expanded="false" aria-controls="vxStepDesc1" id="vxStepBtn1">
             <span class="vx-step__n">01</span>
             <span class="vx-step__title">Консультация</span>
             <span class="vx-step__arrow" aria-hidden="true">+</span>
           </button>
-          <div class="vx-step__desc" role="region">
+          <div class="vx-step__desc" role="region" id="vxStepDesc1" aria-labelledby="vxStepBtn1">
             <div class="vx-step__desc-inner">
               <p class="vx-step__text">Обсуждаем участок, пожелания и бюджет.</p>
             </div>
           </div>
         </article>
         <article class="vx-step vx-reveal vx-d1">
-          <button class="vx-step__head" type="button" aria-expanded="false">
+          <button class="vx-step__head" type="button" aria-expanded="false" aria-controls="vxStepDesc2" id="vxStepBtn2">
             <span class="vx-step__n">02</span>
             <span class="vx-step__title">Анализ участка</span>
             <span class="vx-step__arrow" aria-hidden="true">+</span>
           </button>
-          <div class="vx-step__desc" role="region">
+          <div class="vx-step__desc" role="region" id="vxStepDesc2" aria-labelledby="vxStepBtn2">
             <div class="vx-step__desc-inner">
               <p class="vx-step__text">Изучаем исходные данные и ограничения.</p>
             </div>
           </div>
         </article>
         <article class="vx-step vx-reveal vx-d2">
-          <button class="vx-step__head" type="button" aria-expanded="false">
+          <button class="vx-step__head" type="button" aria-expanded="false" aria-controls="vxStepDesc3" id="vxStepBtn3">
             <span class="vx-step__n">03</span>
             <span class="vx-step__title">Проектирование</span>
             <span class="vx-step__arrow" aria-hidden="true">+</span>
           </button>
-          <div class="vx-step__desc" role="region">
+          <div class="vx-step__desc" role="region" id="vxStepDesc3" aria-labelledby="vxStepBtn3">
             <div class="vx-step__desc-inner">
               <p class="vx-step__text">Концепция, чертежи и сметная часть.</p>
             </div>
           </div>
         </article>
         <article class="vx-step vx-reveal">
-          <button class="vx-step__head" type="button" aria-expanded="false">
+          <button class="vx-step__head" type="button" aria-expanded="false" aria-controls="vxStepDesc4" id="vxStepBtn4">
             <span class="vx-step__n">04</span>
             <span class="vx-step__title">Строительство</span>
             <span class="vx-step__arrow" aria-hidden="true">+</span>
           </button>
-          <div class="vx-step__desc" role="region">
+          <div class="vx-step__desc" role="region" id="vxStepDesc4" aria-labelledby="vxStepBtn4">
             <div class="vx-step__desc-inner">
               <p class="vx-step__text">Возводим объект с пошаговым контролем.</p>
             </div>
           </div>
         </article>
         <article class="vx-step vx-reveal vx-d1">
-          <button class="vx-step__head" type="button" aria-expanded="false">
+          <button class="vx-step__head" type="button" aria-expanded="false" aria-controls="vxStepDesc5" id="vxStepBtn5">
             <span class="vx-step__n">05</span>
             <span class="vx-step__title">Отделка</span>
             <span class="vx-step__arrow" aria-hidden="true">+</span>
           </button>
-          <div class="vx-step__desc" role="region">
+          <div class="vx-step__desc" role="region" id="vxStepDesc5" aria-labelledby="vxStepBtn5">
             <div class="vx-step__desc-inner">
               <p class="vx-step__text">Фасады, инженерия, финальная подготовка.</p>
             </div>
           </div>
         </article>
         <article class="vx-step vx-reveal vx-d2">
-          <button class="vx-step__head" type="button" aria-expanded="false">
+          <button class="vx-step__head" type="button" aria-expanded="false" aria-controls="vxStepDesc6" id="vxStepBtn6">
             <span class="vx-step__n">06</span>
             <span class="vx-step__title">Сдача объекта</span>
             <span class="vx-step__arrow" aria-hidden="true">+</span>
           </button>
-          <div class="vx-step__desc" role="region">
+          <div class="vx-step__desc" role="region" id="vxStepDesc6" aria-labelledby="vxStepBtn6">
             <div class="vx-step__desc-inner">
               <p class="vx-step__text">Проверка и передача готового дома.</p>
             </div>
@@ -2683,38 +2619,38 @@ a.vx-contact-card:hover .vx-contact-card__icon {
 
         <div class="vx-faq__list">
           <div class="vx-faq__item vx-reveal">
-            <button class="vx-faq__btn" type="button">
+            <button class="vx-faq__btn" type="button" aria-expanded="false" aria-controls="vxFaqAnswer1" id="vxFaqBtn1">
               <span class="vx-faq__q">Какие сроки строительства?</span>
               <span class="vx-faq__plus" aria-hidden="true">+</span>
             </button>
-            <div class="vx-faq__answer" role="region">
+            <div class="vx-faq__answer" role="region" id="vxFaqAnswer1" aria-labelledby="vxFaqBtn1">
               <p>Срок зависит от площади, архитектуры и готовности проекта. Формируем индивидуальный план и календарный график.</p>
             </div>
           </div>
           <div class="vx-faq__item vx-reveal vx-d1">
-            <button class="vx-faq__btn" type="button">
+            <button class="vx-faq__btn" type="button" aria-expanded="false" aria-controls="vxFaqAnswer2" id="vxFaqBtn2">
               <span class="vx-faq__q">Работаете с индивидуальными проектами?</span>
               <span class="vx-faq__plus" aria-hidden="true">+</span>
             </button>
-            <div class="vx-faq__answer" role="region">
+            <div class="vx-faq__answer" role="region" id="vxFaqAnswer2" aria-labelledby="vxFaqBtn2">
               <p>Да. Концепция разрабатывается под конкретный участок, задачи семьи и выбранную архитектурную стилистику.</p>
             </div>
           </div>
           <div class="vx-faq__item vx-reveal vx-d2">
-            <button class="vx-faq__btn" type="button">
+            <button class="vx-faq__btn" type="button" aria-expanded="false" aria-controls="vxFaqAnswer3" id="vxFaqBtn3">
               <span class="vx-faq__q">Можно заказать строительство под ключ?</span>
               <span class="vx-faq__plus" aria-hidden="true">+</span>
             </button>
-            <div class="vx-faq__answer" role="region">
+            <div class="vx-faq__answer" role="region" id="vxFaqAnswer3" aria-labelledby="vxFaqBtn3">
               <p>Формат сотрудничества определяется составом работ. На консультации фиксируем нужные этапы и готовим предложение.</p>
             </div>
           </div>
           <div class="vx-faq__item vx-reveal vx-d3">
-            <button class="vx-faq__btn" type="button">
+            <button class="vx-faq__btn" type="button" aria-expanded="false" aria-controls="vxFaqAnswer4" id="vxFaqBtn4">
               <span class="vx-faq__q">Как начать работу?</span>
               <span class="vx-faq__plus" aria-hidden="true">+</span>
             </button>
-            <div class="vx-faq__answer" role="region">
+            <div class="vx-faq__answer" role="region" id="vxFaqAnswer4" aria-labelledby="vxFaqBtn4">
               <p>Оставьте заявку — обсудим участок, задачу и определим следующий шаг.</p>
             </div>
           </div>
@@ -2746,19 +2682,19 @@ a.vx-contact-card:hover .vx-contact-card__icon {
             <div class="t-form__inputsbox t-form__inputsbox_vertical-form t-form__inputsbox_inrow">
               <div class="t-input-group t-input-group_nm " data-input-lid="6143215261580" data-field-type="nm" data-field-name="Name">
                 <div class="t-input-block " style="border-radius:7px;">
-                  <input type="text" autocomplete="name" name="Name" id="input_6143215261580" class="t-input js-tilda-rule" value="" placeholder="Ваше имя" data-tilda-rule="name" aria-describedby="error_6143215261580">
+                  <input type="text" autocomplete="name" name="Name" id="input_6143215261580" class="t-input js-tilda-rule" value="" placeholder="Ваше имя" aria-label="Ваше имя" data-tilda-rule="name" aria-describedby="error_6143215261580">
                 </div>
                 <div class="t-input-error" aria-live="polite" id="error_6143215261580"></div>
               </div>
               <div class="t-input-group t-input-group_ph " data-input-lid="6143215261581" data-field-type="ph" data-field-name="Phone">
                 <div class="t-input-block " style="border-radius:7px;">
-                  <input type="tel" autocomplete="tel" name="Phone" id="input_6143215261581" class="t-input js-tilda-rule" value="" placeholder="+7 (___) ___-__-__" data-tilda-rule="phone" aria-describedby="error_6143215261581">
+                  <input type="tel" autocomplete="tel" name="Phone" id="input_6143215261581" class="t-input js-tilda-rule" value="" placeholder="+7 (___) ___-__-__" aria-label="Телефон" data-tilda-rule="phone" aria-describedby="error_6143215261581">
                 </div>
                 <div class="t-input-error" aria-live="polite" id="error_6143215261581"></div>
               </div>
               <div class="t-input-group t-input-group_ta " data-input-lid="6143215261582" data-field-type="ta" data-field-name="Textarea">
                 <div class="t-input-block " style="border-radius:7px;">
-                  <textarea name="Textarea" id="input_6143215261582" class="t-input js-tilda-rule" aria-describedby="error_6143215261582" placeholder="Площадь, город, участок, пожелания…" rows="3"></textarea>
+                  <textarea name="Textarea" id="input_6143215261582" class="t-input js-tilda-rule" aria-describedby="error_6143215261582" aria-label="Комментарий" placeholder="Площадь, город, участок, пожелания…" rows="3"></textarea>
                 </div>
                 <div class="t-input-error" aria-live="polite" id="error_6143215261582"></div>
               </div>
@@ -2874,7 +2810,7 @@ a.vx-contact-card:hover .vx-contact-card__icon {
   <!-- ═══════════════════ FOOTER ═══════════════════ -->
   <footer class="vx-footer">
     <a class="vx-footer__brand" href="#vxHero">
-      <img src="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/logo-icon.png" alt="" decoding="async">ВБЕТОН
+      <img src="https://raw.githubusercontent.com/kaka2242/VBETON/claude/inspiring-feynman-bn3ys1/logo-icon.png" width="120" height="64" alt="" decoding="async">ВБЕТОН
     </a>
     <p class="vx-footer__copy">© 2026 ВБЕТОН · Монолитное строительство на Юге России<br>ИП Калашников В. О. · ОГРНИП [ОГРНИП]</p>
     <nav class="vx-footer__links" aria-label="Навигация в подвале">
@@ -2999,7 +2935,15 @@ a.vx-contact-card:hover .vx-contact-card__icon {
     }
     if (heroSub) heroSub.classList.toggle('vx-hero__sub--faded', window.scrollY > 24);
   }
-  window.addEventListener('scroll', onScroll, { passive: true });
+  var onScrollTicking = false;
+  window.addEventListener('scroll', function () {
+    if (onScrollTicking) return;
+    onScrollTicking = true;
+    requestAnimationFrame(function () {
+      onScroll();
+      onScrollTicking = false;
+    });
+  }, { passive: true });
   onScroll();
 
   if (topBtn) {
@@ -3076,6 +3020,10 @@ a.vx-contact-card:hover .vx-contact-card__icon {
      позиция секции чуть съезжает уже после начала анимации (картинка
      догрузилась, что-то сдвинуло вёрстку) — скролл догоняет цель без
      видимого рывка, если она и так уже на месте, вызов ничего не меняет. */
+  var anchorResettleTimer = null;
+  function cancelAnchorResettle() {
+    if (anchorResettleTimer) { clearTimeout(anchorResettleTimer); anchorResettleTimer = null; }
+  }
   site.querySelectorAll('a[href^="#"]:not([href="#vxPolicy"]):not([href="#vxConsent"])').forEach(function (a) {
     a.addEventListener('click', function (e) {
       var id = a.getAttribute('href');
@@ -3084,11 +3032,16 @@ a.vx-contact-card:hover .vx-contact-card__icon {
       try { target = document.querySelector(id); } catch (_) { return; }
       if (!target) return;
       e.preventDefault();
+      cancelAnchorResettle();
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setTimeout(function () {
+      anchorResettleTimer = setTimeout(function () {
+        anchorResettleTimer = null;
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 650);
     });
+  });
+  ['wheel', 'touchstart', 'keydown'].forEach(function (evt) {
+    window.addEventListener(evt, cancelAnchorResettle, { passive: true });
   });
 
   /* ── Burger / Drawer ── */
@@ -3121,16 +3074,25 @@ a.vx-contact-card:hover .vx-contact-card__icon {
   /* ── Policy / Consent modals (общая логика для обоих окон) ── */
   function setupInfoModal(modal, closeBtn, openers) {
     if (!modal) return null;
+    var lastFocused = null;
 
     function open(e) {
       if (e) e.preventDefault();
+      lastFocused = document.activeElement;
       modal.classList.add('open');
       document.body.style.overflow = 'hidden';
+      if (closeBtn) {
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () { closeBtn.focus(); });
+        });
+      }
     }
 
     function close() {
+      if (!modal.classList.contains('open')) return;
       modal.classList.remove('open');
       document.body.style.overflow = '';
+      if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
     }
 
     openers.forEach(function (btn) {
@@ -3140,8 +3102,20 @@ a.vx-contact-card:hover .vx-contact-card__icon {
     modal.addEventListener('click', function (e) {
       if (e.target === modal) close();
     });
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') close();
+    modal.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') { close(); return; }
+      if (e.key !== 'Tab') return;
+      var focusable = modal.querySelectorAll('a[href], button, input, textarea, select, [tabindex]:not([tabindex="-1"])');
+      if (!focusable.length) return;
+      var first = focusable[0];
+      var last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
     });
 
     return { open: open, close: close };
@@ -3173,11 +3147,14 @@ a.vx-contact-card:hover .vx-contact-card__icon {
       var open = item.classList.contains('is-open');
       site.querySelectorAll('.vx-faq__item.is-open').forEach(function (other) {
         other.classList.remove('is-open');
+        var otherBtn = other.querySelector('.vx-faq__btn');
+        if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
         var a = other.querySelector('.vx-faq__answer');
         if (a) a.style.maxHeight = null;
       });
       if (!open) {
         item.classList.add('is-open');
+        btn.setAttribute('aria-expanded', 'true');
         ans.style.maxHeight = ans.scrollHeight + 'px';
       }
     });
@@ -3192,7 +3169,8 @@ a.vx-contact-card:hover .vx-contact-card__icon {
       var open = item.classList.contains('is-open');
       site.querySelectorAll('.vx-service.is-open').forEach(function (other) {
         other.classList.remove('is-open');
-        other.querySelector('.vx-service__row').setAttribute('aria-expanded', 'false');
+        var otherRow = other.querySelector('.vx-service__row');
+        if (otherRow) otherRow.setAttribute('aria-expanded', 'false');
         var d = other.querySelector('.vx-service__desc');
         if (d) d.style.maxHeight = null;
       });
@@ -3213,7 +3191,8 @@ a.vx-contact-card:hover .vx-contact-card__icon {
       var open = item.classList.contains('is-open');
       site.querySelectorAll('.vx-step.is-open').forEach(function (other) {
         other.classList.remove('is-open');
-        other.querySelector('.vx-step__head').setAttribute('aria-expanded', 'false');
+        var otherHead = other.querySelector('.vx-step__head');
+        if (otherHead) otherHead.setAttribute('aria-expanded', 'false');
         var d = other.querySelector('.vx-step__desc');
         if (d) d.style.maxHeight = null;
       });
