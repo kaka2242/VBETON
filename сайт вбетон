@@ -1665,16 +1665,34 @@ html, body { background: #080808; }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Родной полноэкранный попап Тильды после отправки формы (белое окно
-   с зелёной галочкой) — общий для всей страницы элемент, создаётся
-   скриптом Тильды вне нашей вёрстки, найден через DevTools на живом
-   сайте: #tildaformsuccesspopup-new. Тильда показывает его через
-   инлайн-стиль (style="display:block"), который бьёт обычный CSS —
-   поэтому display:none только с !important. Вместо него показываем
-   своё сообщение над формой (.t-form__successbox), оформленное под
-   дизайн сайта. */
+/* Родной попап Тильды после отправки формы — общий для всей страницы
+   элемент, создаётся скриптом Тильды вне нашей вёрстки, найден через
+   DevTools на живом сайте: #tildaformsuccesspopup-new. Наше собственное
+   сообщение (.t-form__successbox выше) Тильда, похоже, не заполняет —
+   вся обратная связь после отправки идёт именно через этот попап,
+   поэтому его нельзя просто прятать (пользователь останется без
+   подтверждения) — только перекрашивать под тёмную тему сайта. */
 #tildaformsuccesspopup-new {
-  display: none !important;
+  background: rgba(8,8,8,.75) !important;
+}
+
+#tildaformsuccesspopup-new .t-form-success-popup__wrapper {
+  background: #141414 !important;
+  border: 1px solid rgba(255,255,255,.1) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 20px 60px rgba(0,0,0,.5) !important;
+}
+
+#tildaformsuccesspopup-new .t-form-success-popup__wrapper,
+#tildaformsuccesspopup-new .t-form-success-popup__wrapper * {
+  color: #f3ecda !important;
+}
+
+#tildaformsuccesspopup-new .t-form-success-popup__wrapper button,
+#tildaformsuccesspopup-new .t-form-success-popup__wrapper a.t-btn {
+  background: #c9a96e !important;
+  color: #080808 !important;
+  border: none !important;
 }
 
 /* ─────────────────────────────────────────────
