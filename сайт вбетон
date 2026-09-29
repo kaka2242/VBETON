@@ -1592,6 +1592,119 @@ html, body { background: #080808; }
 }
 
 /* ─────────────────────────────────────────────
+   TILDA-ФОРМА (родная форма Тильды, оформлена
+   под тот же дизайн, что и раньше)
+───────────────────────────────────────────── */
+.vx-tilda-form {
+  margin-top: 36px;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', Arial, sans-serif;
+}
+
+.vx-tilda-form .t-form__inputsbox {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  align-items: start;
+}
+
+.vx-tilda-form .t-input-group_ta,
+.vx-tilda-form .t-form__errorbox-middle,
+.vx-tilda-form .vx-form__foot {
+  grid-column: 1 / -1;
+}
+
+.vx-tilda-form .t-input-group { margin: 0; }
+
+.vx-tilda-form .t-input,
+.vx-tilda-form .t-input-phonemask__wrap {
+  width: 100% !important;
+  box-sizing: border-box !important;
+  background: rgba(255,255,255,.05) !important;
+  border: 1px solid rgba(255,255,255,.12) !important;
+  border-radius: 10px !important;
+  color: var(--white) !important;
+  padding: 14px 16px !important;
+  font-size: 14px !important;
+  font-family: inherit !important;
+  outline: none !important;
+  transition: border-color .2s ease, background .2s ease !important;
+}
+
+.vx-tilda-form textarea.t-input { min-height: 90px; resize: vertical; }
+
+.vx-tilda-form .t-input:focus,
+.vx-tilda-form .t-input-phonemask__wrap:focus-within {
+  border-color: rgba(201,169,110,.5) !important;
+  background: rgba(255,255,255,.07) !important;
+}
+
+.vx-tilda-form .t-input::placeholder { color: rgba(255,255,255,.25) !important; }
+
+.vx-tilda-form .t-input-phonemask {
+  background: transparent !important;
+  border: 0 !important;
+  padding: 0 !important;
+  color: var(--white) !important;
+  width: 100% !important;
+}
+
+.vx-tilda-form .t-input-phonemask__select-code,
+.vx-tilda-form .t-input-phonemask__select-triangle {
+  color: var(--white) !important;
+}
+
+.vx-tilda-form .t-input-error {
+  color: #e5484d;
+  font-size: 11px;
+  margin-top: 6px;
+}
+
+.vx-tilda-form .t-form__errorbox-wrapper { margin-top: 8px; }
+.vx-tilda-form .t-form__errorbox-text { list-style: none; }
+.vx-tilda-form .t-form__errorbox-item { display: none; }
+.vx-tilda-form .t-form__errorbox-link,
+.vx-tilda-form .t-form__errorbox-item {
+  color: #e5484d;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.vx-tilda-form .t-form__submit { margin: 0; }
+
+.vx-tilda-form .t-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 54px;
+  padding: 0 24px;
+  border: 0 !important;
+  border-radius: 14px;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  background: var(--gold) !important;
+  color: var(--black) !important;
+  box-shadow: 0 10px 34px rgba(201,169,110,.4);
+  transition: transform .3s var(--ease), box-shadow .3s var(--ease), background .25s ease;
+}
+
+.vx-tilda-form .t-submit:hover {
+  transform: translateY(-3px);
+  background: var(--gold2) !important;
+  box-shadow: 0 16px 46px rgba(201,169,110,.55);
+}
+
+.vx-tilda-form .t-form__successbox {
+  color: var(--gold);
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+/* ─────────────────────────────────────────────
    CONTACTS
 ───────────────────────────────────────────── */
 .vx-contacts {
@@ -2123,6 +2236,10 @@ a.vx-contact-card:hover .vx-contact-card__icon {
   .vx-form__foot { flex-direction: column; align-items: stretch; }
   .vx-form__consent { max-width: none; }
   .vx-form__submit { width: 100%; justify-content: center; }
+  .vx-tilda-form .t-form__inputsbox { grid-template-columns: 1fr; }
+  .vx-tilda-form .t-form__submit,
+  .vx-tilda-form .t-submit { width: 100%; }
+  .vx-tilda-form .t-submit { justify-content: center; }
 
   .vx-contacts__grid { grid-template-columns: 1fr; gap: 12px; }
   .vx-contact-card { padding: 22px 20px; }
@@ -2635,32 +2752,78 @@ a.vx-contact-card:hover .vx-contact-card__icon {
             Расскажите об участке. Подготовим предложение и обсудим формат работы.
           </p>
 
-          <form class="vx-form" id="vxContactForm" action="#" method="post" novalidate>
-            <div class="vx-form__row">
-              <div class="vx-form__group">
-                <label for="vxName">Имя</label>
-                <input id="vxName" name="Name" type="text" autocomplete="name" placeholder="Ваше имя" required>
+          <div id="rec4339331901" class="vx-tilda-form">
+          <form id="form4339331901" name="form4339331901" role="form" action="" method="POST" data-formactiontype="0" data-inputbox=".t-input-group" class="t-form js-form-proccess t-form_inputs-total_3" data-success-callback="t698_onSuccess" data-success-popup="y">
+            <!-- @classes t-title t-text t-btn -->
+            <div class="js-successbox t-form__successbox t-text t-text_md t-form-success-popup" aria-live="polite" style="display:none;"></div>
+            <div class="t-form__inputsbox t-form__inputsbox_vertical-form t-form__inputsbox_inrow">
+              <div class="t-input-group t-input-group_nm " data-input-lid="6143215261580" data-field-type="nm" data-field-name="Name">
+                <div class="t-input-block " style="border-radius:7px;">
+                  <input type="text" autocomplete="name" name="Name" id="input_6143215261580" class="t-input js-tilda-rule" value="" placeholder="Ваше имя" data-tilda-rule="name" aria-describedby="error_6143215261580">
+                </div>
+                <div class="t-input-error" aria-live="polite" id="error_6143215261580"></div>
               </div>
-              <div class="vx-form__group">
-                <label for="vxPhone">Телефон</label>
-                <input id="vxPhone" name="Phone" type="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required>
+              <div class="t-input-group t-input-group_ph " data-input-lid="6143215261581" data-field-async="true" data-field-type="ph" data-field-name="Phone" data-init-mask="yes" data-input-ready="true">
+                <div class="t-input-block " style="border-radius: 7px; overflow: visible;">
+                  <div class="t-input t-input-phonemask__wrap">
+                    <div class="t-input-phonemask__select"><span class="t-input-phonemask__select-flag" data-phonemask-flag="ru"></span><span class="t-input-phonemask__select-triangle"></span><span class="t-input-phonemask__select-code">+7</span></div>
+                    <input type="hidden" class="js-phonemask-result-iso" name="tildaspec-phone-part[]-iso" value="" tabindex="-1">
+                    <input type="tel" class="t-input t-input-phonemask" name="tildaspec-phone-part[]" value="" placeholder="(___) ___-__-__" id="input_6143215261581" data-phonemask-iso="ru" data-phonemask-code="+7" data-phonemask-mask="+7-000-000-0000" maxlength="11" data-phonemask-without-code="(000) 000-0000">
+                    <input type="hidden" class="js-phonemask-result js-tilda-rule" data-tilda-rule="phone" name="Phone" value="" tabindex="-1" data-tilda-rule-minlength="15">
+                  </div>
+                  <script type="text/javascript">t_onReady(function() {t_onFuncLoad('t_loadJsFile',function() {t_loadJsFile('https://static.tildacdn.pub/js/tilda-phone-mask-1.1.min.js',function() {t_onFuncLoad('t_form_phonemask_load',function() {var phoneMasks=document.querySelectorAll('#rec4339331901 [data-phonemask-lid="6143215261581"]');t_form_phonemask_load(phoneMasks);});})})});</script>
+                </div>
+                <div class="t-input-error" aria-live="polite" id="error_6143215261581"></div>
+              </div>
+              <div class="t-input-group t-input-group_ta " data-input-lid="6143215261582" data-field-type="ta" data-field-name="Textarea">
+                <div class="t-input-block " style="border-radius:7px;">
+                  <textarea name="Textarea" id="input_6143215261582" class="t-input js-tilda-rule" aria-describedby="error_6143215261582" placeholder="Площадь, город, участок, пожелания…" rows="3"></textarea>
+                </div>
+                <div class="t-input-error" aria-live="polite" id="error_6143215261582"></div>
+              </div>
+              <div class="t-form__errorbox-middle">
+                <!--noindex-->
+                <div class="js-errorbox-all t-form__errorbox-wrapper" data-nosnippet="" tabindex="-1" aria-label="Ошибки при заполнении формы">
+                  <ul role="list" class="t-form__errorbox-text t-text t-text_md">
+                    <li class="t-form__errorbox-item js-rule-error js-rule-error-all"><a href="#" class="t-form__errorbox-link">Ни одно поле не заполнено</a></li>
+                    <li class="t-form__errorbox-item js-rule-error js-rule-error-req"></li>
+                    <li class="t-form__errorbox-item js-rule-error js-rule-error-email"></li>
+                    <li class="t-form__errorbox-item js-rule-error js-rule-error-name"></li>
+                    <li class="t-form__errorbox-item js-rule-error js-rule-error-phone"></li>
+                    <li class="t-form__errorbox-item js-rule-error js-rule-error-minlength"></li>
+                    <li class="t-form__errorbox-item js-rule-error js-rule-error-string"></li>
+                  </ul>
+                </div>
+                <!--/noindex-->
+              </div>
+              <div class="vx-form__foot">
+                <label class="vx-form__consent" id="vxConsentLabel">
+                  <input type="checkbox" id="vxConsentCheckbox" required>
+                  <span>Я даю <a href="#vxConsent" id="vxConsentOpen">согласие на обработку персональных данных</a> и ознакомлен(а) с <a href="#vxPolicy" id="vxPolicyOpen">Политикой обработки персональных данных</a>.</span>
+                </label>
+                <div class="t-form__submit">
+                  <button class="t-submit t-btnflex t-btnflex_type_submit t-btnflex_md" type="submit"><span class="t-btnflex__text">Отправить</span></button>
+                </div>
               </div>
             </div>
-            <div class="vx-form__group">
-              <label for="vxMsg">О проекте</label>
-              <textarea id="vxMsg" name="Message" placeholder="Площадь, город, участок, пожелания…"></textarea>
+            <div class="t-form__errorbox-bottom">
+              <!--noindex-->
+              <div class="js-errorbox-all t-form__errorbox-wrapper" data-nosnippet="" tabindex="-1" aria-label="Ошибки при заполнении формы">
+                <ul role="list" class="t-form__errorbox-text t-text t-text_md">
+                  <li class="t-form__errorbox-item js-rule-error js-rule-error-all"><a href="#" class="t-form__errorbox-link">Ни одно поле не заполнено</a></li>
+                  <li class="t-form__errorbox-item js-rule-error js-rule-error-req"></li>
+                  <li class="t-form__errorbox-item js-rule-error js-rule-error-email"></li>
+                  <li class="t-form__errorbox-item js-rule-error js-rule-error-name"></li>
+                  <li class="t-form__errorbox-item js-rule-error js-rule-error-phone"></li>
+                  <li class="t-form__errorbox-item js-rule-error js-rule-error-minlength"></li>
+                  <li class="t-form__errorbox-item js-rule-error js-rule-error-string"></li>
+                </ul>
+              </div>
+              <!--/noindex-->
             </div>
-            <div class="vx-form__foot">
-              <label class="vx-form__consent" id="vxConsentLabel">
-                <input type="checkbox" id="vxConsentCheckbox" name="Consent" value="Согласие на обработку ПДн получено" required>
-                <span>Я даю <a href="#vxConsent" id="vxConsentOpen">согласие на обработку персональных данных</a> и ознакомлен(а) с <a href="#vxPolicy" id="vxPolicyOpen">Политикой обработки персональных данных</a>.</span>
-              </label>
-              <button class="vx-btn vx-btn--primary vx-form__submit" type="submit">
-                Отправить <span class="vx-btn__icon">→</span>
-              </button>
-            </div>
-            <div class="vx-form__status" id="vxFormStatus"></div>
+            <div style="position: absolute; left: -5000px; bottom: 0; display: none;"><input type="text" name="form-spec-comments" value="" class="js-form-spec-comments" tabindex="-1"></div>
           </form>
+          </div>
         </div>
       </div>
     </div>
@@ -3097,59 +3260,32 @@ a.vx-contact-card:hover .vx-contact-card__icon {
     });
   });
 
-  /* ── Phone formatter ── */
-  var phoneInput = document.getElementById('vxPhone');
-  if (phoneInput) {
-    phoneInput.addEventListener('input', function () {
-      var digits = this.value.replace(/\D/g, '');
-      if (!digits) { this.value = ''; return; }
-      if (digits[0] === '8') digits = '7' + digits.slice(1);
-      if (digits[0] !== '7') digits = '7' + digits;
-      digits = digits.slice(0, 11);
-      var f = '+7';
-      if (digits.length > 1) f += ' (' + digits.slice(1, 4);
-      if (digits.length >= 4) f += ') ' + digits.slice(4, 7);
-      if (digits.length >= 7) f += '-' + digits.slice(7, 9);
-      if (digits.length >= 9) f += '-' + digits.slice(9, 11);
-      this.value = f;
+  /* ── Форма Тильды: проверка согласия перед отправкой ──
+     Саму отправку/приём заявки обрабатывает встроенный скрипт Тильды
+     (он слушает submit этой формы и шлёт в подключённые приёмники —
+     Telegram и т.д.). Мы только блокируем клик по кнопке «Отправить»,
+     если не отмечен чекбокс согласия — перехватываем клик на фазе
+     capture, до того как он успеет запустить submit формы, чтобы
+     скрипт Тильды не получил управление раньше нашей проверки. */
+  var tildaConsent = document.getElementById('vxConsentCheckbox');
+  var tildaConsentLabel = document.getElementById('vxConsentLabel');
+  var tildaSubmitBtn = document.querySelector('#form4339331901 .t-submit');
+
+  if (tildaConsent && tildaConsentLabel) {
+    tildaConsent.addEventListener('change', function () {
+      if (tildaConsent.checked) tildaConsentLabel.classList.remove('vx-form__consent--invalid');
     });
   }
 
-  /* ── Form submit ──
-     Сторонние сервисы отправки не используются — приём и доставку заявки
-     настраивает сама Тильда (форма/CRM в её настройках). Здесь — только
-     клиентская проверка полей; у формы нет action на реальный адрес,
-     поэтому обычная отправка всегда блокируется, чтобы не перезагружать
-     страницу впустую. */
-  var form = document.getElementById('vxContactForm');
-  var status = document.getElementById('vxFormStatus');
-  var consent = document.getElementById('vxConsentCheckbox');
-  var consentLabel = document.getElementById('vxConsentLabel');
-
-  if (consent && consentLabel) {
-    consent.addEventListener('change', function () {
-      if (consent.checked) consentLabel.classList.remove('vx-form__consent--invalid');
-    });
-  }
-
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var name = document.getElementById('vxName');
-      var phone = document.getElementById('vxPhone');
-      var digits = phone ? phone.value.replace(/\D/g, '') : '';
-
-      if (!name || !name.value.trim()) { if (name) name.focus(); return; }
-      if (digits.length !== 11) { if (phone) phone.focus(); return; }
-      if (!consent || !consent.checked) {
-        if (consentLabel) consentLabel.classList.add('vx-form__consent--invalid');
-        if (status) { status.style.display = 'block'; status.textContent = 'Необходимо согласие на обработку персональных данных.'; }
-        return;
+  if (tildaSubmitBtn && tildaConsent) {
+    tildaSubmitBtn.addEventListener('click', function (e) {
+      if (!tildaConsent.checked) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (tildaConsentLabel) tildaConsentLabel.classList.add('vx-form__consent--invalid');
+        tildaConsent.focus();
       }
-      if (consentLabel) consentLabel.classList.remove('vx-form__consent--invalid');
-      if (status) { status.style.display = 'block'; status.textContent = 'Спасибо! Заявка принята, скоро свяжемся с вами.'; }
-      form.reset();
-    });
+    }, true);
   }
 
 })();
