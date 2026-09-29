@@ -1574,7 +1574,11 @@ html, body { background: #080808; }
   border-color: #e5484d !important;
 }
 
-.vx-tilda-form .t-input-error {
+.vx-tilda-form .t-input-error:empty {
+  display: none !important;
+}
+
+.vx-tilda-form .t-input-error:not(:empty) {
   display: block !important;
   color: #e5484d !important;
   font-size: 11px !important;
