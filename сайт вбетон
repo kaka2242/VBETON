@@ -3454,6 +3454,12 @@ a.vx-contact-card:hover .vx-contact-card__icon {
             window.scrollTo(0, pos);
           });
         });
+        /* Тильда сбрасывает после успешной отправки только свои
+           собственные поля (имя/телефон/комментарий) — чекбокс
+           согласия не её поле, она о нём не знает, и он остаётся
+           отмеченным. Снимаем галочку сами. */
+        var consentAfterSuccess = document.getElementById('vxConsentCheckbox');
+        if (consentAfterSuccess) consentAfterSuccess.checked = false;
       }
     }
     /* Если попап создаётся сразу с классом-показом (атомарно), то
