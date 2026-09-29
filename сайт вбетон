@@ -1570,6 +1570,10 @@ html, body { background: #080808; }
 
 .vx-tilda-form .t-input::placeholder { color: rgba(255,255,255,.25) !important; }
 
+.vx-tilda-form .t-input.is-invalid {
+  border-color: #e5484d !important;
+}
+
 .vx-tilda-form .t-input-error {
   color: #e5484d !important;
   font-size: 11px !important;
@@ -3281,16 +3285,40 @@ a.vx-contact-card:hover .vx-contact-card__icon {
     });
   }
 
-  /* ── Форма Тильды: проверка согласия перед отправкой ──
-     Саму отправку/приём заявки обрабатывает встроенный скрипт Тильды
-     (он слушает submit этой формы и шлёт в подключённые приёмники —
-     Telegram и т.д.). Мы только блокируем клик по кнопке «Отправить»,
-     если не отмечен чекбокс согласия — перехватываем клик на фазе
-     capture, до того как он успеет запустить submit формы, чтобы
-     скрипт Тильды не получил управление раньше нашей проверки. */
+  /* ── Форма Тильды: проверка обязательных полей и согласия перед отправкой ──
+     Саму отправку/приём заявки обрабатывает встроенный скрипт Тильды (он
+     слушает submit этой формы и шлёт в подключённые приёмники — Telegram
+     и т.д.). Раньше мы блокировали клик по «Отправить» через preventDefault
+     ТОЛЬКО из-за непроставленного чекбоза согласия — но preventDefault на
+     клике по кнопке submit целиком отменяет отправку формы, так что даже
+     встроенная проверка полей Тильды (имя/телефон) не успевала запуститься,
+     и при пустой форме подсвечивался только чекбокс. Теперь проверяем сами
+     все обязательные поля (имя, телефон) и согласие ДО того, как решаем,
+     пропускать клик дальше к Тильде или нет — так подсвечивается сразу
+     всё, что не заполнено, а не только последнее найденное. */
+  var tildaNameInput = document.getElementById('input_6143215261580');
+  var tildaNameError = document.getElementById('error_6143215261580');
+  var tildaPhoneError = document.getElementById('error_6143215261581');
   var tildaConsent = document.getElementById('vxConsentCheckbox');
   var tildaConsentLabel = document.getElementById('vxConsentLabel');
   var tildaSubmitBtn = document.querySelector('#form4339331901 .t-submit');
+
+  function vxSetFieldError(input, errorEl, message) {
+    if (input) input.classList.toggle('is-invalid', !!message);
+    if (errorEl) errorEl.textContent = message || '';
+  }
+
+  if (tildaNameInput) {
+    tildaNameInput.addEventListener('input', function () {
+      if (tildaNameInput.value.trim()) vxSetFieldError(tildaNameInput, tildaNameError, '');
+    });
+  }
+
+  if (tildaPhoneInput) {
+    tildaPhoneInput.addEventListener('input', function () {
+      if (tildaPhoneInput.value.replace(/\D/g, '').length === 11) vxSetFieldError(tildaPhoneInput, tildaPhoneError, '');
+    });
+  }
 
   if (tildaConsent && tildaConsentLabel) {
     tildaConsent.addEventListener('change', function () {
@@ -3298,13 +3326,26 @@ a.vx-contact-card:hover .vx-contact-card__icon {
     });
   }
 
-  if (tildaSubmitBtn && tildaConsent) {
+  if (tildaSubmitBtn) {
     tildaSubmitBtn.addEventListener('click', function (e) {
-      if (!tildaConsent.checked) {
+      var firstInvalid = null;
+
+      var nameOk = !tildaNameInput || tildaNameInput.value.trim().length > 0;
+      vxSetFieldError(tildaNameInput, tildaNameError, nameOk ? '' : 'Укажите имя');
+      if (!nameOk && !firstInvalid) firstInvalid = tildaNameInput;
+
+      var phoneOk = !tildaPhoneInput || tildaPhoneInput.value.replace(/\D/g, '').length === 11;
+      vxSetFieldError(tildaPhoneInput, tildaPhoneError, phoneOk ? '' : 'Укажите корректный номер телефона');
+      if (!phoneOk && !firstInvalid) firstInvalid = tildaPhoneInput;
+
+      var consentOk = !tildaConsent || tildaConsent.checked;
+      if (tildaConsentLabel) tildaConsentLabel.classList.toggle('vx-form__consent--invalid', !consentOk);
+      if (!consentOk && !firstInvalid) firstInvalid = tildaConsent;
+
+      if (!nameOk || !phoneOk || !consentOk) {
         e.preventDefault();
         e.stopPropagation();
-        if (tildaConsentLabel) tildaConsentLabel.classList.add('vx-form__consent--invalid');
-        tildaConsent.focus();
+        if (firstInvalid) firstInvalid.focus();
       }
     }, true);
   }
