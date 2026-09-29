@@ -529,7 +529,9 @@ html, body { background: #080808; }
 }
 
 .vx-form__consent a {
-  color: var(--soft);
+  color: var(--soft) !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
   text-decoration: underline;
   text-underline-offset: 2px;
 }
@@ -1554,11 +1556,13 @@ html, body { background: #080808; }
   align-items: flex-start;
   gap: 10px;
   max-width: 280px;
-  color: rgba(255,255,255,.45);
-  font-size: 11px;
-  line-height: 1.5;
+  color: rgba(255,255,255,.45) !important;
+  font-size: 11px !important;
+  line-height: 1.5 !important;
   cursor: pointer;
 }
+
+.vx-form__consent span { font-size: inherit !important; line-height: inherit !important; }
 
 .vx-form__consent input[type="checkbox"] {
   width: 14px;
