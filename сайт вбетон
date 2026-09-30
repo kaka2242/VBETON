@@ -3158,6 +3158,11 @@ a.vx-contact-card:hover .vx-contact-card__icon {
     drawer.classList.add('open');
     burger.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
+    if (drawerClose) {
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () { drawerClose.focus(); });
+      });
+    }
   }
 
   function closeDrawer() {
@@ -3165,6 +3170,26 @@ a.vx-contact-card:hover .vx-contact-card__icon {
     drawer.classList.remove('open');
     if (burger) burger.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
+    if (burger) burger.focus();
+  }
+
+  if (drawer) {
+    drawer.addEventListener('keydown', function (e) {
+      if (!drawer.classList.contains('open')) return;
+      if (e.key === 'Escape') { closeDrawer(); return; }
+      if (e.key !== 'Tab') return;
+      var focusable = drawer.querySelectorAll('a[href], button, input, textarea, select, [tabindex]:not([tabindex="-1"])');
+      if (!focusable.length) return;
+      var first = focusable[0];
+      var last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    });
   }
 
   if (burger) burger.addEventListener('click', openDrawer);
