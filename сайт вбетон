@@ -1309,8 +1309,6 @@ html, body { background: #080808; }
   transition: background .3s ease;
 }
 
-.vx-step:hover { background: rgba(255,255,255,.025); }
-
 .vx-step:nth-child(3n) { border-right: 0; }
 .vx-step:nth-child(3n+2), .vx-step:nth-child(3n+3) { padding-left: 32px; }
 .vx-step:nth-child(n+4) { border-top: 1px solid var(--line); }
@@ -1325,8 +1323,6 @@ html, body { background: #080808; }
   background: var(--gold);
   transition: width .55s var(--ease);
 }
-
-.vx-step:hover::before { width: 100%; }
 
 .vx-step__n {
   display: inline-flex;
@@ -1344,11 +1340,21 @@ html, body { background: #080808; }
   transition: background .3s ease, border-color .3s ease, color .3s ease, transform .38s var(--ease);
 }
 
-.vx-step:hover .vx-step__n {
-  background: var(--gold);
-  border-color: var(--gold);
-  color: var(--black);
-  transform: scale(1.06);
+/* Hover-эффекты шагов — только на устройствах с настоящей мышью.
+   На тач-экранах (телефон) :hover "залипает" после тапа и не снимается
+   сам до тапа в другое место — кружок с номером оставался золотым даже
+   после закрытия шага. Ограничиваем эффекты (hover: hover), чтобы на
+   телефоне их не было вовсе, а открытие/закрытие управлялось только
+   классом is-open (см. стрелку-крестик ниже — она так и сделана). */
+@media (hover: hover) and (pointer: fine) {
+  .vx-step:hover { background: rgba(255,255,255,.025); }
+  .vx-step:hover::before { width: 100%; }
+  .vx-step:hover .vx-step__n {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--black);
+    transform: scale(1.06);
+  }
 }
 
 .vx-step__head {
