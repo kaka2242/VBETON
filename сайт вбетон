@@ -1066,8 +1066,6 @@ html, body { background: #080808; }
   transition: opacity .4s ease, transform .55s ease;
 }
 
-.vx-service__row:hover { padding-left: 8px; }
-.vx-service__row:hover .vx-service__bg,
 .vx-service.is-open .vx-service__bg { opacity: 1; transform: scale(1); }
 .vx-service.is-open .vx-service__row { padding-left: 8px; }
 
@@ -1086,7 +1084,6 @@ html, body { background: #080808; }
   transition: color .25s ease;
 }
 
-.vx-service__row:hover .vx-service__idx,
 .vx-service.is-open .vx-service__idx { color: var(--gold); }
 
 .vx-service__name {
@@ -1098,7 +1095,6 @@ html, body { background: #080808; }
   transition: color .25s ease, transform .38s var(--ease);
 }
 
-.vx-service__row:hover .vx-service__name,
 .vx-service.is-open .vx-service__name { transform: translateX(4px); }
 
 .vx-service__arrow {
@@ -1115,17 +1111,29 @@ html, body { background: #080808; }
   transition: background .25s ease, border-color .25s ease, transform .38s var(--ease), color .25s ease;
 }
 
-.vx-service__row:hover .vx-service__arrow {
-  background: var(--gold);
-  border-color: var(--gold);
-  color: var(--black);
-}
-
 .vx-service.is-open .vx-service__arrow {
   background: var(--gold);
   border-color: var(--gold);
   color: var(--black);
   transform: rotate(45deg);
+}
+
+/* Hover-эффекты карточек услуг — только на устройствах с настоящей
+   мышью (та же причина, что и у блока "Процесс" выше): на тач-экранах
+   :hover залипает после тапа и не снимается без тапа в другое место,
+   из-за чего подсветка/сдвиг оставались "включёнными" даже после
+   закрытия карточки. Открытие/закрытие на телефоне полностью управляет
+   классом is-open — его правила объявлены отдельно выше. */
+@media (hover: hover) and (pointer: fine) {
+  .vx-service__row:hover { padding-left: 8px; }
+  .vx-service__row:hover .vx-service__bg { opacity: 1; transform: scale(1); }
+  .vx-service__row:hover .vx-service__idx { color: var(--gold); }
+  .vx-service__row:hover .vx-service__name { transform: translateX(4px); }
+  .vx-service__row:hover .vx-service__arrow {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--black);
+  }
 }
 
 .vx-service__desc {
