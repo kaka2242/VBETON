@@ -1352,6 +1352,12 @@ html, body { background: #080808; }
   transition: background .3s ease, border-color .3s ease, color .3s ease, transform .38s var(--ease);
 }
 
+.vx-step.is-open .vx-step__n {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--black);
+}
+
 /* Hover-эффекты шагов — только на устройствах с настоящей мышью.
    На тач-экранах (телефон) :hover "залипает" после тапа и не снимается
    сам до тапа в другое место — кружок с номером оставался золотым даже
