@@ -1941,6 +1941,9 @@ html, body { background: #080808; }
   }
 }
 
+.vx-top:focus { outline: none; }
+.vx-top:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
 .vx-top:active {
   background: rgba(201,169,110,.22);
   border-color: rgba(201,169,110,.5);
